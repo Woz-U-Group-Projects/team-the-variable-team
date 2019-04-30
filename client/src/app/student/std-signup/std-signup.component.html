@@ -1,3 +1,129 @@
-<p>
-  std-signup works!
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+<title>Student Signup Form</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+</head>
+<body>
+    <div class="container">
+        <h1>Student Profile</h1>
+        <hr>
+      <div class="row">
+          <!-- left column -->
+          <div class="col-md-3">
+            <div class="text-center">
+              <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+              <h6>Upload a different photo...</h6>
+              
+              <input type="file" class="form-control">
+            </div>
+          </div>
+          <!-- edit form column -->
+          <div class="col-md-9 personal-info">
+            <div class="alert alert-info alert-dismissable">
+              <a class="panel-close close" data-dismiss="alert">×</a> 
+              <i class="fa fa-coffee"></i>
+              Please complete each section.
+            </div>
+            <h3>Student info</h3>
+            
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <label class="col-lg-3 control-label">First name:</label>
+                <div class="col-lg-8">
+                  <input class="form-control" type="text" value="Jane">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Last name:</label>
+                <div class="col-lg-8">
+                  <input class="form-control" type="text" value="Bishop">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Contact:</label>
+                <div class="col-lg-8">
+                  <input class="form-control" type="text" value="844-959-0000">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Education History:</label>
+                <div class="col-lg-8">
+                <textarea class="form-control" type="text" rows="10" placeholder="Enter school name, courses completed/completing & years of experience"></textarea>
+              </div>
+            </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Links:</label>
+                <div class="col-lg-8">
+                  <input class="form-control" type="text" value="Include links to github, social media, and portfolio, personal site ">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Resume Name:</label>
+                <div class="col-lg-8">
+                  <input class="form-control" type="text" value="Jane_Bishop's_Resume">
+                  <input type="file" class="form-control">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Email:</label>
+                <div class="col-lg-8">
+                  <input class="form-control" type="text" value="janesemail@gmail.com">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Time Zone:</label>
+                <div class="col-lg-8">
+                  <div class="ui-select">
+                    <select id="user_time_zone" class="form-control">
+                      <option value="Hawaii">(GMT-10:00) Hawaii</option>
+                      <option value="Alaska">(GMT-09:00) Alaska</option>
+                      <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                      <option value="Arizona">(GMT-07:00) Arizona</option>
+                      <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+                      <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                      <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                      <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3 control-label">Username:</label>
+                <div class="col-md-8">
+                  <input class="form-control" type="text" value="janeuser">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3 control-label">Password:</label>
+                <div class="col-md-8">
+                  <input class="form-control" type="password" value="11111122333">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3 control-label">Confirm password:</label>
+                <div class="col-md-8">
+                  <input class="form-control" type="password" value="11111122333">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3 control-label"></label>
+                <div class="col-md-8">
+                  <input type="button" class="btn btn-primary" value="Save Changes">
+                  <span></span>
+                  <input type="reset" class="btn btn-default" value="Cancel">
+                </div>
+              </div>
+            </form>
+          </div>
+      </div>
+    </div>
+    <hr>
+</body>
