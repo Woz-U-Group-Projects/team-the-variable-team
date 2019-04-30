@@ -10,6 +10,7 @@ import { StdProfileComponent } from './student/std-profile/std-profile.component
 import { StdLoginComponent } from './student/std-login/std-login.component';
 import { StdSignupComponent } from './student/std-signup/std-signup.component';
 import { LoginComponent } from './login/login/login.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LoginComponent } from './login/login/login.component';
     LoginComponent
   ],
   imports: [
+    NgbModule.forRoot(),
     BrowserModule,
     AppRoutingModule
   ],
