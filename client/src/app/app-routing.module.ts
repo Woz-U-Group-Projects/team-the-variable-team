@@ -5,13 +5,14 @@ import { EmpSignupComponent } from './employer/emp-signup/emp-signup.component';
 import { StdSignupComponent } from './student/std-signup/std-signup.component';
 import { EmpProfileComponent } from './employer/emp-profile/emp-profile.component';
 import { StdProfileComponent } from './student/std-profile/std-profile.component';
-
+import { EmpProfEditComponent} from './employer/emp-prof-edit/emp-prof-edit.component';
 const routes: Routes = [
   { path: 'login-page', component: LoginComponent },
   { path: 'empsignup-page', component: EmpSignupComponent },
   { path: 'stdsignup-page', component: StdSignupComponent },
   { path: 'empprofile/:id', component: EmpProfileComponent },
   { path: 'stdprofile/:id', component: StdProfileComponent },
+  { path: 'empprofile-edit/:id,', component: EmpProfEditComponent}
 ];
 
 @NgModule({
