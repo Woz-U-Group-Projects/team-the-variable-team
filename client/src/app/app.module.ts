@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmpLoginComponent } from './employer/emp-login/emp-login.component';
 import { EmpSignupComponent } from './employer/emp-signup/emp-signup.component';
@@ -11,6 +11,8 @@ import { StdLoginComponent } from './student/std-login/std-login.component';
 import { StdSignupComponent } from './student/std-signup/std-signup.component';
 import { LoginComponent } from './login/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule, Routes } from '@angular/router';
+import { EmpProfEditComponent } from './employer/emp-prof-edit/emp-prof-edit.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     StdProfileComponent,
     StdLoginComponent,
     StdSignupComponent,
-    LoginComponent
+    LoginComponent,
+    EmpProfEditComponent,
+    
   ],
   imports: [
     NgbModule.forRoot(),
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
