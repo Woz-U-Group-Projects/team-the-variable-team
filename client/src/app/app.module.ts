@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 import { EmpProfEditComponent } from './employer/emp-prof-edit/emp-prof-edit.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { EmpProfEditComponent } from './employer/emp-prof-edit/emp-prof-edit.com
     StdSignupComponent,
     LoginComponent,
     EmpProfEditComponent,
+    AdminComponent,
 
   ],
   imports: [

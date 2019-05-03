@@ -6,10 +6,12 @@ import { StdSignupComponent } from './student/std-signup/std-signup.component';
 import { EmpProfileComponent } from './employer/emp-profile/emp-profile.component';
 import { StdProfileComponent } from './student/std-profile/std-profile.component';
 import { EmpProfEditComponent} from './employer/emp-prof-edit/emp-prof-edit.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login-page', component: LoginComponent },
+  { path: 'adminpage', component: AdminComponent },
   { path: 'empsignup-page', component: EmpSignupComponent },
   { path: 'stdsignup-page', component: StdSignupComponent },
   { path: 'empprofile/:id', component: EmpProfileComponent },
