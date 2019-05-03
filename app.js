@@ -39,6 +39,8 @@ db.close((err) => {
     }
     console.log('Close the Database Connection.');
 });
+
+
 // models.sequelize.sync().then(function() {
 //     console.log("DB Sync'd up");
 // });
