@@ -2,6 +2,7 @@
 body {
   margin: 0;
   font-family: "Lato", sans-serif;
+  
 }
 
 .sidebar {
@@ -37,7 +38,7 @@ div.content {
   height: 1000px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 500px) {
   .sidebar {
     width: 100%;
     height: auto;
@@ -53,7 +54,7 @@ div.content {
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 200px) {
   .sidebar a {
     text-align: center;
     float: none;
@@ -68,7 +69,7 @@ textarea {
   /* Full width */
   padding: 12px;
   /* Some padding */
-  border: 1px solid #ccc;
+  border: 1px solid blue;
   /* Gray border */
   border-radius: 4px;
   /* Rounded borders */
@@ -84,12 +85,13 @@ textarea {
 
 /* Style the submit button with a specific background color etc */
 input[type=submit] {
-  background-color: #4CAF50;
+  background-color: blue;
   color: white;
   padding: 12px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  
 }
 
 /* When moving the mouse over the submit button, add a darker green color */
@@ -101,5 +103,14 @@ input[type=submit]:hover {
 .container {
   border-radius: 5px;
   background-color: #f2f2f2;
-  padding: 20px;
+  
 }
+
+.form {
+ width: 100%;
+ 
+}
+@media (min-width: 992px) {.container {
+ width: 950px; 
+ padding-bottom: 15px;
+}}
