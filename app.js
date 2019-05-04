@@ -8,6 +8,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 var sqlite3 = require('sqlite3').verbose();
+var models = require('./models');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -44,8 +45,8 @@ app.use('/users', usersRouter);
 // });
 
 
-// models.sequelize.sync().then(function() {
-//     console.log("DB Sync'd up");
-// });
+models.sequelize.sync().then(function() {
+    console.log("DB Sync'd up");
+});
 
 module.exports = app;
