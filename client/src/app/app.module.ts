@@ -5,11 +5,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomMaterialModule } from './core/material.module';
 import { AppRoutingModule, } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EmpLoginComponent } from './employer/emp-login/emp-login.component';
 import { EmpSignupComponent } from './employer/emp-signup/emp-signup.component';
 import { EmpProfileComponent } from './employer/emp-profile/emp-profile.component';
 import { StdProfileComponent } from './student/std-profile/std-profile.component';
-import { StdLoginComponent } from './student/std-login/std-login.component';
 import { StdSignupComponent } from './student/std-signup/std-signup.component';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -20,11 +18,9 @@ import { AdminComponent } from './admin/admin.component';
 @NgModule({
   declarations: [
     AppComponent,
-    EmpLoginComponent,
     EmpSignupComponent,
     EmpProfileComponent,
     StdProfileComponent,
-    StdLoginComponent,
     StdSignupComponent,
     LoginComponent,
     EmpProfEditComponent,
