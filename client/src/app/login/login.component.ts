@@ -24,5 +24,13 @@ export class LoginComponent implements OnInit {
       alert('Invalid credentials');
     }
   }
+
+  emsignup(): void {
+    this.router.navigate(['empsignup-page']);
+  }
+
+  stdsignup(): void {
+    this.router.navigate(['stdsignup-page']);
+  }
 }
 
