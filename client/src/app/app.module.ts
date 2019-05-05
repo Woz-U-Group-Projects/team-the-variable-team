@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomMaterialModule } from './core/material.module';
 import { AppRoutingModule, } from './app-routing.module';
@@ -14,6 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 import { EmpProfEditComponent } from './employer/emp-prof-edit/emp-prof-edit.component';
 import { AdminComponent } from './admin/admin.component';
+import { MatToolbarModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -35,8 +36,7 @@ import { AdminComponent } from './admin/admin.component';
     BrowserAnimationsModule,
     CustomMaterialModule,
     FormsModule,
-
-
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
