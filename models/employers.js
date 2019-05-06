@@ -5,9 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     FirstName: DataTypes.STRING,
     LastName: DataTypes.STRING,
     UserName: DataTypes.STRING,
-    CompanyContactNumber: DataTypes.STRING,
-    CompanyAddress: DataTypes.STRING,
-    CompanyName: DataTypes.STRING,
+    ContactNum: DataTypes.STRING,
+    CompnanyNameCompanyAddress: DataTypes.STRING,
     CompanyWebsite: DataTypes.STRING
   }, {});
   employers.associate = function(models) {

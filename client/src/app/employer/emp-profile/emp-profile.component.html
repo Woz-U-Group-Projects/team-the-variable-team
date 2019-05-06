@@ -1,5 +1,21 @@
 <div class="body">
-    <div class="container emp-profile">
+    <div>
+        <table>
+            <thead>
+                <th>ID</th>
+                <th>UserName</th>
+                <th>PassWord</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employer of employers">
+                    <td>{{employers.CompanyID}}</td>
+                    <td>{{employers.UserName}}</td>
+                    <td>{{employers.PassWord}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- <div class="container emp-profile">
         <form method="post">
             <div class="row">
                 <div class="col-md-4">
@@ -128,7 +144,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 </div>
 

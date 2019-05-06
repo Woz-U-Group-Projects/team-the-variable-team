@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Employers } from '../../../../../models/employer';
 
 
 @Component({
@@ -7,12 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./emp-profile.component.css']
 })
 export class EmpProfileComponent implements OnInit {
-  title = 'Employer Profile';
-  constructor() { }
+  employers: Employers[];
+  @Input() dataPath: string;
+
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
+    this.http.get<Employers[]>(this.dataPath).subscribe(employers => {
+      this.employers = employers;
+    });
   }
-
 }
 
 
