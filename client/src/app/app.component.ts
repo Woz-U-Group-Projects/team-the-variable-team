@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Racket';
-  empPath: string = 'http://localhost:3001/employers/';
+  title = 'Racket Employer List';
+  empPath: string = 'http://localhost:3001/employers';
 }
 
 
