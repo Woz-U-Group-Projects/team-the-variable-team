@@ -13,16 +13,13 @@ module.exports = (sequelize, DataTypes) => {
             CompanyEmail: DataTypes.STRING,
             CompanyContact: DataTypes.STRING,
             CompContactNum: DataTypes.STRING,
+            CompIndustry: DataTypes.STRING,
             Username: DataTypes.STRING,
-            Password: DataTypes.STRING
+            Password: DataTypes.STRING,
         },
         {
             timestamps: false
         }
     );
-    Emp_Users.associate = function(models) {
-
-    };
-    
     return Emp_Users;
 };

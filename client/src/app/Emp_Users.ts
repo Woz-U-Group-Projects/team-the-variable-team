@@ -1,10 +1,10 @@
 export class EmpUsers {
-    ID: number;
-    CompanyName: string;
-    CompanyWeb: string;
-    CompanyEmail: string;
-    CompanyContact: string;
-    CompContactNum: string;
-    Username: string;
-    Password: string
+    id: number;
+    companyName: string;
+    companyWeb: string;
+    companyEmail: string;
+    companyContact: string;
+    compContactNum: string;
+    username: string;
+    password: string
 };
