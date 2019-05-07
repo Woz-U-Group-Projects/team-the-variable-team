@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Racket Employer List';
-  empPath: string = 'http://localhost:3001/employers';
+  url: string = 'http://localhost:3001/employers';
 }
 
 

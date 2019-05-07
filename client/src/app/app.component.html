@@ -1,21 +1,5 @@
 <mat-toolbar>
   <span>Racket - Group Project</span>
 </mat-toolbar>
-<div style="text-align:center">
-<h1>
-  Welcome to {{ title }}!
-  </h1>
-</div>
-<hr/>
-<div style="text-align:center">
-  <div>
-    <h2>Employer List</h2>
-    <h3> {{ empPath }} </h3>
-    <ul>
-      <li *ngFor="let Emp_Users of Emp_Users">{{Emp_Users.CompanyName}}</li>
-    </ul>
-  </div>
-</div>
-<div>
-  <router-outlet></router-outlet>
-</div>
+
+<router-outlet></router-outlet>
