@@ -1,4 +1,4 @@
-export class Emp_Users {
+export class EmpUsers {
     ID: number;
     CompanyName: string;
     CompanyWeb: string;

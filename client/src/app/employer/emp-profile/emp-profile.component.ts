@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Emp_Users } from '../../../../../models/Emp_Users';
+import { EmpUsers } from '../../Emp_Users';
 
 
 @Component({
@@ -9,14 +9,14 @@ import { Emp_Users } from '../../../../../models/Emp_Users';
   styleUrls: ['./emp-profile.component.css']
 })
 export class EmpProfileComponent implements OnInit {
-  Emp_Users: Emp_Users[];
+  Emp_Users: EmpUsers[];
   @Input() dataPath: string;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.http.get<Emp_Users[]>(this.dataPath).subscribe(Emp_Users => {
-      this.Emp_Users = Emp_Users;
+    this.http.get<EmpUsers[]>(this.dataPath).subscribe(empusers => {
+      this.Emp_Users = empusers;
     });
   }
 }
