@@ -15,6 +15,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EmpProfEditComponent } from './employer/emp-prof-edit/emp-prof-edit.component';
 import { AdminComponent } from './admin/admin.component';
 import { MatToolbarModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MatToolbarModule } from '@angular/material';
     BrowserAnimationsModule,
     CustomMaterialModule,
     FormsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
