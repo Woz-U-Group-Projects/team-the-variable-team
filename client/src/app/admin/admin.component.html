@@ -1,30 +1,33 @@
-<html>
+<div class="sidebar">
+  <a class="active" href="#home">RACKET</a>
+  <a href="empprofile/:id">EMPLOYER LIST</a>
+  <a href="stdprofile/:id">STUDENT LIST</a>
+  <div class="icon-bar">
+    <a href="https://www.facebook.com/" class="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="https://twitter.com/" class="twitter"><i class="fa fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/" class="linkedin"><i class="fa fa-linkedin"></i></a>
+  </div>
+</div>
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
-<body>
-
-  <div class="sidebar">
-    <a class="active" href="#home">RACKET</a>
-    <a href="empprofile/:id">EMPLOYER LIST</a>
-    <a href="stdprofile/:id">STUDENT LIST</a>
-   <div class="icon-bar">
-     <a href="https://www.facebook.com/" class="facebook"><i class="fa fa-facebook"></i></a>
-     <a href="https://twitter.com/" class="twitter"><i class="fa fa-twitter"></i></a>
-     <a href="https://www.linkedin.com/" class="linkedin"><i class="fa fa-linkedin"></i></a>
-   </div>
+<div class="content">
+  <h2>RACKET</h2>
+  <p>Racket is a service website that links Employers and Students, giving you the chance to explore new Opportunities.
+  </p>
+  <div>
+    <h1>{{ title }}</h1>
+    <div *ngFor="let EmpUser of EmpUsers">
+      {{ employers.id }}
+      {{ Employers.id }}
+      {{ empusers.id }}
+      {{ EmpUsers.id }}
+      {{ EmpUsers.Username }}
+      {{ EmpUsers.Password }}
+    </div>
   </div>
 
-  <div class="content">
-    <h2>RACKET</h2>
-    <p>Racket is a service website that links Employers and Students, giving you the chance to explore new Opportunities.  </p>
-  
-  
-    <div class="container">
-    <form class= "form" action="action_page.php">
+
+  <!-- <div class="container">
+    <form class="form" action="action_page.php">
 
       <h2>Contact Us</h2>
       <label for="fname">First Name</label>
@@ -46,13 +49,6 @@
       <input type="submit" value="Submit">
 
     </form>
-  </div>
+  </div> -->
 
 </div>
-
-
-  
-
-</body>
-
-</html>

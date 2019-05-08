@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { EmpUsers } from '../Emp_Users';
+
 
 
 @Component({
@@ -6,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent implements OnInit {  
+  title = 'Racket Employer List';
+  url: string = 'http://localhost:4001/employers';
+  empusers: EmpUsers[];
+  @Input() dataPath: string;
+
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
+    this.http.get<EmpUsers[]>(this.dataPath).subscribe(empusers => {
+      this.empusers = empusers;
+    });
   }
-
 }
