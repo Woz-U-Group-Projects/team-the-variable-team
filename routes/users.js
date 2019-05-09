@@ -12,7 +12,6 @@ const db = new sqlite.Database('./racket.sqlite3', err => {
 
 /* GET home page. */
 
-
 router.get('/employers', function (req, res, next) {
   models.Emp_Users.findAll({}).then(employersAsPlainObject => {
     const mappedEmployers = employersAsPlainObject.map(
