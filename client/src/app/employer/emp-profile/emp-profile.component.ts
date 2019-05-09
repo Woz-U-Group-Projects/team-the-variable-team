@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { EmpUsers } from '../../Emp_Users';
+import { EmpUsersService } from '../../services/empusers.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -9,14 +10,17 @@ import { EmpUsers } from '../../Emp_Users';
   styleUrls: ['./emp-profile.component.css']
 })
 export class EmpProfileComponent implements OnInit {
-  Emp_Users: EmpUsers[];
-  @Input() dataPath: string;
 
-  constructor(private http: HttpClient) {}
+  employer: any;
+  constructor(private empUsersService: EmpUsersService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.http.get<EmpUsers[]>(this.dataPath).subscribe(empusers => {
-      this.Emp_Users = empusers;
+    this.route.paramMap.subscribe(params => {
+      console.log(params.get('id'))
+      this.empUsersService.getEmployer(params.get('id')).subscribe(e => {
+        console.log(e);
+        this.employer = e;
+      })
     });
   }
 }

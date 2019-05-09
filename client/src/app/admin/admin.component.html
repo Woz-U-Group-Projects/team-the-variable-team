@@ -15,13 +15,12 @@
   </p>
   <div>
     <h1>{{ title }}</h1>
-    <div *ngFor="let EmpUser of EmpUsers">
-      {{ employers.id }}
-      {{ Employers.id }}
-      {{ empusers.id }}
-      {{ EmpUsers.id }}
-      {{ EmpUsers.Username }}
-      {{ EmpUsers.Password }}
+    <div *ngFor="let employer of employers">
+      {{ employer.ID }}
+      {{ employer.Username }}
+      {{ employer.Password }}
+      <h2>{{ employer.CompanyName }}</h2>
+      {{ employer.CompanyWeb }}
     </div>
   </div>
 
