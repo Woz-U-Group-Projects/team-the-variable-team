@@ -21,5 +21,8 @@ module.exports = (sequelize, DataTypes) => {
             timestamps: false
         }
     );
+    Emp_Users.associate = function(models) {
+        // associations can be defined here
+      };
     return Emp_Users;
 };
