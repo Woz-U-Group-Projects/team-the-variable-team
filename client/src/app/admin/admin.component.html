@@ -1,12 +1,15 @@
 <div class="sidebar">
-  <a class="active" href="#home">RACKET</a>
-  <a href="empprofile/:id">EMPLOYER LIST</a>
-  <a href="stdprofile/:id">STUDENT LIST</a>
+<a class="active" href="#home">RACKET</a>
+<button (click)="changeButton()">Employer List</button>
+<button (click)="toggleButton()">Student List</button>
+
+ 
   <div class="icon-bar">
     <a href="https://www.facebook.com/" class="facebook"><i class="fa fa-facebook"></i></a>
     <a href="https://twitter.com/" class="twitter"><i class="fa fa-twitter"></i></a>
     <a href="https://www.linkedin.com/" class="linkedin"><i class="fa fa-linkedin"></i></a>
   </div>
+
 </div>
 
 <div class="content">
@@ -14,18 +17,65 @@
   <p>Racket is a service website that links Employers and Students, giving you the chance to explore new Opportunities.
   </p>
   <div>
-    <h1>{{ title }}</h1>
-    <div *ngFor="let employer of employers">
-      {{ employer.ID }}
-      {{ employer.Username }}
-      {{ employer.Password }}
-      <h2>{{ employer.CompanyName }}</h2>
-      {{ employer.CompanyWeb }}
-    </div>
-  </div>
+<!-- <h1>{{ title }}</h1> -->
+ <div *ngIf="hideSelected">
+<h2>Employer List</h2>
+
+<table class="container1">
+  <thead>
+    <tr></tr>
+    <th text-align="center">ID</th>
+    <th text-align="center">Company Name</th>
+    <th text-align="center">Company Web</th>
+    <th text-align="center">User Name</th>
+    <th text-align="center">Password</th>
+  </thead>
+  <tbody text-align="center">
+    <tr *ngFor="let employer of employers" text-align="center">
+      <td >{{employer.ID}}</td> 
+      <td>{{employer.CompanyName}}</td>
+      <td>{{employer.CompanyWeb}}</td>
+      <td>{{employer.Username}}</td>
+      <td>{{employer.Password}}</td>
+      <button>Open</button> 
+      <button>Edit</button>
+      <button>Delte</button>
+    </tr>
+  </tbody>
+</table> <br><br>
+</div>
+
+<div *ngIf="showSelected" >
+<h2>Student List</h2>
+
+<table class="container1">
+  <thead>
+    <tr></tr>
+    <th >ID</th>
+    <th >Company Name</th>
+    <th >Company Web</th>
+    <th >User Name</th>
+    <th >Password</th>
+  </thead>
+  <tbody text-align="center">
+    <tr *ngFor="let employer of employers" text-align="center">
+      <td >{{employer.ID}}</td> 
+      <td>{{employer.CompanyName}}</td>
+      <td>{{employer.CompanyWeb}}</td>
+      <td>{{employer.Username}}</td>
+      <td>{{employer.Password}}</td>
+      <button>Open</button> 
+      <button>Edit</button>
+      <button>Delte</button>
+    </tr>
+  </tbody>
+</table> <br><br>
+</div>
+    
+    
 
 
-  <!-- <div class="container">
+  <div class="container">
     <form class="form" action="action_page.php">
 
       <h2>Contact Us</h2>
@@ -48,6 +98,6 @@
       <input type="submit" value="Submit">
 
     </form>
-  </div> -->
+  </div>
 
 </div>
