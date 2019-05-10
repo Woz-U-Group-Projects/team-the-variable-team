@@ -14,8 +14,6 @@ export class AdminComponent implements OnInit {
   employers: any[] = [];
   showSelected: boolean;
   hideSelected: boolean;
-  // x: any[] = [document.getElementById('myDIV')];
-  // style: any[] = [];
 
   constructor(private empUsersService: EmpUsersService) {
     this.showSelected = false;
