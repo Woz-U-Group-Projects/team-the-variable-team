@@ -1,0 +1,13 @@
+.header{
+    width:100%;
+background-color:#2AA6E3;
+height:auto;
+border-bottom:5px solid #2980b9;
+}
+
+.logo{
+width:25%;
+}
+img{
+    max-width: 200px;
+}
