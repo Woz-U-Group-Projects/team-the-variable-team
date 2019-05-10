@@ -13,21 +13,8 @@ const db = new sqlite.Database('./racket.sqlite3', err => {
 
 /* Employer Routes */ 
 router.get('/employers', function (req, res, next) {
-  models.Emp_Users.findAll({}).then(employersAsPlainObject => {
-    const mappedEmployers = employersAsPlainObject.map(
-      sequelizeModelForEmployers => ({
-        ID: sequelizeModelForEmployers.ID,
-        CompanyName: sequelizeModelForEmployers.CompanyName,
-        CompanyWeb: sequelizeModelForEmployers.CompanyWeb,
-        CompanyEmail: sequelizeModelForEmployers.CompanyEmail,
-        CompanyContact: sequelizeModelForEmployers.CompanyContact,
-        CompContactNum: sequelizeModelForEmployers.CompContactNum,
-        CompIndustry: sequelizeModelForEmployers.CompIndustry,
-        Username: sequelizeModelForEmployers.Username,
-        Password: sequelizeModelForEmployers.Password
-      })
-    );
-    res.send(JSON.stringify(mappedEmployers));
+  models.Emp_Users.findAll({}).then(employers => {
+    res.send(JSON.stringify(employers));
   });
 });
 
