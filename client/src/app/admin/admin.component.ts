@@ -37,5 +37,5 @@ export class AdminComponent implements OnInit {
     this.showSelected = false;
     this.hideSelected = true;
   }
-  
+
 }
