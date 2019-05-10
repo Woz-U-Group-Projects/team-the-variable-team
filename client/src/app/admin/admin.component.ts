@@ -10,15 +10,32 @@ import { EmpUsers } from '../angular-models/Emp_Users';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent implements OnInit {  
+export class AdminComponent implements OnInit {
   employers: any[] = [];
+  showSelected: boolean;
+  hideSelected: boolean;
+  // x: any[] = [document.getElementById('myDIV')];
+  // style: any[] = [];
 
-  constructor(private empUsersService: EmpUsersService) {}
+  constructor(private empUsersService: EmpUsersService) {
+    this.showSelected = false;
+  }
 
   ngOnInit() {
-    this.empUsersService.getEmployers().subscribe((data : any[]) => {
+    this.empUsersService.getEmployers().subscribe((data: any[]) => {
       console.log(data);
       this.employers = data;
-    })
+    });
   }
+
+  toggleButton() {
+    this.showSelected = true;
+    this.hideSelected = false;
+  }
+
+  changeButton() {
+    this.showSelected = false;
+    this.hideSelected = true;
+  }
+  
 }
