@@ -29,24 +29,6 @@ router.get('/employers/:id', function(req, res) {
   res.send(JSON.stringify(employer)));
 });
 
-// router.get('/employers/:id', function (req, res, next) {
-//   models.Emp_Users.findOne({ id: req.body.ID }).then(
-//       sequelizeModelForEmployer => ({
-//         ID: sequelizeModelForEmployer.ID,
-//         CompanyName: sequelizeModelForEmployer.CompanyName,
-//         CompanyWeb: sequelizeModelForEmployer.CompanyWeb,
-//         CompanyEmail: sequelizeModelForEmployer.CompanyEmail,
-//         CompanyContact: sequelizeModelForEmployer.CompanyContact,
-//         CompContactNum: sequelizeModelForEmployer.CompContactNum,
-//         CompIndustry: sequelizeModelForEmployer.CompIndustry,
-//         Username: sequelizeModelForEmployer.Username,
-//         Password: sequelizeModelForEmployer.Password
-//       })
-//   );
-//     res.send(JSON.stringify(sequelizeModelForEmployer));
-//   });
-
-
 /* Create Employer Profile */
 // router.post('/', function(req, res, next) {
 //   console.log(req.body);
