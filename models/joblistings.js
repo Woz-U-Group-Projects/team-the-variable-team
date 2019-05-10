@@ -20,8 +20,8 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
 
     joblistings.associate = function(models) {
-      joblistings.belongsTo(models.employers, {
-        foreignKey: 'CompanyID'
+      joblistings.belongsTo(models.Emp_Users, {
+        foreignKey: 'ID'
       });
     }
   };
