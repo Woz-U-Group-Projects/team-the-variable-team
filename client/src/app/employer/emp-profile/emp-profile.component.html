@@ -42,7 +42,7 @@
                     <a href="">Linkedin</a><br />
                     <a href="">Facebook</a>
                     <p>Company</p>
-                    <a href="">Microsoft Corp</a><br />
+                    <a href="">{{ employer.CompanyName }}</a><br />
 
                 </div>
             </div>
@@ -54,15 +54,7 @@
                                 <label>User Id</label>
                             </div>
                             <div class="col-md-6">
-                                <p>joesala46</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Name</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>Jose Salazar</p>
+                                <p>{{ employer.Username }}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -70,7 +62,7 @@
                                 <label>Email</label>
                             </div>
                             <div class="col-md-6">
-                                <p>joesalaz46@gmail.com</p>
+                                <p>{{ employer.CompanyEmail }}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -78,7 +70,7 @@
                                 <label>Phone</label>
                             </div>
                             <div class="col-md-6">
-                                <p>918-902-3994</p>
+                                <p>{{ employer.CompContactNum }}</p>
                             </div>
                         </div>
                         <div class="row">
