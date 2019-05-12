@@ -6,5 +6,5 @@ export class EmpUsers {
     companyContact: string;
     compContactNum: string;
     username: string;
-    password: string
-};
+    password: string;
+}

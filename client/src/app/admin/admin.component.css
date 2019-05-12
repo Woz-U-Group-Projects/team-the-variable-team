@@ -34,8 +34,9 @@ body {
 
 div.content {
   margin-left: 200px;
-  padding: 1px 16px;
-  height: 1000px;
+  padding: 10px ;
+  height: 2000px;
+  background-color: white;
 }
 
 @media screen and (max-width: 500px) {
@@ -45,6 +46,8 @@ div.content {
     position: relative;
   }
 
+
+  
   .sidebar a {
     float: left;
   }
@@ -106,14 +109,44 @@ input[type=submit]:hover {
   
 }
 
+.container1
+ {
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+button {
+  background-color: blue;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
 .form {
  width: 100%;
  
 }
-@media (min-width: 992px) {.container {
+@media (min-width: 992px) {.container
+   {
  width: 950px; 
  padding-bottom: 15px;
 }}
+
+@media (min-width: 1000px) {
+  .container1 {
+    width: 1200px;
+    padding-bottom: 15px;
+  }
+}
 
 /* Fixed/sticky icon bar (vertically aligned 50% from the top of the screen) */
 .icon-bar {
@@ -165,3 +198,4 @@ input[type=submit]:hover {
   background: #bb0000;
   color: white;
 }
+
