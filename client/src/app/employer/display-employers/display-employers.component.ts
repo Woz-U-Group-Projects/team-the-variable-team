@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+// import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EmpUsers } from '../../angular-models/Emp_Users';
-import { of } from 'rxjs';
+// import { of } from 'rxjs';
 
 import { EmpUsersService } from '../../services/empusers.service';
 
@@ -12,12 +12,12 @@ import { EmpUsersService } from '../../services/empusers.service';
 })
 export class DisplayEmployersComponent implements OnInit {
   user = 'User:';
-  employers: any[] = [];
+  employers: EmpUsers[] = [];
 
   constructor(private empUsersService: EmpUsersService) {}
 
   ngOnInit() {
-    this.empUsersService.getEmployers().subscribe((data : any[]) => {
+    this.empUsersService.getEmployers().subscribe((data : EmpUsers[]) => {
       console.log(data);
       this.employers = data;
     })

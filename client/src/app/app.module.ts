@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DisplayEmployersComponent } from './employer/display-employers/display-employers.component';
 import { HeaderComponent } from './layout/header/header.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { HeaderComponent } from './layout/header/header.component';
     AdminComponent,
     DisplayEmployersComponent,
     HeaderComponent
+   
 
   ],
   imports: [
