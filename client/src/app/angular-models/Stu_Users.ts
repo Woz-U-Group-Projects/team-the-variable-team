@@ -4,7 +4,7 @@ export class StuUsers {
     stuLastName: string;
     studEmail: string;
     stuContactNum: string;
-    resumeOnFile: string;
+    resumeOnFile: boolean;
     Major: string;
     coursesEnrolled: string;
     coursesCompleted: string;
