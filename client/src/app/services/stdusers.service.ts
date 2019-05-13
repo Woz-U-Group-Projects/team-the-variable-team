@@ -4,16 +4,13 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class StuUsersService {
-  StuURL: string ='http://localhost:4001/users/students';
-
-  constructor(private http:HttpClient) { }
+export class StdUsersService {
+  StdURL: string = 'http://localhost:4001/users/students';
+  constructor(private http: HttpClient) { }
   getStudents() {
-    return this.http.get(this.StuURL)
+    return this.http.get(this.StdURL)
   }
-
-  getStudent(id){
-    return this.http.get(`${this.StuURL}/${id}`)
-}
-
+  getStudent(id) {
+    return this.http.get(`${this.StdURL}/${id}`)
+  }
 }

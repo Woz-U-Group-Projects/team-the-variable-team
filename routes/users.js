@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 const sqlite = require('sqlite3').verbose();
 var models = require('../models');
-var Emp_Users = require('../models/Emp_Users');
 
 const db = new sqlite.Database('./racket.sqlite3', err => {
   if (err) {
@@ -62,5 +61,23 @@ router.get('/employers/:id', function(req, res) {
 //       }
 //   );
 // });
+
+/* Student Routes */ 
+router.get('/students', function (req, res, next) {
+  models.Std_Users.findAll({}).then(students => {
+    res.send(JSON.stringify(students));
+  });
+});
+
+/* Route for Student Profile by ID */
+router.get('/students/:id', function(req, res) {
+  let studentId = parseInt(req.params.id);
+  models.Std_Users.findOne({
+    where: {
+      StudentID: studentId
+    }
+  }).then(student =>
+  res.send(JSON.stringify(student)));
+});
 
 module.exports = router;

@@ -6,11 +6,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EmpUsersService {
     EmpURL: string = 'http://localhost:4001/users/employers';
-    constructor(private http: HttpClient) {}
-    getEmployers(){
+    constructor(private http: HttpClient) { }
+    getEmployers() {
         return this.http.get(this.EmpURL)
     }
-    getEmployer(id){
+    getEmployer(id) {
         return this.http.get(`${this.EmpURL}/${id}`)
     }
 }
