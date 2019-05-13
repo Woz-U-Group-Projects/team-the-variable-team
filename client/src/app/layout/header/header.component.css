@@ -1,0 +1,22 @@
+.header{
+    width:100%;
+    min-width: 1050px;
+    background-color: #20aae5;
+	border-bottom: 0.25em solid #1894ca;
+	margin: 0 0 10px 0;
+	display: inline-flex;
+	position: fixed;
+	z-index: 10;
+height:auto;
+border-bottom:5px solid #2980b9;
+}
+
+.logo{
+width:25%;
+margin-left: 20px;
+
+}
+img{
+    max-width: 150px;
+}
+
