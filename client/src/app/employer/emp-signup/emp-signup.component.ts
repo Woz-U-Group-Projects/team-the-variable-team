@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { EmpUsersService } from '../../services/empusers.service';
+import { EmpUsers } from '../../angular-models/Emp_Users';
 
 @Component({
   selector: 'app-emp-signup',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmpSignupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private empUsersService: EmpUsersService, private route: ActivatedRoute) {}
 
   ngOnInit() {
   }
