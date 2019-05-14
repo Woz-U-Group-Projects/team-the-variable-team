@@ -3,6 +3,8 @@ var router = express.Router();
 const sqlite = require('sqlite3').verbose();
 var models = require('../models');
 
+let Emp_Users = require('../models/Emp_Users');
+
 const db = new sqlite.Database('./racket.sqlite3', err => {
   if (err) {
     return console.error(err.message);
@@ -30,7 +32,8 @@ router.get('/employers/:id', function (req, res) {
 
 /* Create Employer Profile */
 router.post('/employers/sign-up', (req, res) => {
-  models.Emp_Users.findOrCreate({
+  models.Emp_Users
+  .findOrCreate({
     where: {
       CompanyName: req.body.CompanyName,
       CompanyWeb: req.body.CompanyWeb,
@@ -41,11 +44,12 @@ router.post('/employers/sign-up', (req, res) => {
       Username: req.body.Username,
       Password: req.body.Password
     }
-  }).spread(function(EmpSignUp, created) {
+  })
+  .spread(function(result, created) {
     if (created) {
-      res.redirect('/employers/:id');
+      res.send('User Registered Successfully!');
     } else {
-      res.send(JSON.stringify(EmpSignUp));
+      res.send('This artist already exists!');
     }
   });
 });

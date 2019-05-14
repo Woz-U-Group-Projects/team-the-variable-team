@@ -1,6 +1,6 @@
 <form action="/form" method="POST">
   <div class="container">
-    <h1>Employer Profile Sign-Up</h1>
+    <h1>Employer Registration</h1>
     <hr>
     <div class="row">
       <!-- left column -->
@@ -24,94 +24,62 @@
 
         <form class="form-horizontal" role="form">
           <div class="form-group">
-            <label class="col-lg-3 control-label FirstName">First name:</label>
-            <div class="col-lg-8">
-              <input class="form-control firstName" type="text" value="Jane">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label LastName">Last name:</label>
-            <div class="col-lg-8">
-              <input class="form-control lastName" type="text" value="Bishop">
-            </div>
-          </div>
-          <div class="form-group">
             <label class="col-lg-3 control-label CompanyName">Company Name:</label>
             <div class="col-lg-8">
-              <input class="form-control companyName" type="text" value="">
+              <input class="form-control" type="text" [(ngModel)]="empUsers.CompanyName" name="CompanyName" placeholder="Company Name">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label CompanyAddress">Company Address:</label>
+            <label class="col-lg-3 control-label CompanyWeb">Company Website:</label>
             <div class="col-lg-8">
-              <input class="form-control companyAddress" type="text" value="444 Hollands Ln, Houston, TX 77066">
+              <input class="form-control" type="text" [(ngModel)]="empUsers.CompanyWeb" name="CompanyWeb" placeholder="Company Website">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label companyContactNumber">Company Contact:</label>
+            <label class="col-lg-3 control-label CompanyEmail">Company Email:</label>
             <div class="col-lg-8">
-              <input class="form-control companyContactNumber" type="text" value="713-566-7890">
+              <input class="form-control" type="text" [(ngModel)]="empUsers.CompanyEmail" name="CompanyEmail" placeholder="Company Email">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label CompanyWebsite">Company Website:</label>
+            <label class="col-lg-3 control-label CompanyContact">Company Contact:</label>
             <div class="col-lg-8">
-              <input class="form-control companyWebsite" type="text" value="www.fallensinc.com">
+              <input class="form-control" type="text" [(ngModel)]="empUsers.CompanyContact" name="CompanyContact" placeholder="Contact Name">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label">Email:</label>
+            <label class="col-lg-3 control-label CompContactNum">Company Contact Number:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="janesemail@gmail.com">
+              <input class="form-control" type="text" [(ngModel)]="empUsers.CompContactNum" name="CompContactNum"
+                placeholder="Contact Number">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label">Time Zone:</label>
+            <label class="col-lg-3 control-label CompIndustry">Company Industry:</label>
             <div class="col-lg-8">
-              <div class="ui-select">
-                <select id="user_time_zone" class="form-control">
-                  <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                  <option value="Alaska">(GMT-09:00) Alaska</option>
-                  <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
-                  <option value="Arizona">(GMT-07:00) Arizona</option>
-                  <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                  <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US
-                    &amp; Canada)</option>
-                  <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
-                  <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                </select>
-              </div>
+              <input class="form-control" type="text" [(ngModel)]="empUsers.CompIndustry" name="CompIndustry" placeholder="Industry">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-md-3 control-label">Username:</label>
+            <label class="col-lg-3 control-label Username">Username:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" [(ngModel)]="empUsers.Username" name="Username" placeholder="Desired Username">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label Password">Password:</label>
             <div class="col-md-8">
-              <input class="form-control" type="text" value="janeuser">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Password:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="password" value="11111122333">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Confirm password:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="password" value="11111122333">
+              <input class="form-control" type="text" [(ngModel)]="empUsers.Password" name="Password" placeholder="Desired Password">
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
-              <input type="button" class="btn btn-primary" value="Save Changes">
-              <span></span>
-              <input type="reset" class="btn btn-default" value="Cancel">
+              <button (click)="addEmployer()">Register!</button>
             </div>
           </div>
         </form>
       </div>
     </div>
   </div>
-  <hr>
 </form>
