@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { EmpUsersService } from '../services/empusers.service';
+import { StdUsersService } from '../services/stdusers.service';
 import { EmpUsers } from '../angular-models/Emp_Users';
+import { StdUsers } from '../angular-models/Std_Users';
 
 
 
@@ -12,6 +14,7 @@ import { EmpUsers } from '../angular-models/Emp_Users';
 })
 export class AdminComponent implements OnInit {
   employers: any[] = [];
+  students: any[] = [];
   showSelected: boolean;
   hideSelected: boolean;
 
