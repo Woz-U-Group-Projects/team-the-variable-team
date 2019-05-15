@@ -80,6 +80,8 @@ router.post('/students/sign-up', (req, res) => {
     where: {
       FirstName: req.body.FirstName,
       LastName: req.body.LastName,
+      StdEmail: req.body.StdEmail,
+      StdContactNum: req.body.StdContactNum,
       ResumeOnFile: req.body.ResumeOnFile,
       Major: req.body.Major,
       CoursesEnrolled: req.body.CoursesEnrolled,
@@ -114,7 +116,7 @@ router.post('/students/sign-up', (req, res) => {
   //let stuJobPostsId = parseInt(req.params.id);
   //models.Std_JobPosts.findOne({
     //where: {
-      //StuJobPostsID: stuJobPoststId
+      //Std_JobPosts: stuJobPostst.JobID
     //};
   //}).then(stuJobPosts =>
     //res.send(JSON.stringify(stuJobPosts)));

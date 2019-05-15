@@ -22,7 +22,7 @@ export class EmpUsersService {
         return this.http.get(`${this.EmpURL}/${id}`)
     }
 
-    addEmployer (empUsers: EmpUsers): Observable<EmpUsers> {
+    addEmployer(empUsers: EmpUsers): Observable<EmpUsers> {
         return this.http.post<EmpUsers>(this.EmpURL + '/sign-up', empUsers, httpOptions);
     }
 }
