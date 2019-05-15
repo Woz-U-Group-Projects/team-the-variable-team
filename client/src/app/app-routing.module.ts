@@ -8,7 +8,8 @@ import { StdProfileComponent } from './student/std-profile/std-profile.component
 import { EmpProfEditComponent} from './employer/emp-prof-edit/emp-prof-edit.component';
 import { AdminComponent } from './admin/admin.component';
 import { DisplayEmployersComponent } from './employer/display-employers/display-employers.component';
-import {HeaderComponent } from './layout/header/header.component';
+import { HeaderComponent } from './layout/header/header.component';
+
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login-page', component: LoginComponent },

@@ -32,8 +32,6 @@ import { HeaderComponent } from './layout/header/header.component';
     AdminComponent,
     DisplayEmployersComponent,
     HeaderComponent
-   
-
   ],
   imports: [
     NgbModule.forRoot(),
@@ -45,7 +43,6 @@ import { HeaderComponent } from './layout/header/header.component';
     FormsModule,
     MatToolbarModule,
     HttpClientModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]
