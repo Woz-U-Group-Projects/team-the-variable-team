@@ -72,4 +72,33 @@ router.get('/students/:id', function (req, res) {
     res.send(JSON.stringify(student)));
 });
 
+/* Create student Profile */
+router.post('/students/sign-up', (req, res) => {
+  models.Stu_Users
+  .findOrCreate({
+    where: {
+      FirstName: req.body.FirstName,
+      LastName: req.body.LastName,
+      ResumeOnFile: req.body.ResumeOnFile,
+      Major: req.body.Major,
+      CoursesEnrolled: req.body.CoursesEnrolled,
+      CoursesCompleted: req.body.CoursesCompleted,
+      StdExperience: req.body.StdExperience,
+      StdGPA: req.body.StdGPA,
+      StdAwards: req.body.StdAwards,
+      StdScholarships: req.body.StdScholarships,
+      StdSkills: req.body.StdSkills,
+      Username: req.body.Username,
+      Password: req.body.Password
+    }
+  })
+  .spread(function(result, created) {
+    if (created) {
+      res.send('Student Registered Successfully!');
+    } else {
+      res.send('This Student already exists!');
+    }
+  });
+});
+
 module.exports = router;
