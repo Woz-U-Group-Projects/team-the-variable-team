@@ -4,6 +4,7 @@ const sqlite = require('sqlite3').verbose();
 var models = require('../models');
 
 let Emp_Users = require('../models/Emp_Users');
+let Std_Users = require('../models/Std_Users');
 
 const db = new sqlite.Database('./racket.sqlite3', err => {
   if (err) {
@@ -49,7 +50,7 @@ router.post('/employers/sign-up', (req, res) => {
     if (created) {
       res.send('User Registered Successfully!');
     } else {
-      res.send('This artist already exists!');
+      res.send('This User already exists!');
     }
   });
 });
@@ -74,7 +75,7 @@ router.get('/students/:id', function (req, res) {
 
 /* Create student Profile */
 router.post('/students/sign-up', (req, res) => {
-  models.Stu_Users
+  models.Std_Users
   .findOrCreate({
     where: {
       FirstName: req.body.FirstName,
