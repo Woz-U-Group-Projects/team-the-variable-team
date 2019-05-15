@@ -22,4 +22,8 @@ export class EmpUsersService {
     getEmployer(id) {
         return this.http.get(`${this.EmpURL}/${id}`);
     }
+
+    addEmployer(empUsers: EmpUsers): Observable<EmpUsers> {
+        return this.http.post<EmpUsers>(this.EmpURL + '/sign-up', empUsers, httpOptions);
+    }
 }
