@@ -101,4 +101,46 @@ router.post('/students/sign-up', (req, res) => {
   });
 });
 
+/* Student Job Posts Routes */
+//router.get('/stuJobPosts', function (req, res, next) {
+  //models.Std_JobPosts.findAll({}).then(stuJobPosts => {
+    //res.send(JSON.stringify(stuJobPosts));
+  //});
+//});
+
+/* Route for Student Job Posts by ID */
+//router.get('/stuJobPosts/:id', function (req, res) {
+  //let stuJobPostsId = parseInt(req.params.id);
+  //models.Std_JobPosts.findOne({
+    //where: {
+      //StuJobPostsID: stuJobPoststId
+    //};
+  //}).then(stuJobPosts =>
+    //res.send(JSON.stringify(stuJobPosts)));
+//});
+
+/* Create student Job Posts */
+//router.post('/stuJobPosts/sign-up', (req, res) => {
+  //models.Std_Posts
+  //.findOrCreate({
+    //where: {
+      //JobyName: req.body.JobName,
+      //JobLocation: req.body.JobLocation,
+      //JobWebsite: req.body.JobWebsite,
+      //JobContactNum: req.body.JobcontactNum,
+      //JobEmail: req.body.JobEmail,
+      //JobDescription: req.body.JobDescription,
+      //JobPostedDate: req.body.JobPostedDate,
+      //JobCreatedById: req.body.JobCreatedById
+    //}
+  //})
+  //.spread(function(result, created) {
+    //if (created) {
+      //res.send('Student Job Created Successfully!');
+    //} else {
+      //res.send('This job already exists!');
+    //}
+  //});
+//});
+
 module.exports = router;
