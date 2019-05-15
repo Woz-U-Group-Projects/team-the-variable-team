@@ -31,6 +31,14 @@ router.get('/employers/:id', function (req, res) {
     res.send(JSON.stringify(employer)));
 });
 
+
+/*  emp_jobposts Routes */
+// router.get('/joblistings', function (req, res, next) {
+//   models.Emp_JobPosts.findAll({}).then(joblistings => {
+//     res.send(JSON.stringify(joblistings));
+//   });
+// });
+
 /* Create Employer Profile */
 router.post('/employers/sign-up', (req, res) => {
   models.Emp_Users

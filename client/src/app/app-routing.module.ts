@@ -19,8 +19,8 @@ const routes: Routes = [
   { path: 'empprofile/:id', component: EmpProfileComponent },
   { path: 'stdprofile/:id', component: StdProfileComponent },
   { path: 'empprofile-edit/:id,', component: EmpProfEditComponent},
-  { path: 'display-employers', component:DisplayEmployersComponent},
-  { path: 'header', component:HeaderComponent}
+  { path: 'display-employers', component: DisplayEmployersComponent},
+  { path: 'header', component: HeaderComponent}
 ];
 
 @NgModule({
