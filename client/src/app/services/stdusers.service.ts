@@ -15,13 +15,14 @@ const httpOptions = {
 })
 
 export class StdUsersService {
+  // tslint:disable-next-line:no-inferrable-types
   StdURL: string = 'http://localhost:4001/users/students';
   constructor(private http: HttpClient) { }
   getStudents() {
-    return this.http.get(this.StdURL)
+    return this.http.get(this.StdURL);
   }
   getStudent(id) {
-    return this.http.get(`${this.StdURL}/${id}`)
+    return this.http.get(`${this.StdURL}/${id}`);
   }
   addStudent(stdUsers: StdUsers): Observable<StdUsers> {
     return this.http.post<StdUsers>(this.StdURL + '/sign-up', stdUsers, httpOptions);

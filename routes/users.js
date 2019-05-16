@@ -33,11 +33,46 @@ router.get('/employers/:id', function (req, res) {
 
 
 /*  emp_jobposts Routes */
-// router.get('/joblistings', function (req, res, next) {
-//   models.Emp_JobPosts.findAll({}).then(joblistings => {
-//     res.send(JSON.stringify(joblistings));
-//   });
-// });
+router.get('/Emp_JobPosts', function (req, res, next) {
+  models.Emp_JobPosts.findAll({}).then(Emp_JobPosts => {
+    res.send(JSON.stringify(Emp_JobPosts));
+  });
+});
+
+/* Route for Emp_JopPost by ID */
+router.get('/Emp_JobPosts/:id', function (req, res) {
+  let JobID = parseInt(req.params.id);
+  models.Emp_JobPosts.findOne({
+    where: {
+      ID: JobID
+    }
+  }).then(Emp_JobPosts =>
+    res.send(JSON.stringify(Emp_JobPosts)));
+});
+
+/* Route for Emp posting Jobs */
+router.post('/Emp_JobPosts', (req, res) => {
+  models.Emp_JobPosts
+    .findOrCreate({
+      where: {
+        JobName: req.body.jobName,
+          JobLocation: req.body.jobLocation,
+          JobWebsite: req.body.jobWebsite,
+          JobContactNum: req.body.jobContactNum,
+          JobEmail: req.body.jobEmail,
+          JobDescription: req.body.jobDescription,
+          JobPostedDate: req.body.jobPostedDate,
+          JobCreatedById: req.body.jobCreatedById,
+      }
+    })
+    .spread(function (result, created) {
+      if (created) {
+        res.redirect('/Emp_JobPosts');
+      } else {
+        res.send('This Job already exists!');
+      }
+    });
+});
 
 /* Create Employer Profile */
 router.post('/employers/sign-up', (req, res) => {
