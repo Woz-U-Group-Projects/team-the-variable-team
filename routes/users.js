@@ -20,6 +20,33 @@ router.get('/employers', function (req, res, next) {
   });
 });
 
+/* Employer user name and password Routes (I have two ideas and dont know
+  which one will work, first idea is using Emp_User, second idea is below it usinf Std_USER
+  (if this one is right we can change the Std_User to be same)*/
+router.get('/Emp_Users', function (req, res, next) {
+  models.Emp_Users.findAll({
+    where:{
+Username: req.body.username,
+Password: req.body.password
+    }
+      
+    }).then(Emp_Users => {
+    res.redirect('empprofile/:id/' + Emp_Users.ID);
+  });
+});
+
+
+/* Student user name and password Routes this is the second way 
+(if it works we can change the Emp_User above)*/
+router.get('/Std_Users', function (req, res, next) {
+  models.Std_Users.findAll({
+    Username,
+    Password
+  }).then(Std_Users => {
+    res.send(JSON.stringify(Std_Users));
+  });
+});
+
 /* Route for Employer Profile by ID */
 router.get('/employers/:id', function (req, res) {
   let employerId = parseInt(req.params.id);
