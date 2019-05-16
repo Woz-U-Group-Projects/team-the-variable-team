@@ -12,7 +12,10 @@ module.exports = (sequelize, DataTypes) => {
             LastName: DataTypes.STRING,
             StdEmail: DataTypes.STRING,
             StdContactNum: DataTypes.STRING,
-            ResumeOnFile: DataTypes.BOOLEAN,
+            ResumeOnFile: {
+                type: DataTypes.BOOLEAN,
+                default: false,
+            },
             Major: DataTypes.STRING,
             CoursesEnrolled: DataTypes.STRING,
             CoursesCompleted: DataTypes.STRING,

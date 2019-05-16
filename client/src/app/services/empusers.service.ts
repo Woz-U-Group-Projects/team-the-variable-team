@@ -24,6 +24,6 @@ export class EmpUsersService {
     }
 
     addEmployer(empUsers: EmpUsers): Observable<EmpUsers> {
-        return this.http.post<EmpUsers>(this.EmpURL + '/sign-up', empUsers, httpOptions);
+        return this.http.post<EmpUsers>(this.EmpURL, empUsers, httpOptions);
     }
 }

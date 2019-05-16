@@ -4,7 +4,7 @@ export class StdUsers {
     lastName: string;
     stdEmail: string;
     stdContactNum: string;
-    resumeOnFile: boolean;
+    resumeOnFile: boolean = false;
     major: string;
     coursesEnrolled: string;
     coursesCompleted: string;

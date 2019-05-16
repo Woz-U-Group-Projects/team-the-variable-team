@@ -25,6 +25,6 @@ export class StdUsersService {
     return this.http.get(`${this.StdURL}/${id}`);
   }
   addStudent(stdUsers: StdUsers): Observable<StdUsers> {
-    return this.http.post<StdUsers>(this.StdURL + '/sign-up', stdUsers, httpOptions);
+    return this.http.post<StdUsers>(this.StdURL, stdUsers, httpOptions);
   }
 }

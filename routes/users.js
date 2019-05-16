@@ -32,7 +32,7 @@ router.get('/employers/:id', function (req, res) {
 });
 
 /* Route for Creating Employer Profile */
-router.post('/employers/sign-up', (req, res) => {
+router.post('/employers', (req, res) => {
   models.Emp_Users
   .findOrCreate({
     where: {
@@ -48,7 +48,7 @@ router.post('/employers/sign-up', (req, res) => {
   })
   .spread(function(result, created) {
     if (created) {
-      res.send('User Registered Successfully!');
+      res.redirect('/users/employers');
     } else {
       res.send('This User already exists!');
     }
@@ -116,7 +116,7 @@ router.get('/students/:id', function (req, res) {
 });
 
 /* Route for Creating Student Profile */
-router.post('/students/sign-up', (req, res) => {
+router.post('/students', (req, res) => {
   models.Std_Users
   .findOrCreate({
     where: {
@@ -124,7 +124,7 @@ router.post('/students/sign-up', (req, res) => {
       LastName: req.body.LastName,
       StdEmail: req.body.StdEmail,
       StdContactNum: req.body.StdContactNum,
-      ResumeOnFile: req.body.ResumeOnFile,
+      // ResumeOnFile: req.body.ResumeOnFile,
       Major: req.body.Major,
       CoursesEnrolled: req.body.CoursesEnrolled,
       CoursesCompleted: req.body.CoursesCompleted,
@@ -139,7 +139,7 @@ router.post('/students/sign-up', (req, res) => {
   })
   .spread(function(result, created) {
     if (created) {
-      res.send('Student Registered Successfully!');
+      res.redirect('/users/students');
     } else {
       res.send('This Student already exists!');
     }
