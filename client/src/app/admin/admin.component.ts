@@ -18,7 +18,7 @@ export class AdminComponent implements OnInit {
   showSelected: boolean;
   hideSelected: boolean;
 
-  constructor(private empUsersService: EmpUsersService) {
+  constructor(private empUsersService: EmpUsersService, private stdUsersService: StdUsersService) {
     this.showSelected = false;
   }
 
@@ -26,6 +26,11 @@ export class AdminComponent implements OnInit {
     this.empUsersService.getEmployers().subscribe((data: any[]) => {
       console.log(data);
       this.employers = data;
+    });
+
+    this.stdUsersService.getStudents().subscribe((data: any[]) => {
+      console.log(data);
+      this.students = data;
     });
   }
 

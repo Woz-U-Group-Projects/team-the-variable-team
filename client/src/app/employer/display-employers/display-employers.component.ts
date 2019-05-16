@@ -17,10 +17,10 @@ export class DisplayEmployersComponent implements OnInit {
   constructor(private empUsersService: EmpUsersService) {}
 
   ngOnInit() {
-    this.empUsersService.getEmployers().subscribe((data : EmpUsers[]) => {
+    this.empUsersService.getEmployers().subscribe((data: EmpUsers[]) => {
       console.log(data);
       this.employers = data;
-    })
+    });
   }
 
 }
