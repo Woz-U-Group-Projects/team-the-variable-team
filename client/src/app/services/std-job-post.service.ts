@@ -7,10 +7,10 @@ export class StdJobPostService {
   StdURL: string = 'http://localhost:4001/users/students';
 
   constructor(private http: HttpClient) { }
-  getStudents(){
+  getStudents() {
     return this.http.get(this.StdURL)
-}
-getStudent(id){
-  return this.http.get(`${this.StdURL}/${id}`)
-}
+  }
+  getStudent(id) {
+    return this.http.get(`${this.StdURL}/${id}`)
+  }
 }
