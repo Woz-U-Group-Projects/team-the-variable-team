@@ -18,6 +18,8 @@ import { MatToolbarModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { DisplayEmployersComponent } from './employer/display-employers/display-employers.component';
 import { HeaderComponent } from './layout/header/header.component';
+import { EmpJobpostsComponent } from './employer/emp-jobposts/emp-jobposts.component';
+import { StdJobpostsComponent } from './student/std-jobposts/std-jobposts.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { HeaderComponent } from './layout/header/header.component';
     EmpProfEditComponent,
     AdminComponent,
     DisplayEmployersComponent,
-    HeaderComponent
+    HeaderComponent,
+    EmpJobpostsComponent,
+    StdJobpostsComponent
   ],
   imports: [
     NgbModule.forRoot(),
