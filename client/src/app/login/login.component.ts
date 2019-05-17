@@ -19,18 +19,18 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     if (this.username === 'admin' && this.password === 'admin') {
-      this.router.navigate(['adminpage']);
+      this.router.navigate(['admin']);
     } else {
       alert('Invalid credentials');
     }
   }
 
-  emsignup(): void {
-    this.router.navigate(['empsignup-page']);
+  empsignup(): void {
+    this.router.navigate(['empsignup']);
   }
 
   stdsignup(): void {
-    this.router.navigate(['stdsignup-page']);
+    this.router.navigate(['stdsignup']);
   }
 }
 
