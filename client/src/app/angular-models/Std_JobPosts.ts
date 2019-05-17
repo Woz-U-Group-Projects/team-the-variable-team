@@ -1,5 +1,5 @@
-export class Std_JobPosts {
-    Jobid: number;
+export class StdJobPosts {
+    jobId: number;
     jobName: string;
     jobLocation: string;
     jobWebsite: string;
@@ -7,5 +7,5 @@ export class Std_JobPosts {
     jobEmail: string;
     jobDescription: string;
     jobPostedDate: Date;
-    JobCreatedById: number
+    jobCreatedById: number
 }

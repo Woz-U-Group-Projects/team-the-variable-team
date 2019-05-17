@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Racket Employer List';
-  staticPath: string = 'http://localhost:3001/employer';
+  staticPath: string = 'http://localhost:4001/';
 }
 
 

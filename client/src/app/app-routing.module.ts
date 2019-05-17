@@ -12,14 +12,14 @@ import { HeaderComponent } from './layout/header/header.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'login-page', component: LoginComponent },
-  { path: 'adminpage', component: AdminComponent },
-  { path: 'empsignup-page', component: EmpSignupComponent },
-  { path: 'stdsignup-page', component: StdSignupComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'empsignup', component: EmpSignupComponent },
+  { path: 'stdsignup', component: StdSignupComponent },
   { path: 'empprofile/:id', component: EmpProfileComponent },
   { path: 'stdprofile/:id', component: StdProfileComponent },
-  { path: 'empprofile-edit/:id,', component: EmpProfEditComponent},
-  { path: 'display-employers', component: DisplayEmployersComponent},
+  { path: 'empprofedit/:id,', component: EmpProfEditComponent},
+  { path: 'dispemployers', component: DisplayEmployersComponent},
   { path: 'header', component: HeaderComponent}
 ];
 

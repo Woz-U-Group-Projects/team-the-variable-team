@@ -1,10 +1,10 @@
-export class Emp_JobPost {
-    Jobid: number;
-    JobName: string;
+export class EmpJobPosts {
+    jobid: number;
+    jobName: string;
     jobLocation: string;
     jobWebsite: string;
     jobContactNum: string;
     jobDescription: string;
     jobPostedDate: Date;
-    JobCreatedById: number
+    jobCreatedById: number
 }
