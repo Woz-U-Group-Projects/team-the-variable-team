@@ -10,25 +10,25 @@
       "prefix": "app",
       "schematics": {
         "@schematics/angular:class": {
-          "skipTests": true
+          "skipTests": false
         },
         "@schematics/angular:component": {
-          "skipTests": true
+          "skipTests": false
         },
         "@schematics/angular:directive": {
-          "skipTests": true
+          "skipTests": false
         },
         "@schematics/angular:guard": {
-          "skipTests": true
+          "skipTests": false
         },
         "@schematics/angular:module": {
-          "skipTests": true
+          "skipTests": false
         },
         "@schematics/angular:pipe": {
-          "skipTests": true
+          "skipTests": false
         },
         "@schematics/angular:service": {
-          "skipTests": true
+          "skipTests": false
         }
       },
       "architect": {
@@ -45,9 +45,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/froala-editor/css/froala_editor.pkgd.min.css",
+              "./node_modules/froala-editor/css/froala_style.min.css"
+             
             ],
-            "scripts": [],
+            "scripts": ["./node_modules/froala-editor/js/froala_editor.pkgd.min.js"],
             "es5BrowserSupport": true
           },
           "configurations": {

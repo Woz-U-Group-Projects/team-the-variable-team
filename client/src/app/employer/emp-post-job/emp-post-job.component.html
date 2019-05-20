@@ -1,0 +1,69 @@
+<ng-template #content let-modal >
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form class="needs-novalidation" validate>
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="validationCustom01">Job Title</label>
+          <input type="text" class="form-control" id="validationCustom01" placeholder="Job Title" value="" required>
+         
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="validationCustom02">Job Location</label>
+          <input type="text" class="form-control" id="validationCustom02" placeholder="Job Location" value="" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="basic-url">Website</label>
+          <div class="input-group mb-3">
+            
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="https://example.com">
+          </div>
+        </div>
+      </div>
+      <div class="move form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom03">Job Phone Numer</label>
+          <input type="tel" class="email form-control" id="validationCustom03" placeholder="(eg)386-210-5555" required>
+          <div class="invalid-feedback">
+            Please provide a valid phone number.
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="validationCustom04">Job Email</label>
+          <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+          <div class="invalid-feedback">
+            Please provide a valid Email.
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Enter Job Description Bellow</span>
+        </div>
+       
+        
+       
+        <div id="edit" [froalaEditor] >Enter Job Description</div> 
+        
+      </div>
+      <button class="btn btn-primary" type="submit">Post Job</button>
+    </form>
+    
+  </div>
+  <div class="modal-footer">
+    <button type="button" id="btn-close" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<button class="btn btn-outline-primary mb-2 mr-2" (click)="openLg(content)">Post a Job</button>
+
