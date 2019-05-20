@@ -15,8 +15,7 @@ const httpOptions = {
 })
 
 export class StdJobPostsService {
-  // tslint:disable-next-line:no-inferrable-types
-  StdJobURL: string = 'http://localhost:4001/users/students/stdjobposts';
+  StdJobURL: string = 'http://localhost:4001/users/stdjobposts';
   constructor(private http: HttpClient) { }
   getStdJobs() {
     return this.http.get(this.StdJobURL);

@@ -47,41 +47,41 @@ router.post('/employers', (req, res) => {
 });
 
 /* Route for Employer Job Posts */
-router.get('/employers/empjobposts', function (req, res, next) {
+router.get('/empjobposts', function (req, res, next) {
   models.Emp_JobPosts.findAll({}).then(empJobPosts => {
     res.send(JSON.stringify(empJobPosts));
   });
 });
 
 /* Route for Employer Job Posts By Id */
-router.get('/employers/empjobposts/:id', function (req, res) {
+router.get('/empjobposts/:id', function (req, res) {
   let empJobId = parseInt(req.params.id);
   models.Emp_JobPosts.findOne({
     where: {
-      JobID: empJobId
+      EmpJobID: empJobId
     }
   }).then(empJobPost =>
     res.send(JSON.stringify(empJobPost)));
 });
 
 /* Route for Creating Employer Job Posts */
-router.post('/employers/empjobposts', (req, res) => {
+router.post('/empjobposts', (req, res) => {
   models.Emp_JobPosts
     .findOrCreate({
       where: {
-        JobName: req.body.JobName,
-        JobLocation: req.body.JobLocation,
-        JobWebsite: req.body.JobWebsite,
-        JobContactNum: req.body.JobContactNum,
-        JobEmail: req.body.JobEmail,
-        JobDescription: req.body.JobDescription,
-        JobPostedDate: req.body.JobPostedDate,
-        JobCreatedById: req.body.JobCreatedById,
+        EmpJobName: req.body.JobName,
+        EmpJobLocation: req.body.JobLocation,
+        EmpJobWebsite: req.body.JobWebsite,
+        EmpJobContactNum: req.body.JobContactNum,
+        EmpJobEmail: req.body.JobEmail,
+        EmpJobDescription: req.body.JobDescription,
+        EmpJobPostedDate: req.body.JobPostedDate,
+        EmpJobCreatedById: req.body.JobCreatedById,
       }
     })
     .spread(function (result, created) {
       if (created) {
-        res.redirect('/users/employers/empjobposts');
+        res.redirect('/users/empjobposts');
       } else {
         res.send('This Job already exists!');
       }
@@ -138,41 +138,41 @@ router.post('/students', (req, res) => {
 });
 
 /* Route for Student Job Posts */
-router.get('/students/stujobposts', function (req, res, next) {
+router.get('/stdjobposts', function (req, res, next) {
   models.Std_JobPosts.findAll({}).then(stuJobPosts => {
     res.send(JSON.stringify(stuJobPosts));
   });
 });
 
 /* Route for Student Job Posts by ID */
-router.get('/students/stujobposts/:id', function (req, res) {
+router.get('/stdjobposts/:id', function (req, res) {
   let stdJobId = parseInt(req.params.id);
   models.Std_JobPosts.findOne({
     where: {
-      JobID: stdJobId
+      StdJobID: stdJobId
     }
   }).then(stdJobPost =>
     res.send(JSON.stringify(stdJobPost)));
 });
 
 /* Route for Creating Student Job Posts */
-router.post('/students/stdjobposts', (req, res) => {
+router.post('/stdjobposts', (req, res) => {
   models.Std_JobPosts
     .findOrCreate({
       where: {
-        JobName: req.body.JobName,
-        JobLocation: req.body.JobLocation,
-        JobWebsite: req.body.JobWebsite,
-        JobContactNum: req.body.JobContactNum,
-        JobEmail: req.body.JobEmail,
-        JobDescription: req.body.JobDescription,
-        JobPostedDate: req.body.JobPostedDate,
-        JobCreatedById: req.body.JobCreatedById
+        StdJobName: req.body.JobName,
+        StdJobLocation: req.body.JobLocation,
+        StdJobWebsite: req.body.JobWebsite,
+        StdJobContactNum: req.body.JobContactNum,
+        StdJobEmail: req.body.JobEmail,
+        StdJobDescription: req.body.JobDescription,
+        StdJobPostedDate: req.body.JobPostedDate,
+        StdJobCreatedById: req.body.JobCreatedById
       }
     })
     .spread(function (result, created) {
       if (created) {
-        res.redirect('/users/students/stdjobposts');
+        res.redirect('/users/stdjobposts');
       } else {
         res.send('This job already exists!');
       }

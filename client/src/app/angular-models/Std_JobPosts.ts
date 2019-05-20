@@ -1,11 +1,11 @@
 export class StdJobPosts {
-    jobId: number;
-    jobName: string;
-    jobLocation: string;
-    jobWebsite: string;
-    jobContactNum: string;
-    jobEmail: string;
-    jobDescription: string;
-    jobPostedDate: Date;
-    jobCreatedById: number
+    stdJobId: number;
+    stdJobName: string;
+    stdJobLocation: string;
+    stdJobWebsite: string;
+    stdJobContactNum: string;
+    stdJobEmail: string;
+    stdJobDescription: string;
+    stdJobPostedDate: string;
+    stdJobCreatedById: number
 }

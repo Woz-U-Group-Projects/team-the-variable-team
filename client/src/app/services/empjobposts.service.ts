@@ -15,8 +15,7 @@ const httpOptions = {
 })
 
 export class EmpJobPostsService {
-  // tslint:disable-next-line:no-inferrable-types
-  EmpJobURL: string = 'http://localhost:4001/users/employers/empjobposts';
+  EmpJobURL: string = 'http://localhost:4001/users/empjobposts';
   constructor(private http: HttpClient) { }
   getEmpJobs() {
     return this.http.get(this.EmpJobURL);

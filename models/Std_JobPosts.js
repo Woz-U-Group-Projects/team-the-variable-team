@@ -3,19 +3,19 @@ module.exports = (sequelize, DataTypes) => {
     const Std_JobPosts = sequelize.define(
         'Std_JobPosts',
         {
-            JobID: {
+            StdJobID: {
                 type: DataTypes.INTEGER,
                 autoIncrement: true,
                 primaryKey: true
             },
-            JobName: DataTypes.STRING,
-            JobLocation: DataTypes.STRING,
-            JobWebsite: DataTypes.STRING,
-            JobContactNum: DataTypes.STRING,
-            JobEmail: DataTypes.STRING,
-            JobDescription: DataTypes.STRING,
-            JobPostedDate: DataTypes.DATE,
-            JobCreatedById: DataTypes.INTEGER,
+            StdJobName: DataTypes.STRING,
+            StdJobLocation: DataTypes.STRING,
+            StdJobWebsite: DataTypes.STRING,
+            StdJobContactNum: DataTypes.STRING,
+            StdJobEmail: DataTypes.STRING,
+            StdJobDescription: DataTypes.STRING,
+            StdJobPostedDate: DataTypes.STRING,
+            StdJobCreatedById: DataTypes.INTEGER,
         },
         {
             timestamps: false
@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     Std_JobPosts.associate = function (models) {
         // associations can be defined here
         Std_JobPosts.belongsTo(models.Std_Users, {
-            foreignKey: 'JobCreatedById',
+            foreignKey: 'StdJobCreatedById',
             as: 'StudentID'
         });
     }
