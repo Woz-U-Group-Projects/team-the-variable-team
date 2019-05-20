@@ -1,12 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EmpUsersService } from '../../services/empusers.service';
+
 //I imported the model for the types by Joe salaz
+
+import { EmpUsersService } from '../../services/empusers.service';
 import { EmpUsers } from '../../angular-models/Emp_Users';
 
 @Component({
   selector: 'app-emp-profile',
-  templateUrl: './emp-profile.component.html',
+  templateUrl:'./emp-profile.component.html',
   styleUrls: ['./emp-profile.component.css']
 })
 export class EmpProfileComponent implements OnInit {
@@ -23,5 +25,3 @@ export class EmpProfileComponent implements OnInit {
     });
   }
 }
-
-

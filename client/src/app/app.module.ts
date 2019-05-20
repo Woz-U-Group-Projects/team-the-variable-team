@@ -6,7 +6,7 @@ import { CustomMaterialModule } from './core/material.module';
 import { AppRoutingModule, } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmpSignupComponent } from './employer/emp-signup/emp-signup.component';
-import { EmpProfileComponent } from './employer/emp-profile/emp-profile.component';
+
 import { StdProfileComponent } from './student/std-profile/std-profile.component';
 import { StdSignupComponent } from './student/std-signup/std-signup.component';
 import { LoginComponent } from './login/login.component';
@@ -14,19 +14,24 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 import { EmpProfEditComponent } from './employer/emp-prof-edit/emp-prof-edit.component';
 import { AdminComponent } from './admin/admin.component';
-import { MatToolbarModule } from '@angular/material';
+
 import { HttpClientModule } from '@angular/common/http';
 import { DisplayEmployersComponent } from './employer/display-employers/display-employers.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { EmpJobpostsComponent } from './employer/emp-jobposts/emp-jobposts.component';
 import { StdJobpostsComponent } from './student/std-jobposts/std-jobposts.component';
+import { MatToolbarModule } from '@angular/material';
+import { EmpProfileComponent } from './employer/emp-profile/emp-profile.component';
+import { EmpPostJobModule } from './employer/emp-post-job/emp-post-job.module';
+//Text Editor Imports
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     EmpSignupComponent,
-    EmpProfileComponent,
+    
     StdProfileComponent,
     StdSignupComponent,
     LoginComponent,
@@ -35,10 +40,12 @@ import { StdJobpostsComponent } from './student/std-jobposts/std-jobposts.compon
     DisplayEmployersComponent,
     HeaderComponent,
     EmpJobpostsComponent,
-    StdJobpostsComponent
+    StdJobpostsComponent,
+    EmpProfileComponent,
+    
   ],
   imports: [
-    NgbModule.forRoot(),
+    NgbModule,
     BrowserModule,
     AppRoutingModule,
     RouterModule,
@@ -46,9 +53,15 @@ import { StdJobpostsComponent } from './student/std-jobposts/std-jobposts.compon
     CustomMaterialModule,
     FormsModule,
     MatToolbarModule,
-    HttpClientModule
+    HttpClientModule,
+    EmpPostJobModule,
+    //Text Editor Imports
+    FroalaEditorModule.forRoot(), 
+    FroalaViewModule.forRoot()
+   
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
