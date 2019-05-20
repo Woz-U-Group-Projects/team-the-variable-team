@@ -1,336 +1,143 @@
-<!-- <div class="body">
-    <div class="container emp-profile">
-        <form method="post">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="profile-img">
-                        <img class="logo" src="../../../assets/images/images.jpg" alt="" />
-
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="profile-head">
-                        <h5>
-                            Joe Salaz lol
-                        </h5>
-                        <h6>
-                            Woz-U
-                            <p> {{ student.Major }} </p>
-                            <p> {{student.StdGPA}} </P>
-                        </h6>
-                        <p class="proile-rating">RANKINGS : <span>8/10</span></p>
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                    aria-controls="home" aria-selected="true">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                                    aria-controls="profile" aria-selected="false">Details</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Send Message" />
-                </div>
-            </div>
-        </form>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="profile-student">
-                    <p>STUDENT LINK</p>
-
-                    <a href="">Linkedin</a><br />
-                    <a href="">Facebook</a>
-
-                    <p>Courses Enrolled/Completed</p>
-                    <p>{{ student.CoursesEnrolled }}</p>
-                    <p>{{ student.CoursesCompleted }}</p> <br />
-
-                    <p>Skills</p>
-                    <p>{{ student.Skills }}</p><br />
-                    <p>{{ student.StdAwards }}</p>
-
-                    <p>Scholarships</p>
-                    <p>{{ student.StdScholarships }}</p<br />
-
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="tab-content profile-tab" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>User Id</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{ student.Username }}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Email</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{ student.StdEmail }}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Phone</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{ student.StdContactNum }}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Education History</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{ student.StdExperience }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <div id="content" class="col-md-12">
-                            <p id="p1">
-                                Advanced is seeking a talented and professional Full Stack Web Developer in our Port
-                                Orange, FL office.
-                                This individual will be joining a team that is responsible for a robust web application
-                                that supports the business,
-
-                                and our public facing websites.The internal web application hosts a full suite of
-                                modules that include, but
-                                not limited to:
-                                client services, candidate tracking,
-                                marketing automation, billing, and more.
-                                Were looking for a good team player that embraces working in a fast paced, agile
-                                environment. Also, someone that is a strong communicator that will continue to challenge
-                                the
-                                team and push the limits of our products.
-
-
-                                You will...
-                            </p>
-
-
-
-                            <ul>
-                                <li>Collaborate with the team to develop amazing features and products;</li>
-                                <li>Strive for high quality and rapid output through the use of agile software
-                                    development best practices;</li>
-                                <li>Adhere to coding, compliance, & security standards;</li>
-                                <li>Optimize websites and applications to ensure quick page loads;</li>
-                                <li>Maintain well-documented...</li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div> -->
-
-<!-- <div class="body">
-
-<div class="profile_left">
-    <img src="">
-
-    <div class="profile_info">
-        <p>Posts: " user_array['num_posts']</p>
-        <p>Likes: " user_array['num_likes']</p>
-        <p>"Friends: num_friends</p>
-    </div>
-
-    <form >
-       
-               <input type="submit" name="remove_friend" class="danger" value="Remove Friend"><br>
-           <input type="submit" name="respond_request" class="warning" value="Respond to Request"><br>';
-         
-                <input type="submit" name="" class="default" value="Request Sent"><br>
-          <input type="submit" name="add_friend" class="success" value="Add Friend"><br>
-
-     
-
-
-    </form>
-
-
-
-
-<div class="main_column column">
-   username
-   
-
-
-</div>
-
-
-</div>
-
-
-</div> -->
-
-<div class="wrapper">
-    <div class="user_details column">
-
-            <img class="logo" id="logo" src="../../../assets/images/images.jpg" alt="" />
-            <div class="user_details_left_right">
-            User Name: <a href="#">{{employer.Username}}</a><br>
-           Company: <a href="#">{{employer.CompanyName}}</a>
-           <a href="#"></a>
-           </div>
-        </div>
-        <div class="main_column column"></div>
-</div>
-
-
-
-
-<router-outlet></router-outlet>
-
 <div class="container std-profile">
     <form method="post">
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
-                    <img class="logo" src="../../../assets/images/webDev.jpg" alt=""/>
-                    
+                    <img class="logo" src="../../../assets/images/webDev.jpg" alt="" />
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="profile-head">
-                            <h5>
-                                Joe Salaz
-                            </h5>
-                            <h6>
-                                Web Developer and Designer
-                            </h6>
-                            <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                    <h3>{{student.FirstName}} {{student.LastName}}</h3>
+                    <h4>Course: {{student.Major}}</h4>
+                    <h4>GPA: {{student.StdGPA}}</h4>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Detalis</a>
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                aria-controls="profile" aria-selected="false">Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="connections-tab" data-toggle="tab" href="#connections" role="tab"
+                                aria-controls="friends" aria-selected="false">Connections</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="jobs-tab" data-toggle="tab" href="#jobs" role="tab"
+                                aria-controls="jobs" aria-selected="false">Jobs</a>
                         </li>
                     </ul>
                 </div>
-            </div>
-            <div class="col-md-2">
-                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Message"/>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-work">
-                    <p>WORK LINK</p>
-                    <a href="">Website Link</a><br/>
-                    <a href="">Bootsnipp Profile</a><br/>
-                    <a href="">Bootply Profile</a>
-                    <p>SKILLS</p>
-                    <a href="">Web Designer</a><br/>
-                    <a href="">Web Developer</a><br/>
-                    <a href="">WordPress</a><br/>
-                    <a href="">WooCommerce</a><br/>
-                    <a href="">PHP, .Net</a><br/>
+                    <h4>Social:</h4>
+                    <a href="">Facebook</a><br />
+                    <a href="">Twitter</a><br />
+                    <a href="">GitHub</a><br />
+                    <a href="">LinkedIn</a>
+                    <h4>Skills:</h4>
+                    <p>{{student.StdSkills}}</p>
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="tab-content profile-tab" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>User Id</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>hect089</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Name</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>Hetor</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Email</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>hecto@gmail.com</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Phone</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>123-456-7890</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Profession</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>Web Developer and Designer</p>
-                                    </div>
-                                </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>User Id:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{student.Username}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Contact Number:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{student.StdContactNum}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Email:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{student.StdEmail}}</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Experience</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>Expert</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>More text</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>More stuff</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>My Projects</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>Motre projects</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>English Level</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>Expert</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Availability</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>6 months</p>
-                                    </div>
-                                </div>
                         <div class="row">
-                         
+                            <div class="col-md-6">
+                                <label>Experience:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{student.StdExperience}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Courses Enrolled:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{student.CoursesEnrolled}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Courses Completed:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{student.CoursesCompleted}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Awards:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{student.StdAwards}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Scholarships:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{student.StdScholarships}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="connections" role="tabpanel" aria-labelledby="connections-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>
+                                    <h3>Connections:</h3>
+                                </label>
+                            </div>
+                            <div class="col-md-6">
+                                <form>
+                                    <input type="submit" name="remove_friend" class="danger" value="Remove Friend"><br>
+                                    <input type="submit" name="respond_request" class="warning"
+                                        value="Respond to Request"><br>
+                                    <input type="submit" name="" class="default" value="Request Sent"><br>
+                                    <input type="submit" name="add_friend" class="success" value="Add Friend"><br>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </form>           
+    </form>
 </div>
+
+<router-outlet></router-outlet>
