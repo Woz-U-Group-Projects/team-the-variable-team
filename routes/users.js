@@ -41,6 +41,9 @@ router.post('/login', function(req, res, next) {
   });
 });
 
+router.get('/logout', function(req, res, next) {
+  res.json('logged out');
+});
 
 /* Employer Routes */
 router.get('/employers', function (req, res, next) {
