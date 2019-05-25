@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
+import { EmpUsersService } from '../services/empusers.service';
 
 
 @Component({
@@ -10,7 +11,10 @@ import { MatDialog } from '@angular/material';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private empUsersService: EmpUsersService
+  ) { }
   username: string;
   password: string;
 
@@ -18,11 +22,13 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    if (this.username === 'admin' && this.password === 'admin') {
-      this.router.navigate(['admin']);
-    } else {
-      alert('Invalid credentials');
-    }
+    this.empUsersService.employerSignin({
+      username: this.username,
+      password: this.password
+    })
+    .subscribe(res => {
+      console.log(res)
+    })
   }
 
   empsignup(): void {

@@ -15,7 +15,7 @@ export class EmpSignupComponent implements OnInit {
 
   addEmployer(): void {
     this.empUsersService.addEmployer(this.empUsers).subscribe(() => {
-      this.router.navigate(['/login-page'])
+      this.router.navigate(['login-page'])
     })
   }
 

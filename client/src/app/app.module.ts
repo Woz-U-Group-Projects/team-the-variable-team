@@ -25,6 +25,8 @@ import { EmpProfileComponent } from './employer/emp-profile/emp-profile.componen
 import { EmpPostJobModule } from './employer/emp-post-job/emp-post-job.module';
 //Text Editor Imports
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { StudentsSearchComponent } from './students-search/students-search.component';
+import { StudentsListComponent } from './students-list/students-list.component';
 
 
 @NgModule({
@@ -42,6 +44,8 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
     EmpJobpostsComponent,
     StdJobpostsComponent,
     EmpProfileComponent,
+    StudentsSearchComponent,
+    StudentsListComponent,
     
   ],
   imports: [
@@ -53,12 +57,12 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
     CustomMaterialModule,
     FormsModule,
     MatToolbarModule,
-    HttpClientModule,
+    
     EmpPostJobModule,
     //Text Editor Imports
     FroalaEditorModule.forRoot(), 
-    FroalaViewModule.forRoot()
-   
+    FroalaViewModule.forRoot(),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

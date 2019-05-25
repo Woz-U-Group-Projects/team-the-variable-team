@@ -2,15 +2,17 @@
     background: #097f94;
 }
 .btn{
-    margin-left:82%;
-    margin-top:100px;
+    margin-top:20px;
     max-width:150px;
     height: auto;
     font-size:0.8em; 
     font-weight: 900;
 }
 
-
+.btn-container {
+    display: flex;
+    justify-content: flex-end;
+}
 
 .modal-footer{
     height:100px;
@@ -30,4 +32,8 @@
 }
 #inputEmail{
     width:100%;
+}
+
+.modal-title{
+    color:#fff;
 }
