@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  
+  searchText: string;
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
   }
 
+  /**
+   * Make the search request
+   */
+  search(): void {
+    if (this.searchText) {
+      this.router.navigateByUrl("/students/" + this.searchText);
+    }
+  }
 }

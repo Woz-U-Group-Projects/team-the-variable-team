@@ -13,28 +13,20 @@ const httpOptions = {
     providedIn: 'root'
 })
 export class EmpUsersService {
-    EmpURL: string = 'http://localhost:4001/users/employers';
-    constructor(private http: HttpClient) {}
-
-    options = { withCredentials: true };
-
-    loggedIn: boolean = false;
-
-    loginEmp(employer: EmpUsers): Observable<string> {
-        return this.http.post<string>(this.EmpURL + "/login", employer, this.options);
-    }
-
-    logoutEmp(): Observable<string> {
-        return this.http.get<string>(this.EmpURL + "/logout", this.options);
-    }
+    // tslint:disable-next-line:no-inferrable-types
     
+    constructor(private http: HttpClient) { }
+    EmpURL: string = 'http://localhost:4001/users/employers';
+    EmpSigninURL: string = 'http://localhost:4001/users/login';
+    employerSignin(data) {
+        return this.http.post(this.EmpSigninURL, data, httpOptions);
+    }
     getEmployers() {
         return this.http.get(this.EmpURL);
     }
     getEmployer(id) {
         return this.http.get(`${this.EmpURL}/${id}`);
     }
-
     addEmployer(empUsers: EmpUsers): Observable<EmpUsers> {
         return this.http.post<EmpUsers>(this.EmpURL, empUsers, httpOptions);
     }

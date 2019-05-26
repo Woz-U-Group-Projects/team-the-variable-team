@@ -16,7 +16,13 @@ const httpOptions = {
 
 export class EmpJobPostsService {
   EmpJobURL: string = 'http://localhost:4001/users/empjobposts';
+  // Url to get employer job posts by created id
+  EmpJobCreatedURL: string = 'http://localhost:4001/users/empjobpostsbycreated';
+  // Url to get employer job posts by created id
+  EmpJobUpdateURL: string = 'http://localhost:4001/users/empjobpostsupdate';
+  
   constructor(private http: HttpClient) { }
+
   getEmpJobs() {
     return this.http.get(this.EmpJobURL);
   }
@@ -25,5 +31,11 @@ export class EmpJobPostsService {
   }
   addEmpJob(empJobPosts: EmpJobPosts): Observable<EmpJobPosts> {
     return this.http.post<EmpJobPosts>(this.EmpJobURL, empJobPosts, httpOptions);
+  }
+  updateEmpJob(id, update): Observable<EmpJobPosts> {
+    return this.http.put<EmpJobPosts>(`${this.EmpJobUpdateURL}/${id}`, update, httpOptions);
+  }
+  getEmpJobsByCreated(id) {
+    return this.http.get(`${this.EmpJobCreatedURL}/${id}`);
   }
 }

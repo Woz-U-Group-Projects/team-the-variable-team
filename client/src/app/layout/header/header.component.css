@@ -7,16 +7,42 @@
 	display: inline-flex;
 	position: fixed;
 	z-index: 10;
-height:auto;
-border-bottom:5px solid #2980b9;
+	height:auto;
+	border-bottom:5px solid #2980b9;
+	padding: 15px 0px;
 }
 
 .logo{
-width:25%;
-margin-left: 20px;
-
+	margin: 0px 10px;
 }
+
 img{
     max-width: 150px;
 }
 
+.header-search-container {
+	display: flex;
+	background: #fff;
+	align-items: center;
+}
+
+.header-search-container .form-control {
+	border: none;
+}
+
+.header-search-container .form-control:active,
+.header-search-container .form-control:focus {
+	outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.header-search-container .header-search-btn {
+	width: initial;
+	padding: 0px 8px;
+	cursor: pointer;
+}
+
+.header-search-container .header-search-btn img {
+	width: 25px;
+}

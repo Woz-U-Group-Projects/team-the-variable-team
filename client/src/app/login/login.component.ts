@@ -13,17 +13,23 @@ import { MatDialog } from '@angular/material';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  empUser: EmpUsers = new EmpUsers();
-  stdUser: StdUsers = new StdUsers();
-  constructor(private empUsersService: EmpUsersService, private stdUsersService: StdUsersService,private router: Router) {}
+
+  constructor(
+    private router: Router,
+    private empUsersService: EmpUsersService
+  ) { }
+  username: string;
+  password: string;
+
 
   login(): void {
-    this.empUsersService.loginEmp(this.empUser).subscribe(() => {
-      this.empUsersService.getEmployers().subscribe(() => {
-        this.empUsersService.loggedIn = true;
-        this.router.navigate(["/:id"]);
-      });
-    });
+    this.empUsersService.employerSignin({
+      username: this.username,
+      password: this.password
+    })
+    .subscribe(res => {
+      console.log(res)
+    })
   }
 
   empsignup(): void {
