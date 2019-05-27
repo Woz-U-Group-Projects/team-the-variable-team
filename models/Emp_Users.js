@@ -1,4 +1,5 @@
 'use strict';
+const bcrypt = require("bcrypt");
 module.exports = (sequelize, DataTypes) => {
     const Emp_Users = sequelize.define(
         'Emp_Users',
@@ -18,11 +19,28 @@ module.exports = (sequelize, DataTypes) => {
             Password: DataTypes.STRING,
         },
         {
-            timestamps: false
+            timestamps: false,
+            instanceMethods: {
+                validPassword: (Password) => {
+                    return bcrypt.compare(Password, this.Password);
+                }
+            }
         }
     );
+    Emp_Users.prototype.validPassword = function validPassword(Password) {
+        return bcrypt.compare(Password, this.Password);
+    }
     Emp_Users.associate = function(models) {
         // associations can be defined here
-      };
+    };
+    Emp_Users.beforeCreate((user, options) => {
+        return bcrypt.hash(user.Password, 10)
+        .then(hash => {
+            user.Password = hash;
+        })
+        .catch(err => { 
+            throw new Error(); 
+        });
+    });
     return Emp_Users;
 };

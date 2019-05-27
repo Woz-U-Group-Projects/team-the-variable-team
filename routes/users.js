@@ -2,48 +2,9 @@ var express = require('express');
 var router = express.Router();
 const sqlite = require('sqlite3').verbose();
 var models = require('../models');
-
-/* Login Routes */
-router.get('/login', function(req, res, next) {
-  res.render('login');
-});
-
-router.post('/login', function(req, res, next) {
-  models.Admin_Users.findOne({
-    where: {
-      Username: req.body.Username
-    }
-  })
-  .then(adminUser => {
-    res.redirect('/users/adminusers/' + adminUser.AdminID)
-  });
-});
-
-router.post('/login', function(req, res, next) {
-  models.Emp_Users.findOne({
-    where: {
-      Username: req.body.Username
-    }
-  })
-  .then(employerUser => {
-    res.redirect('/users/employers/' + employerUser.ID)
-  });
-});
-
-router.post('/login', function(req, res, next) {
-  models.Std_Users.findOne({
-    where: {
-      Username: req.body.Username
-    }
-  })
-  .then(studentUser => {
-    res.redirect('/users/students/' + studentUser.StudentID)
-  });
-});
-
-router.get('/logout', function(req, res, next) {
-  res.json('logged out');
-});
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
+var passport = require('passport')
 
 /* Employer Routes */
 router.get('/employers', function (req, res, next) {
@@ -105,6 +66,37 @@ router.get('/empjobposts/:id', function (req, res) {
     res.send(JSON.stringify(empJobPost)));
 });
 
+/* Route for Employer Job Posts Update */
+router.put('/empjobpostsupdate/:id', function (req, res, next) {
+  let empJobId = parseInt(req.params.id);
+  models.Emp_JobPosts.update(
+    {
+      EmpJobName: req.body.JobName,
+      EmpJobLocation: req.body.JobLocation,
+      EmpJobWebsite: req.body.JobWebsite,
+      EmpJobContactNum: req.body.JobContactNum,
+      EmpJobEmail: req.body.JobEmail,
+      EmpJobDescription: req.body.JobDescription,
+      EmpJobPostedDate: req.body.JobPostedDate,
+      EmpJobCreatedById: req.body.JobCreatedById
+    },
+    {
+      where: { EmpJobID: empJobId }
+    }
+  ).then(rowsUpdated => {
+    if (rowsUpdated > 0) {
+      // If updated, return the success
+      res.send(JSON.stringify({
+        success: true
+      }));
+    }
+    else {
+      res.send('No rows were updated');
+    }
+  })
+  .catch(next);
+});
+
 /* Route for Creating Employer Job Posts */
 router.post('/empjobposts', (req, res) => {
   models.Emp_JobPosts
@@ -117,16 +109,27 @@ router.post('/empjobposts', (req, res) => {
         EmpJobEmail: req.body.JobEmail,
         EmpJobDescription: req.body.JobDescription,
         EmpJobPostedDate: req.body.JobPostedDate,
-        EmpJobCreatedById: req.body.JobCreatedById,
+        EmpJobCreatedById: req.body.JobCreatedById
       }
     })
     .spread(function (result, created) {
       if (created) {
-        res.redirect('/users/empjobposts');
+        res.send(JSON.stringify(result));
       } else {
         res.send('This Job already exists!');
       }
     });
+});
+
+/* Route for Employer Job Posts By EmpJobCreatedById */
+router.get('/empjobpostsbycreated/:id', function (req, res) {
+  let createdById = parseInt(req.params.id);
+  models.Emp_JobPosts.findAll({
+    where: {
+      EmpJobCreatedById: createdById
+    }
+  }).then(empJobPost =>
+    res.send(JSON.stringify(empJobPost)));
 });
 
 /* Student Routes */
@@ -147,6 +150,18 @@ router.get('/students/:id', function (req, res) {
     res.send(JSON.stringify(student)));
 });
 
+/* Route for Students by skill  */
+router.get('/studentssearch/:skill', function (req, res) {
+  models.Std_Users.findAll({
+    where: {
+      StdSkills: {
+        [Op.like]: '%' + req.params.skill + '%'
+      }
+    }
+  }).then(student =>
+    res.send(JSON.stringify(student)));
+});
+
 /* Route for Creating Student Profile */
 router.post('/students', (req, res) => {
   models.Std_Users
@@ -156,7 +171,7 @@ router.post('/students', (req, res) => {
         LastName: req.body.LastName,
         StdEmail: req.body.StdEmail,
         StdContactNum: req.body.StdContactNum,
-        ResumeOnFile: req.body.ResumeOnFile,
+        // ResumeOnFile: req.body.ResumeOnFile,
         Major: req.body.Major,
         CoursesEnrolled: req.body.CoursesEnrolled,
         CoursesCompleted: req.body.CoursesCompleted,
@@ -218,6 +233,28 @@ router.post('/stdjobposts', (req, res) => {
         res.send('This job already exists!');
       }
     });
+});
+
+router.post('/login',
+  function(req, res, next) {
+    passport.authenticate('local', function(err, user, info) {
+      if (err) { return next(err); }
+      if (!user) { return res.send({ success: false}); }
+      
+      req.logIn(user, (err) => {
+        if (err) { return next(err); }
+        
+        var type = req.body.userType;
+        if (type == 'student') {
+          return res.send({ success: true, id: user.StudentID });
+        }
+        else if (type == 'employer') {
+          return res.send({ success: true, id: user.ID });
+        }
+        return res.send({ success: true });
+      });
+      
+    })(req, res, next);
 });
 
 module.exports = router;
