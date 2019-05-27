@@ -1,6 +1,5 @@
 .header{
     width:100%;
-    min-width: 1050px;
     background-color: #20aae5;
 	border-bottom: 0.25em solid #1894ca;
 	margin: 0 0 10px 0;
@@ -45,4 +44,65 @@ img{
 
 .header-search-container .header-search-btn img {
 	width: 25px;
+}
+
+.logo-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+a.logout-btn:hover {
+	color: #fff;
+	font-weight: 600;
+}
+
+a.logout-btn {
+	padding: 10px;
+	color: #fff;
+	font-weight: 600;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.dropdown-menu {
+	padding: 0px;
+    max-width: 400px;
+    max-height: 400px;
+    overflow: auto;
+}
+
+.dropdown-item:active {
+	background: #fff;
+}
+
+.avatar {
+	width: 20px;
+}
+
+.dropdown-item {
+	cursor: pointer;
+	border-bottom: 1px solid #999;
+	padding: 20px;
+}
+
+.dropdown-item p {
+    margin: 0px;
+	overflow: hidden;
+	text-overflow: ellipsis
+}
+
+.dropdown-item .date {
+    font-size: 12px;
+    color: #999;
+}
+
+.dropdown-item.unread .date {
+	color: #000;
+}
+
+.dropdown-item.unread {
+	font-weight: bold;
 }

@@ -20,7 +20,7 @@ import { DisplayEmployersComponent } from './employer/display-employers/display-
 import { HeaderComponent } from './layout/header/header.component';
 import { EmpJobpostsComponent } from './employer/emp-jobposts/emp-jobposts.component';
 import { StdJobpostsComponent } from './student/std-jobposts/std-jobposts.component';
-import { MatToolbarModule } from '@angular/material';
+import { MatToolbarModule, MatSelectModule } from '@angular/material';
 import { EmpProfileComponent } from './employer/emp-profile/emp-profile.component';
 import { EmpPostJobModule } from './employer/emp-post-job/emp-post-job.module';
 //Text Editor Imports
@@ -57,7 +57,7 @@ import { StudentsListComponent } from './students-list/students-list.component';
     CustomMaterialModule,
     FormsModule,
     MatToolbarModule,
-    
+    MatSelectModule,
     EmpPostJobModule,
     //Text Editor Imports
     FroalaEditorModule.forRoot(), 

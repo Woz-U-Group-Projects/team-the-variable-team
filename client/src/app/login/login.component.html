@@ -7,16 +7,32 @@
     <form class="card">
       <table class="example-full-width" cellspacing="0">
         <tr>
+          <td class="mat-error" *ngIf="loginError">
+            Incorrect username and/or password
+          </td>
+        </tr>
+        <br />
+        <tr>
           <td>
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+              <mat-select placeholder="User Type" [(ngModel)]="type" name="type" required (change)="loginError = false;">
+                <mat-option value="student">Student</mat-option>
+                <mat-option value="employer">Employer</mat-option>
+              </mat-select>
             </mat-form-field>
           </td>
         </tr>
         <tr>
           <td>
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
+              <input matInput placeholder="Username" [(ngModel)]="username" name="username" required (input)="loginError = false;">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required (input)="loginError = false;">
             </mat-form-field>
           </td>
         </tr>
@@ -25,7 +41,7 @@
     <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
   </mat-card-content>
   <mat-card-actions class="card">
-    <button  mat-raised-button (click)="login()" color="primary">Login</button>
+    <button  mat-raised-button (click)="login(type)" color="primary">Login</button>
   </mat-card-actions>
   <mat-card-actions class="card">
     <button mat-raised-button (click)="empsignup()" color="primary">Employer Signup</button>

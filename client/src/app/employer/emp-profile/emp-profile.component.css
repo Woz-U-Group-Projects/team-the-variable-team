@@ -108,43 +108,6 @@ textarea:focus {
 	border-radius: 5px;
 }
 
-#comment_iframe {
-	max-height: 250px;	
-	width: 100%;
-	margin-top: 5px;
-}
-
-.comment_section {
-	padding: 0 5px 5px 5px;
-}
-
-.comment_section img {
-	margin: 0 3px 3px 3px;
-	border-radius: 3px;
-}
-
-#comment_form textarea {
-	border-color: #D3D3D3;
-	width: 85%;
-	height: 35px;
-	border-radius: 5px;
-	color: #616060;
-	font-size: 14px;
-	margin: 3px 3px 3px 5px;
-}
-#comment_form input[type="submit"] {
-	border:none;
-	background-color: #20AAE5;
-	color: #156588;
-	border-radius: 5px;
-	width: 13%;
-	height: 35px;
-	margin-top: 3px;
-	position: absolute;
-	font-family: 'Bellota-BoldItalic', sans-serif;
-	text-shadow: #73B6E2 0.5px 0.5px 0px;
-}
-
 .newsfeedPostOptions {
 	padding: 0px;
 	text-decoration: none;
@@ -156,17 +119,6 @@ textarea:focus {
 	border: 0px;
 	height: 17px;
 	width: 120px;
-}
-
-.comment_like {
-	background-color: transparent;
-	border: none;
-	font-size: 14px;
-	color: #3498db;
-	padding: 0;
-	height: auto;
-	width: auto;
-	margin: 0;
 }
 
 .like_value {
