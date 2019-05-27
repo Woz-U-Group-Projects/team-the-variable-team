@@ -54,7 +54,7 @@
       </div>
     </div>
     <div class="main_column employers-list-column">
-      <app-employers-list [employers]="employers"></app-employers-list>
+      <!-- <app-employers-list [employers]="employers"></app-employers-list> -->
       <div class="jobs-list-container">
         <div class="jobs-list column" *ngFor="let jobPost of jobPosts">
           <b>{{ jobPost.StdJobName }}</b>
@@ -88,10 +88,10 @@
         </div>
       </div>
       <div class="pop">
-        <app-std-post-job (jobCreated)="onJobCreated($event)"
+        <!-- <app-std-post-job (jobCreated)="onJobCreated($event)"
                           (jobUpdated)="onJobUpdated($event)"
                           #postJobForm>
-        </app-std-post-job>
+        </app-std-post-job> -->
       </div>
     </div>
   </div>
