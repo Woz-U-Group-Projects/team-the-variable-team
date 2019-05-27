@@ -3,6 +3,47 @@ var router = express.Router();
 const sqlite = require('sqlite3').verbose();
 var models = require('../models');
 
+/* Login Routes */
+router.get('/login', function(req, res, next) {
+  res.render('login');
+});
+
+router.post('/login', function(req, res, next) {
+  models.Admin_Users.findOne({
+    where: {
+      Username: req.body.Username
+    }
+  })
+  .then(adminUser => {
+    res.redirect('/users/adminusers/' + adminUser.AdminID)
+  });
+});
+
+router.post('/login', function(req, res, next) {
+  models.Emp_Users.findOne({
+    where: {
+      Username: req.body.Username
+    }
+  })
+  .then(employerUser => {
+    res.redirect('/users/employers/' + employerUser.ID)
+  });
+});
+
+router.post('/login', function(req, res, next) {
+  models.Std_Users.findOne({
+    where: {
+      Username: req.body.Username
+    }
+  })
+  .then(studentUser => {
+    res.redirect('/users/students/' + studentUser.StudentID)
+  });
+});
+
+router.get('/logout', function(req, res, next) {
+  res.json('logged out');
+});
 
 /* Employer Routes */
 router.get('/employers', function (req, res, next) {
@@ -115,7 +156,7 @@ router.post('/students', (req, res) => {
         LastName: req.body.LastName,
         StdEmail: req.body.StdEmail,
         StdContactNum: req.body.StdContactNum,
-        // ResumeOnFile: req.body.ResumeOnFile,
+        ResumeOnFile: req.body.ResumeOnFile,
         Major: req.body.Major,
         CoursesEnrolled: req.body.CoursesEnrolled,
         CoursesCompleted: req.body.CoursesCompleted,
