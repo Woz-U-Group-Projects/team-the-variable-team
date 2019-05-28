@@ -1,0 +1,6 @@
+<div class="students-list-container">
+  <app-students-list [students]="students"></app-students-list>
+</div>
+<div class="students-search-empty" *ngIf="!students?.length">
+  No students were found matching skill: '{{ search }}'
+</div>

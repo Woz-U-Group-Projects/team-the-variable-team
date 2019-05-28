@@ -1,129 +1,138 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-<title>Student Signup Form</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
-</head>
-<body>
-    <div class="container">
-        <h1>Student Profile Sign-Up</h1>
-        <hr>
-      <div class="row">
-          <!-- left column -->
-          <div class="col-md-3">
-            <div class="text-center">
-              <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-              <h6>Upload a different photo...</h6>
-              
-              <input type="file" class="form-control">
-            </div>
-          </div>
-          <!-- edit form column -->
-          <div class="col-md-9 personal-info">
-            <div class="alert alert-info alert-dismissable">
-              <a class="panel-close close" data-dismiss="alert">×</a> 
-              <i class="fa fa-coffee"></i>
-              Please complete each section.
-            </div>
-            <h3>Student info</h3>
-            
-            <form class="form-horizontal" role="form">
-              <div class="form-group">
-                <label class="col-lg-3 control-label">First name:</label>
-                <div class="col-lg-8">
-                  <input class="form-control" type="text" value="Jane">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-lg-3 control-label">Last name:</label>
-                <div class="col-lg-8">
-                  <input class="form-control" type="text" value="Bishop">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-lg-3 control-label">Contact:</label>
-                <div class="col-lg-8">
-                  <input class="form-control" type="text" value="844-959-0000">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-lg-3 control-label">Education History:</label>
-                <div class="col-lg-8">
-                <textarea class="form-control" type="text" rows="10" placeholder="Enter school name, courses completed/completing & years of experience"></textarea>
-              </div>
-            </div>
-              <div class="form-group">
-                <label class="col-lg-3 control-label">Links:</label>
-                <div class="col-lg-8">
-                  <input class="form-control" type="text" value="Include links to github, social media, and portfolio, personal site ">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-lg-3 control-label">Resume Name:</label>
-                <div class="col-lg-8">
-                  <input class="form-control" type="text" value="Jane_Bishop's_Resume">
-                  <input type="file" class="form-control">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-lg-3 control-label">Email:</label>
-                <div class="col-lg-8">
-                  <input class="form-control" type="text" value="janesemail@gmail.com">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-lg-3 control-label">Time Zone:</label>
-                <div class="col-lg-8">
-                  <div class="ui-select">
-                    <select id="user_time_zone" class="form-control">
-                      <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                      <option value="Alaska">(GMT-09:00) Alaska</option>
-                      <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
-                      <option value="Arizona">(GMT-07:00) Arizona</option>
-                      <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                      <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
-                      <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
-                      <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-3 control-label">Username:</label>
-                <div class="col-md-8">
-                  <input class="form-control" type="text" value="janeuser">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-3 control-label">Password:</label>
-                <div class="col-md-8">
-                  <input class="form-control" type="password" value="11111122333">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-3 control-label">Confirm password:</label>
-                <div class="col-md-8">
-                  <input class="form-control" type="password" value="11111122333">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-3 control-label"></label>
-                <div class="col-md-8">
-                  <input type="button" class="btn btn-primary" value="Save Changes">
-                  <span></span>
-                  <input type="reset" class="btn btn-default" value="Cancel">
-                </div>
-              </div>
-            </form>
-          </div>
+<div class="container">
+  <h1>Student Profile Sign-Up</h1>
+  <hr>
+  <div class="row">
+    <!-- left column -->
+    <div class="col-md-3">
+      <div class="text-center">
+        <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+        <h6>Upload a different photo...</h6>
+
+        <input type="file" class="form-control">
       </div>
     </div>
-    <hr>
-</body>
+    <!-- edit form column -->
+    <div class="col-md-9 personal-info">
+      <div class="alert alert-info alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a>
+        <i class="fa fa-coffee"></i>
+        Please complete each section.
+      </div>
+      <h3>Student info</h3>
+
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label class="col-lg-3 control-label FirstName">First name:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.FirstName" name="FirstName"
+              placeholder="First Name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label LastName">Last name:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.LastName" name="LastName"
+              placeholder="Last Name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label StdEmail">Email Address:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.StdEmail" name="StdEmail" placeholder="Email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label StdContactNum">Contact Number:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.StdContactNum" name="StdContactNum"
+              placeholder="000-000-0000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label StdExperience">Work/Education Experience:</label>
+          <div class="col-lg-8">
+            <textarea class="form-control" type="text" rows="10" [(ngModel)]="stdUsers.StdExperience"
+              name="StdExperience"
+              placeholder="Enter any school projects you've worked on & and years of work experience you may have."></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Resume Name:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.ResumeOnFile" name="ResumeOnFile" placeholder="Resume Title">
+            <input type="file" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label Major">Majoring In:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.Major" name="Major"
+              placeholder="What is your Major/s">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label CoursesEnrolled">Courses Taking:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.CoursesEnrolled" name="CoursesEnrolled"
+              placeholder="What Courses are you in?">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label CoursesCompleted">Courses Completed:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.CoursesCompleted" name="CoursesCompleted"
+              placeholder="What Courses have you completed?">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label StdGPA">Current GPA:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.StdGPA" name="StdGPA" placeholder="0.0">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label StdAwards">Individual Awards:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.StdAwards" name="StdAwards"
+              placeholder="Any Awards?">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label StdScholarships">Scholarships Granted:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.StdScholarships" name="StdScholarships"
+              placeholder="Any Scholarships?">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label StdSkills">Skills/Hobbies:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.StdSkills" name="StdSkills"
+              placeholder="List your Skills & Hobbies">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label Username">Username:</label>
+          <div class="col-md-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.Username" name="Username"
+              placeholder="Desired Username">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label Password">Password:</label>
+          <div class="col-md-8">
+            <input class="form-control" type="password" [(ngModel)]="stdUsers.Password" name="Password"
+              placeholder="Desired Password">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label"></label>
+          <div class="col-md-8">
+            <button (click)="addStudent()">Register!</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<hr>

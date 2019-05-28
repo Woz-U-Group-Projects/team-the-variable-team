@@ -1,141 +1,97 @@
-<div class="container std-profile">
-    <form method="post">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="profile-img">
-                    <img class="logo" src="../../../assets/images/webDev.jpg" alt=""/>
-                    
-                </div>
+<!-- This is what Ive been working on -->
+<div class="wrapper">
+    <div class="student-details-container">
+      <div class="user_details column">
+          <div class="user_details_logo">
+            <img class="logo" src="../../assets/images/placeholder-face-big.png" alt="" />
+          </div>
+          <div>
+            <br>
+            <b>Student:</b>: {{ student?.FirstName }} {{ student?.LastName }}
+            <br>
+            <b>Student Experience</b>: {{ student?.StdExperience }} 
+            <br>
+            <b>Contact Info:</b>
+            <br>
+            <span>{{ student?.StdContactNum }}</span>
+            <br>
+            <span>{{ student?.StdEmail }}</span>
+            <br>
+            <b>Accomplishments:</b>
+            <br>
+            <span>{{ student?.StdScholarships }}</span>
+            <br>
+            <span>{{ student?.StdAwards }}</span>
+            <br>
+            <span>{{ student?.StdGPA }}</span>
+            <br>
+            <b>Skills</b>: {{ student?.StdSkills }}
+            <br>
+            <b>Courses Enrolled:</b>
+            <br>
+            <span>{{ student?.CoursesEnrolled }}</span>
+            <br>
+            <b>Courses Completed:</b>
+            <br>
+            <span>{{ student?.CoursesCompleted }}</span>
+            <br>
+            <b>Major:</b>
+            <br>
+            <span>{{ student?.Major }}</span>
+          </div>
+      </div>
+      <div class="useful-links-column">
+          <div class="useful-links-header">
+            Useful Links
+          </div>
+          <div class="useful-links-body">
+            <a href="#">Edit my profile</a>
+            <br />
+            <a href="#">See my job posts</a>
+            <br />
+            <a href="#">Find Employers</a>
+          </div>
+      </div>
+    </div>
+    <div class="main_column employers-list-column">
+      <!-- <app-employers-list [employers]="employers"></app-employers-list> -->
+      <div class="jobs-list-container">
+        <div class="jobs-list column" *ngFor="let jobPost of jobPosts">
+          <b>{{ jobPost.StdJobName }}</b>
+          <div class="jobpost-decription">
+            <span [innerHtml]="jobPost.StdJobDescription | safeHtml"></span>
+          </div>
+          <div class="jobpost-row">
+            <div class="jobpost-website-container">
+              <div class="jobpost-website">
+                <a [href]="jobPost.StdJobWebsite">
+                  Visit website
+                </a>
+              </div>
+              <div class="jobpost-location">
+                <span>{{ jobPost.StdJobLocation }}</span>
+              </div>
             </div>
-            <div class="col-md-6">
-                <div class="profile-head">
-                            <h5>
-                                Joe Salaz
-                            </h5>
-                            <h6>
-                                Web Developer and Designer
-                            </h6>
-                            <p class="proile-rating">RANKINGS : <span>8/10</span></p>
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Detalis</a>
-                        </li>
-                    </ul>
-                </div>
+            <div class="jobpost-created-container">
+              <div class="jobpost-created">
+                <span>{{ jobPost.StdJobPostedDate | appDate }}</span>
+              </div>
             </div>
-            <div class="col-md-2">
-                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Message"/>
+          </div>
+          <div class="jobpost-row">
+            <div class="edit-btn-container">
+                <button type="button" class="btn btn-primary" (click)="openEditModal(jobPost)">
+                  Edit
+                </button>
             </div>
+          </div>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="profile-work">
-                    <p>WORK LINK</p>
-                    <a href="">Website Link</a><br/>
-                    <a href="">Bootsnipp Profile</a><br/>
-                    <a href="">Bootply Profile</a>
-                    <p>SKILLS</p>
-                    <a href="">Web Designer</a><br/>
-                    <a href="">Web Developer</a><br/>
-                    <a href="">WordPress</a><br/>
-                    <a href="">WooCommerce</a><br/>
-                    <a href="">PHP, .Net</a><br/>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="tab-content profile-tab" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>User Id</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>hect089</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Name</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>Hetor</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Email</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>hecto@gmail.com</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Phone</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>123-456-7890</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Profession</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>Web Developer and Designer</p>
-                                    </div>
-                                </div>
-                    </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Experience</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>Expert</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>More text</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>More stuff</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>My Projects</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>Motre projects</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>English Level</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>Expert</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Availability</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>6 months</p>
-                                    </div>
-                                </div>
-                        <div class="row">
-                         
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>           
-</div>
+      </div>
+      <div class="pop">
+        <!-- <app-std-post-job (jobCreated)="onJobCreated($event)"
+                          (jobUpdated)="onJobUpdated($event)"
+                          #postJobForm>
+        </app-std-post-job> -->
+      </div>
+    </div>
+  </div>

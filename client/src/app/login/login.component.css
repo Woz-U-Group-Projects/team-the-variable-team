@@ -1,0 +1,12 @@
+.card {
+    margin-left: 400px;
+    
+}
+.log {
+  margin-left: 380px;
+}
+
+.example-card {
+  position: relative;
+  top: 100px;
+}
