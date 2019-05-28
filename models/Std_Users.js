@@ -1,4 +1,5 @@
 'use strict';
+const bcrypt = require("bcrypt");
 module.exports = (sequelize, DataTypes) => {
     const Std_Users = sequelize.define(
         'Std_Users',
@@ -12,7 +13,10 @@ module.exports = (sequelize, DataTypes) => {
             LastName: DataTypes.STRING,
             StdEmail: DataTypes.STRING,
             StdContactNum: DataTypes.STRING,
-            ResumeOnFile: DataTypes.BOOLEAN,
+            ResumeOnFile: {
+                type: DataTypes.BOOLEAN,
+                default: false,
+            },
             Major: DataTypes.STRING,
             CoursesEnrolled: DataTypes.STRING,
             CoursesCompleted: DataTypes.STRING,
@@ -28,5 +32,23 @@ module.exports = (sequelize, DataTypes) => {
             timestamps: false
         }
     );
+
+    Std_Users.prototype.validPassword = function validPassword(Password) {
+        return bcrypt.compare(Password, this.Password);
+    }
+
+    Std_Users.associate = function(models) {
+        // associations can be defined here
+    };
+    
+    Std_Users.beforeCreate((user, options) => {
+        return bcrypt.hash(user.Password, 10)
+        .then(hash => {
+            user.Password = hash;
+        })
+        .catch(err => { 
+            throw new Error(); 
+        });
+    });
     return Std_Users;
 };

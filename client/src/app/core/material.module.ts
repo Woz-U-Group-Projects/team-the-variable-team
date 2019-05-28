@@ -5,6 +5,9 @@ import {
     MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
     MatToolbarModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule
 } from '@angular/material';
+import { SafeHtmlPipe } from './safehtml.pipe';
+import { AppDatePipe } from './date.pipe';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -28,7 +31,13 @@ import {
         MatTableModule,
         MatMenuModule,
         MatIconModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
+        SafeHtmlPipe,
+        AppDatePipe
     ],
+    declarations: [
+        SafeHtmlPipe,
+        AppDatePipe
+    ]
 })
 export class CustomMaterialModule { }

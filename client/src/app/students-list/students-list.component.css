@@ -1,0 +1,50 @@
+.student-container {
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.avatar-container {
+	width: 70px;
+}
+
+.avatar-container .avatar {
+	width: 50px;
+}
+
+.body-container {
+	width: 100%;
+	display: flex;
+}
+
+.body-contact-info {
+	width: 50%;
+}
+
+.body-contact-skills {
+	width: 40%;
+	display: flex;
+	align-items: center;
+	color: #999;
+}
+
+.body-gpa {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gpa {
+	background: #20aae5;
+    color: #fff;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gpa-label {
+    padding: 0px 10px;
+    color: #999;
+}

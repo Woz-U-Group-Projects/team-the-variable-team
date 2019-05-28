@@ -14,16 +14,20 @@ const httpOptions = {
 })
 export class EmpUsersService {
     // tslint:disable-next-line:no-inferrable-types
-    EmpURL: string = 'http://localhost:4001/users/employers';
+    
     constructor(private http: HttpClient) { }
+    EmpURL: string = 'http://localhost:4001/users/employers';
+    EmpSigninURL: string = 'http://localhost:4001/users/login';
+    employerSignin(data) {
+        return this.http.post(this.EmpSigninURL, data, httpOptions);
+    }
     getEmployers() {
         return this.http.get(this.EmpURL);
     }
     getEmployer(id) {
         return this.http.get(`${this.EmpURL}/${id}`);
     }
-
     addEmployer(empUsers: EmpUsers): Observable<EmpUsers> {
-        return this.http.post<EmpUsers>(this.EmpURL + '/sign-up', empUsers, httpOptions);
+        return this.http.post<EmpUsers>(this.EmpURL, empUsers, httpOptions);
     }
 }

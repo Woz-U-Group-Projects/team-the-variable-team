@@ -1,0 +1,31 @@
+<div class="student-container" *ngFor="let student of students">
+  <div class="avatar-container">
+    <img class="avatar" src="../../assets/images/placeholder-face-big.png" />
+  </div>
+  <div class="body-container">
+    <div class="body-contact-info">
+      <div>
+        <b>
+          {{ student.FirstName || '' }}
+          {{ student.LastName || '' }}
+        </b>
+      </div>
+      <div>
+        {{ student.StdEmail }}
+      </div>
+    </div>
+    <div class="body-contact-skills">
+      <div>
+        <span>
+          {{ student.Major }}
+        </span>
+      </div>
+    </div>
+    <div class="body-gpa">
+      <span class="gpa">
+        {{ student.StdGPA }}
+      </span>
+      <span class="gpa-label">GPA</span>
+    </div>
+  </div>
+</div>

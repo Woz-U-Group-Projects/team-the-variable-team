@@ -5,6 +5,7 @@ export class EmpUsers {
     companyEmail: string;
     companyContact: string;
     compContactNum: string;
+    compIndustry: string;
     username: string;
     password: string;
 }

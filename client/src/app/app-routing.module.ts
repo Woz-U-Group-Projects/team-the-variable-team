@@ -9,17 +9,19 @@ import { EmpProfEditComponent} from './employer/emp-prof-edit/emp-prof-edit.comp
 import { AdminComponent } from './admin/admin.component';
 import { DisplayEmployersComponent } from './employer/display-employers/display-employers.component';
 import { HeaderComponent } from './layout/header/header.component';
+import { StudentsSearchComponent } from './students-search/students-search.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'login-page', component: LoginComponent },
-  { path: 'adminpage', component: AdminComponent },
-  { path: 'empsignup-page', component: EmpSignupComponent },
-  { path: 'stdsignup-page', component: StdSignupComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'empsignup', component: EmpSignupComponent },
+  { path: 'stdsignup', component: StdSignupComponent },
   { path: 'empprofile/:id', component: EmpProfileComponent },
   { path: 'stdprofile/:id', component: StdProfileComponent },
-  { path: 'empprofile-edit/:id,', component: EmpProfEditComponent},
-  { path: 'display-employers', component: DisplayEmployersComponent},
+  { path: 'students/:search', component: StudentsSearchComponent },
+  { path: 'empprofedit/:id,', component: EmpProfEditComponent},
+  { path: 'dispemployers', component: DisplayEmployersComponent},
   { path: 'header', component: HeaderComponent}
 ];
 

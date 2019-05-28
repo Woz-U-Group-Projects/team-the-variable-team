@@ -1,0 +1,39 @@
+.modal-header{
+    background: #097f94;
+}
+.btn{
+    margin-top:20px;
+    max-width:150px;
+    height: auto;
+    font-size:0.8em; 
+    font-weight: 900;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-footer{
+    height:100px;
+    background-color:#2D7FB7;
+}
+
+#btn-close{
+  margin-top:-30px;
+}
+
+/* .move{
+    margin-left:10%;
+
+} */
+#validationCustom03{
+    width:50%;
+}
+#inputEmail{
+    width:100%;
+}
+
+.modal-title{
+    color:#fff;
+}
