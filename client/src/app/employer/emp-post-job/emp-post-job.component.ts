@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input, ViewChild } from '@angular/core';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {EmpJobPostsService} from '../../services/empjobposts.service'
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { EmpJobPostsService } from '../../services/empjobposts.service'
 import { EmpJobPosts} from '../../angular-models/Emp_JobPosts';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
