@@ -55,7 +55,7 @@ export class EmpPostJobComponent implements OnInit {
         'JobDescription': jobPost.EmpJobDescription
       });
     }
-    this.modalService.open(this.modalContent, { size: 'lg' });
+    this.modalService.open(this.modalContent, { size: 'lg' }); 
   }
 
   /**
