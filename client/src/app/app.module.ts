@@ -27,6 +27,7 @@ import { EmpPostJobModule } from './employer/emp-post-job/emp-post-job.module';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { StudentsSearchComponent } from './students-search/students-search.component';
 import { StudentsListComponent } from './students-list/students-list.component';
+import { StdPostJobComponent } from './std-post-job/std-post-job.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { StudentsListComponent } from './students-list/students-list.component';
     EmpProfileComponent,
     StudentsSearchComponent,
     StudentsListComponent,
+    StdPostJobComponent,
     
   ],
   imports: [
