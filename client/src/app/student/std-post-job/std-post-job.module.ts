@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EmpPostJobComponent } from './emp-post-job.component';
+import { StdPostJobComponent } from '../std-post-job/std-post-job.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 //TextEditor Imports
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
-import { EmpJobPostsService } from '../../services/empjobposts.service';
+import { StdJobPostsService } from '../../services/stdjobposts.service';
 
 @NgModule({
-  declarations: [EmpPostJobComponent],
+  declarations: [StdPostJobComponent],
   imports: [
     CommonModule, 
     NgbModule.forRoot(), 
@@ -19,12 +19,12 @@ import { EmpJobPostsService } from '../../services/empjobposts.service';
     ReactiveFormsModule,
     AngularFontAwesomeModule
   ],
-  exports: [EmpPostJobComponent],
-  bootstrap: [EmpPostJobComponent],
+  exports: [StdPostJobComponent],
+  bootstrap: [StdPostJobComponent],
   entryComponents: [
-    EmpPostJobComponent
+    StdPostJobComponent
   ],
   // Needed to add the provider so that I can access the service within this module
-  providers: [EmpJobPostsService]
+  providers: [StdJobPostsService]
 })
-export class EmpPostJobModule { }
+export class StdPostJobModule { }

@@ -1,18 +1,18 @@
 import { Component, OnInit, Output, EventEmitter, Input, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { EmpJobPostsService } from '../../services/empjobposts.service'
-import { EmpJobPosts} from '../../angular-models/Emp_JobPosts';
+import { StdJobPostsService } from '../../services/stdjobposts.service'
+import { StdJobPosts} from '../../angular-models/std_JobPosts';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { SafeHtmlPipe } from '../../core/safehtml.pipe';
 
+
 @Component({
-  selector: 'app-emp-post-job',
-  templateUrl: './emp-post-job.component.html',
-  styleUrls: ['./emp-post-job.component.css'],
-  providers: [SafeHtmlPipe]
+  selector: 'app-std-post-job',
+  templateUrl: './std-post-job.component.html',
+  styleUrls: ['./std-post-job.component.css']
 })
-export class EmpPostJobComponent implements OnInit {
+export class StdPostJobComponent implements OnInit {
   @ViewChild('content') modalContent;
 
   closeResult: string;
@@ -23,15 +23,15 @@ export class EmpPostJobComponent implements OnInit {
     placeholderText: 'Enter Job Description',
     imageUpload: false,
   }
-  // Id of the employer (url parameter)
-  employerId: string;
-  @Output() jobCreated = new EventEmitter<EmpJobPosts>();
+  // Id of the student (url parameter)
+  studentId: string;
+  @Output() jobCreated = new EventEmitter<StdJobPosts>();
   @Output() jobUpdated = new EventEmitter<any>();
   // Job post to edit
   editJobPost;
 
   constructor(
-    private empJobPostsService: EmpJobPostsService, 
+    private stdJobPostsService: StdJobPostsService, 
     private modalService: NgbModal, 
     private route: ActivatedRoute
   ) {}
@@ -44,15 +44,15 @@ export class EmpPostJobComponent implements OnInit {
     this.postForm.reset();
 
     this.editJobPost = jobPost;
-    if (jobPost && jobPost.EmpJobID) {
+    if (jobPost && jobPost.StdJobID) {
       // Generate Angular's Reactive Form
       this.postForm.patchValue({
-        'JobName': jobPost.EmpJobName,
-        'JobLocation': jobPost.EmpJobLocation,
-        'JobWebsite': jobPost.EmpJobWebsite,
-        'JobContactNum': jobPost.EmpJobContactNum,
-        'JobEmail': jobPost.EmpJobEmail,
-        'JobDescription': jobPost.EmpJobDescription
+        'JobName': jobPost.StdJobName,
+        'JobLocation': jobPost.StdJobLocation,
+        'JobWebsite': jobPost.StdJobWebsite,
+        'JobContactNum': jobPost.StdJobContactNum,
+        'JobEmail': jobPost.StdJobEmail,
+        'JobDescription': jobPost.StdJobDescription
       });
     }
     this.modalService.open(this.modalContent, { size: 'lg' }); 
@@ -64,7 +64,7 @@ export class EmpPostJobComponent implements OnInit {
   ngOnInit(): void {
     // Get
     this.route.paramMap.subscribe(params => {
-      this.employerId = params.get('id');
+      this.studentId = params.get('id');
     });
     this.postForm = new FormGroup({
       'JobName': new FormControl(),
@@ -82,13 +82,13 @@ export class EmpPostJobComponent implements OnInit {
   create(): void {
     // Get form data
     let value = this.postForm.getRawValue();
-    if (this.editJobPost && this.editJobPost.EmpJobID) {
+    if (this.editJobPost && this.editJobPost.StdJobID) {
       // If there is a jobPost, update it
-      this.empJobPostsService.updateEmpJob(this.editJobPost.EmpJobID, value).subscribe((res: any) => {
+      this.stdJobPostsService.updateStdJob(this.editJobPost.StdJobID, value).subscribe((res: any) => {
         if (res && res.success) {
           this.jobUpdated.emit({
             value: value,
-            id: this.editJobPost.EmpJobID
+            id: this.editJobPost.StdJobID
           });
           this.modalService.dismissAll();
         }
@@ -96,12 +96,12 @@ export class EmpPostJobComponent implements OnInit {
     }
     else {
       // If there is no jobPost, create it
-      // Set emp id 
-      value['JobCreatedById'] = this.employerId;
+      // Set std id 
+      value['JobCreatedById'] = this.studentId;
       // Set post date
       value['JobPostedDate'] = this.getCurrentDate();
       // Submit the form
-      this.empJobPostsService.addEmpJob(value).subscribe((res: EmpJobPosts) => {
+      this.stdJobPostsService.addStdJob(value).subscribe((res: StdJobPosts) => {
         if (res) {
           this.jobCreated.emit(res);
           this.modalService.dismissAll();
@@ -124,3 +124,4 @@ export class EmpPostJobComponent implements OnInit {
     return date.join('-');
   }
 }
+
