@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EmpUsersService } from '../../services/empusers.service';
 import { StdUsersService } from '../../services/stdusers.service';
 import { EmpUsers } from '../../angular-models/Emp_Users';
@@ -9,6 +9,8 @@ import { EmpJobPostsService } from '../../services/empjobposts.service';
 import { StdJobPosts } from '../../angular-models/Std_JobPosts';
 import { EmpPostJobComponent } from '../emp-post-job/emp-post-job.component';
 
+import { SessionService } from '../../services/session.service';
+
 @Component({
   selector: 'app-emp-profile',
   templateUrl:'./emp-profile.component.html',
@@ -16,6 +18,7 @@ import { EmpPostJobComponent } from '../emp-post-job/emp-post-job.component';
 })
 export class EmpProfileComponent implements OnInit {
   @ViewChild('postJobForm') postJobForm: EmpPostJobComponent;
+  
 
   // Employer
   employer: EmpUsers = null;
@@ -27,11 +30,17 @@ export class EmpProfileComponent implements OnInit {
   employerId: string;
   // Job post to edit
   editJob: StdJobPosts;
+  // Object holding all comments per jobPost
+  
+  // Session
+  session;
 
   constructor(
+    public router: Router,
     private empUsersService: EmpUsersService, 
     private stdUsersService: StdUsersService, 
     private empJobPostsService: EmpJobPostsService, 
+    private sessionService: SessionService,
     private route: ActivatedRoute
   ) { }
 
@@ -42,6 +51,16 @@ export class EmpProfileComponent implements OnInit {
     // Get
     this.route.paramMap.subscribe(params => {
       this.employerId = params.get('id');
+
+      // Retrieve session info  
+      this.session = this.sessionService.getSession();
+      // Employers can only see their own profile
+      if (this.session.userType == 'employer' && this.session.userId != this.employerId) {
+        this.sessionService.logout();
+        this.router.navigateByUrl("/login");
+      }
+
+
       // Retrieve employer
       this.getEmployer();
       // Retrieve students
@@ -113,4 +132,9 @@ export class EmpProfileComponent implements OnInit {
   openEditModal(jobPost: StdJobPosts) {
     this.postJobForm.openLg(jobPost);
   }
+
+  /**
+   * Open edit modal
+   */
+ 
 }

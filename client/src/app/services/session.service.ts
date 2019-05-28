@@ -24,7 +24,14 @@ export class SessionService {
       userType: localStorage.getItem('userType')
     };
   }
+/**
+ * Destroy Session
+ */
+// sessionDestroy(){
+//   return {
 
+//   }
+// }
   /**
    * Logout the session 
    */

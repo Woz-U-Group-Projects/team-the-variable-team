@@ -56,11 +56,13 @@ export class LoginComponent implements OnInit {
           // Redirect the user to the employer profile
           this.router.navigate(['/empprofile/' + res.id]);
         }
+        else {
+          // Show error message
+          this.router.navigate(['/login/']);
+          this.loginError = true;
+        }
       }
-      else {
-        // Show error message
-        this.loginError = true;
-      }
+     
     })
   }
 
