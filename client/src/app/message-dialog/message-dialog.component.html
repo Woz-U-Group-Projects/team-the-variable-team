@@ -1,0 +1,97 @@
+<ng-template #content let-modal >
+  <div class="modal-header">
+    <h4 class="modal-title">
+      <span *ngIf="received?.EmpCreator">
+          <img class="avatar" src="../../assets/images/placeholder-face-big.png" />
+          {{ received?.EmpCreator?.CompanyName }}
+      </span>
+      <span *ngIf="received?.StdCreator">
+          <img class="avatar" src="../../assets/images/placeholder-face-big.png" />
+          {{ received?.StdCreator?.FirstName || '' }}
+          {{ received?.StdCreator?.LastName || '' }}
+      </span>
+      <span *ngIf="user">
+          <img class="avatar" src="../../assets/images/placeholder-face-big.png" />
+          <span *ngIf="user?.CompanyName">
+            {{ user?.CompanyName || '' }}
+          </span>
+          <span *ngIf="user?.StudentID">
+            {{ user?.FirstName || '' }}
+            {{ user?.LastName || '' }}
+          </span>
+      </span>
+    </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div id="messages-list" class="messages-body">
+      <div class="message-container"
+           *ngIf="parent"
+           [ngClass]="{'sent': (parent?.EmpCreator?.ID == session.userId && session.userType == 'employer') || (parent?.StdCreator?.StudentID == session.userId && session.userType == 'student')}">
+        <div class="message-container-box">
+          <div>
+            <span *ngIf="parent?.EmpCreator">
+                <img class="related-avatar" src="../../assets/images/placeholder-face-big.png" />
+                {{ parent?.EmpCreator?.CompanyName }}
+            </span>
+            <span *ngIf="parent?.StdCreator">
+                <img class="related-avatar" src="../../assets/images/placeholder-face-big.png" />
+                {{ parent?.StdCreator?.FirstName || '' }}
+                {{ parent?.StdCreator?.LastName || '' }}
+            </span>
+          </div>
+          <div>
+            {{ parent?.Message }}
+          </div>
+          <div class="date">
+            {{ parent?.Created | appDate }}
+          </div>
+        </div>
+      </div>
+      <div *ngFor="let relatedMessage of messageHistory" 
+           class="message-container"
+           [ngClass]="{'sent': (relatedMessage?.EmpCreator?.ID == session.userId && session.userType == 'employer') || (relatedMessage?.StdCreator?.StudentID == session.userId && session.userType == 'student')}"
+           #messagesReference>
+        <div class="message-container-box">
+          <div>
+            <span *ngIf="relatedMessage?.EmpCreator">
+                <img class="related-avatar" src="../../assets/images/placeholder-face-big.png" />
+                {{ relatedMessage?.EmpCreator?.CompanyName }}
+            </span>
+            <span *ngIf="relatedMessage?.StdCreator">
+                <img class="related-avatar" src="../../assets/images/placeholder-face-big.png" />
+                {{ relatedMessage?.StdCreator?.FirstName || '' }}
+                {{ relatedMessage?.StdCreator?.LastName || '' }}
+            </span>
+          </div>
+          <div>
+            {{ relatedMessage?.Message }}
+          </div>
+          <div class="date">
+            {{ relatedMessage?.Created | appDate }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div>
+      <form (ngSubmit)="onSubmit()">
+        <textarea *ngIf="parent" [(ngModel)]="create.Message" id="comment" name="comment" class="form-control" placeholder="Reply to this user...">
+        </textarea>
+        <textarea  *ngIf="user" [(ngModel)]="create.Message" id="comment" name="comment" class="form-control" placeholder="Message this user...">
+        </textarea>
+        <br />
+        <button type="submit" id="btn-close" class="btn btn-primary">
+          <div *ngIf="parent">Reply</div>
+          <div *ngIf="user">Send</div>
+        </button>  
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" id="btn-close" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+  
