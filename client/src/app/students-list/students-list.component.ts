@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { ViewChild, Component, OnInit, Input } from '@angular/core';
 import { StdUsers } from '../angular-models/Std_Users';
+import { MessageDialogComponent } from '../message-dialog/message-dialog.component';
 
 @Component({
   selector: 'app-students-list',
@@ -7,6 +8,7 @@ import { StdUsers } from '../angular-models/Std_Users';
   styleUrls: ['./students-list.component.css']
 })
 export class StudentsListComponent implements OnInit {
+  @ViewChild('messageDialog') messageDialog: MessageDialogComponent;
 
   @Input() students: StdUsers[] = [];
 
@@ -14,5 +16,10 @@ export class StudentsListComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  openMessageBox(student) {
+    this.messageDialog.openLg(null, student);
+  }
+
 
 }

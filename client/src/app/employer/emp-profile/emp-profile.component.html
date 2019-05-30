@@ -6,7 +6,7 @@
         </div>
         <div>
           <br>
-          <b>Company</b>: {{ employer?.CompanyName }} 
+          <b>Company</b>: {{ employer?.CompanyName }}
           <br>
           <b>Contact Info:</b>
           <br>
@@ -24,6 +24,8 @@
           Useful Links
         </div>
         <div class="useful-links-body">
+          <a routerLink="/messenger">Messenger</a>
+          <br />
           <a href="#">See my job posts</a>
           <br />
           <a href="#">Find students</a>
@@ -60,6 +62,11 @@
             <button type="button" class="btn btn-primary" (click)="openEditModal(jobPost)">
               Edit
             </button>
+            &nbsp;
+            <button type="button" class="btn btn-primary" (click)="openCommentsModal(jobPost)">
+              Comments 
+            </button>
+            <!-- <img class="comment-add" src="../../../assets/images/comment-add-2.png" (click)="openCommentsModal(jobPost)" /> -->
           </div>
         </div>
       </div>
@@ -69,6 +76,10 @@
                         (jobUpdated)="onJobUpdated($event)"
                         #postJobForm>
       </app-emp-post-job>
+    </div>
+    <div class="pop comments">
+      <app-comments #comments>
+      </app-comments>
     </div>
   </div>
 </div>

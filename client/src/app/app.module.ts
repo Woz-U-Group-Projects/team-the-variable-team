@@ -9,7 +9,6 @@ import { EmpSignupComponent } from './employer/emp-signup/emp-signup.component';
 
 import { StdProfileComponent } from './student/std-profile/std-profile.component';
 import { StdSignupComponent } from './student/std-signup/std-signup.component';
-import { StdPostJobModule } from './student/std-post-job/std-post-job.module';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
@@ -28,6 +27,8 @@ import { EmpPostJobModule } from './employer/emp-post-job/emp-post-job.module';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { StudentsSearchComponent } from './students-search/students-search.component';
 import { StudentsListComponent } from './students-list/students-list.component';
+import { CommentsComponent } from './comments/comments.component';
+import { MessageDialogComponent } from './message-dialog/message-dialog.component';
 
 
 @NgModule({
@@ -46,7 +47,10 @@ import { StudentsListComponent } from './students-list/students-list.component';
     StdJobpostsComponent,
     EmpProfileComponent,
     StudentsSearchComponent,
-    StudentsListComponent
+    StudentsListComponent,
+    CommentsComponent,
+    MessageDialogComponent,
+    
   ],
   imports: [
     NgbModule,
@@ -59,7 +63,6 @@ import { StudentsListComponent } from './students-list/students-list.component';
     MatToolbarModule,
     MatSelectModule,
     EmpPostJobModule,
-    StdPostJobModule,
     //Text Editor Imports
     FroalaEditorModule.forRoot(), 
     FroalaViewModule.forRoot(),

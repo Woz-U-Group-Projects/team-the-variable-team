@@ -21,11 +21,23 @@
         </span>
       </div>
     </div>
+    
     <div class="body-gpa">
       <span class="gpa">
         {{ student.StdGPA }}
       </span>
       <span class="gpa-label">GPA</span>
     </div>
+    <div class="message-icon-container">
+      <img src="../../assets/images/send-message-icon.png" 
+           class="message-icon" 
+           alt=""
+           (click)="openMessageBox(student)" />
+    </div>
   </div>
+</div>
+
+<div class="pop comments">
+  <app-message-dialog #messageDialog>
+  </app-message-dialog>
 </div>

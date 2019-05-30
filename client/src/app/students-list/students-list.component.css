@@ -48,3 +48,31 @@
     padding: 0px 10px;
     color: #999;
 }
+
+.message-icon-container {
+	display: flex;
+	align-items: center;
+	padding: 0px 20px;
+	height:auto;
+}
+
+.message-icon {
+	width:30px;
+	height: 30px;
+	display: block;
+	
+	cursor: pointer;
+	
+}
+
+.fa-comment-alt{
+	font-size: 2em;
+	color:rgb(13, 179, 201);
+	
+}
+.fa-comment-alt:hover{
+	cursor:pointer;
+	
+}
+
+

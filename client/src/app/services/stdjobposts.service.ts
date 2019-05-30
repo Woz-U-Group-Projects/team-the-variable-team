@@ -15,27 +15,15 @@ const httpOptions = {
 })
 
 export class StdJobPostsService {
-  StdJobURL: string = 'http://localhost:4001/users/empjobposts';
-  // Url to get student job posts by created id
-  StdJobCreatedURL: string = 'http://localhost:4001/users/empjobpostsbycreated';
-  // Url to get student job posts by created id
-  StdJobUpdateURL: string = 'http://localhost:4001/users/empjobpostsupdate';
-  
+  StdJobURL: string = 'http://localhost:4001/users/stdjobposts';
   constructor(private http: HttpClient) { }
-
   getStdJobs() {
     return this.http.get(this.StdJobURL);
   }
   getStdJob(id) {
     return this.http.get(`${this.StdJobURL}/${id}`);
   }
-  addStdJob(empJobPosts: StdJobPosts): Observable<StdJobPosts> {
-    return this.http.post<StdJobPosts>(this.StdJobURL, empJobPosts, httpOptions);
-  }
-  updateStdJob(id, update): Observable<StdJobPosts> {
-    return this.http.put<StdJobPosts>(`${this.StdJobUpdateURL}/${id}`, update, httpOptions);
-  }
-  getStdJobsByCreated(id) {
-    return this.http.get(`${this.StdJobCreatedURL}/${id}`);
+  addStdJob(stdJobPosts: StdJobPosts): Observable<StdJobPosts> {
+    return this.http.post<StdJobPosts>(this.StdJobURL, stdJobPosts, httpOptions);
   }
 }

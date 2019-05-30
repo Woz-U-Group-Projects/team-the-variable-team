@@ -8,7 +8,7 @@ import { EmpJobPosts } from '../../angular-models/Emp_JobPosts';
 import { EmpJobPostsService } from '../../services/empjobposts.service';
 import { StdJobPosts } from '../../angular-models/Std_JobPosts';
 import { EmpPostJobComponent } from '../emp-post-job/emp-post-job.component';
-
+import { CommentsComponent } from '../../comments/comments.component';
 import { SessionService } from '../../services/session.service';
 
 @Component({
@@ -18,7 +18,7 @@ import { SessionService } from '../../services/session.service';
 })
 export class EmpProfileComponent implements OnInit {
   @ViewChild('postJobForm') postJobForm: EmpPostJobComponent;
-  
+  @ViewChild('comments') commentsView: CommentsComponent;
 
   // Employer
   employer: EmpUsers = null;
@@ -31,7 +31,9 @@ export class EmpProfileComponent implements OnInit {
   // Job post to edit
   editJob: StdJobPosts;
   // Object holding all comments per jobPost
-  
+  comments;
+  // Comments showing in the comments component
+  activeComments;
   // Session
   session;
 
@@ -136,5 +138,7 @@ export class EmpProfileComponent implements OnInit {
   /**
    * Open edit modal
    */
- 
+  openCommentsModal(jobPost) {
+    this.commentsView.openLg(jobPost);
+  }
 }
