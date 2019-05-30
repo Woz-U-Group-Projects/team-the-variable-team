@@ -1,143 +1,97 @@
-<div class="container std-profile">
-    <form method="post">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="profile-img">
-                    <img class="logo" src="../../../assets/images/webDev.jpg" alt="" />
-                </div>
+<!-- This is what Ive been working on -->
+<div class="wrapper">
+    <div class="student-details-container">
+      <div class="user_details column">
+          <div class="user_details_logo">
+            <img class="logo" src="../../assets/images/placeholder-face-big.png" alt="" />
+          </div>
+          <div>
+            <br>
+            <b>Student:</b>: {{ student?.FirstName }} {{ student?.LastName }}
+            <br>
+            <b>Student Experience</b>: {{ student?.StdExperience }} 
+            <br>
+            <b>Contact Info:</b>
+            <br>
+            <span>{{ student?.StdContactNum }}</span>
+            <br>
+            <span>{{ student?.StdEmail }}</span>
+            <br>
+            <b>Accomplishments:</b>
+            <br>
+            <span>{{ student?.StdScholarships }}</span>
+            <br>
+            <span>{{ student?.StdAwards }}</span>
+            <br>
+            <span>{{ student?.StdGPA }}</span>
+            <br>
+            <b>Skills</b>: {{ student?.StdSkills }}
+            <br>
+            <b>Courses Enrolled:</b>
+            <br>
+            <span>{{ student?.CoursesEnrolled }}</span>
+            <br>
+            <b>Courses Completed:</b>
+            <br>
+            <span>{{ student?.CoursesCompleted }}</span>
+            <br>
+            <b>Major:</b>
+            <br>
+            <span>{{ student?.Major }}</span>
+          </div>
+      </div>
+      <div class="useful-links-column">
+          <div class="useful-links-header">
+            Useful Links
+          </div>
+          <div class="useful-links-body">
+            <a href="#">Edit my profile</a>
+            <br />
+            <a href="#">See my job posts</a>
+            <br />
+            <a href="#">Find Employers</a>
+          </div>
+      </div>
+    </div>
+    <div class="main_column employers-list-column">
+      <!-- <app-employers-list [employers]="employers"></app-employers-list> -->
+      <div class="jobs-list-container">
+        <div class="jobs-list column" *ngFor="let jobPost of jobPosts">
+          <b>{{ jobPost.StdJobName }}</b>
+          <div class="jobpost-decription">
+            <span [innerHtml]="jobPost.StdJobDescription | safeHtml"></span>
+          </div>
+          <div class="jobpost-row">
+            <div class="jobpost-website-container">
+              <div class="jobpost-website">
+                <a [href]="jobPost.StdJobWebsite">
+                  Visit website
+                </a>
+              </div>
+              <div class="jobpost-location">
+                <span>{{ jobPost.StdJobLocation }}</span>
+              </div>
             </div>
-            <div class="col-md-6">
-                <div class="profile-head">
-                    <h3>{{student.FirstName}} {{student.LastName}}</h3>
-                    <h4>Course: {{student.Major}}</h4>
-                    <h4>GPA: {{student.StdGPA}}</h4>
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                aria-controls="home" aria-selected="true">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                                aria-controls="profile" aria-selected="false">Details</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="connections-tab" data-toggle="tab" href="#connections" role="tab"
-                                aria-controls="friends" aria-selected="false">Connections</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="jobs-tab" data-toggle="tab" href="#jobs" role="tab"
-                                aria-controls="jobs" aria-selected="false">Jobs</a>
-                        </li>
-                    </ul>
-                </div>
+            <div class="jobpost-created-container">
+              <div class="jobpost-created">
+                <span>{{ jobPost.StdJobPostedDate | appDate }}</span>
+              </div>
             </div>
+          </div>
+          <div class="jobpost-row">
+            <div class="edit-btn-container">
+                <button type="button" class="btn btn-primary" (click)="openEditModal(jobPost)">
+                  Edit
+                </button>
+            </div>
+          </div>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="profile-work">
-                    <h4>Social:</h4>
-                    <a href="">Facebook</a><br />
-                    <a href="">Twitter</a><br />
-                    <a href="">GitHub</a><br />
-                    <a href="">LinkedIn</a>
-                    <h4>Skills:</h4>
-                    <p>{{student.StdSkills}}</p>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="tab-content profile-tab" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>User Id:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{student.Username}}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Contact Number:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{student.StdContactNum}}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Email:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{student.StdEmail}}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Experience:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{student.StdExperience}}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Courses Enrolled:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{student.CoursesEnrolled}}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Courses Completed:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{student.CoursesCompleted}}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Awards:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{student.StdAwards}}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Scholarships:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{student.StdScholarships}}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="connections" role="tabpanel" aria-labelledby="connections-tab">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>
-                                    <h3>Connections:</h3>
-                                </label>
-                            </div>
-                            <div class="col-md-6">
-                                <form>
-                                    <input type="submit" name="remove_friend" class="danger" value="Remove Friend"><br>
-                                    <input type="submit" name="respond_request" class="warning"
-                                        value="Respond to Request"><br>
-                                    <input type="submit" name="" class="default" value="Request Sent"><br>
-                                    <input type="submit" name="add_friend" class="success" value="Add Friend"><br>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
-
-<router-outlet></router-outlet>
+      </div>
+      <div class="pop">
+        <!-- <app-std-post-job (jobCreated)="onJobCreated($event)"
+                          (jobUpdated)="onJobUpdated($event)"
+                          #postJobForm>
+        </app-std-post-job> -->
+      </div>
+    </div>
+  </div>
