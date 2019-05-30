@@ -20,6 +20,8 @@ export class EmpJobPostsService {
   EmpJobCreatedURL: string = 'http://localhost:4001/users/empjobpostsbycreated';
   // Url to get employer job posts by created id
   EmpJobUpdateURL: string = 'http://localhost:4001/users/empjobpostsupdate';
+  // Add comment on jobPost 
+  CommentURL: string = 'http://localhost:4001/users/emppostjobcomments';
   
   constructor(private http: HttpClient) { }
 
@@ -37,5 +39,11 @@ export class EmpJobPostsService {
   }
   getEmpJobsByCreated(id) {
     return this.http.get(`${this.EmpJobCreatedURL}/${id}`);
+  }
+  addComment(comment) {
+    return this.http.post(`${this.CommentURL}`, comment, httpOptions);
+  }
+  getComments(jobPostId) {
+    return this.http.get(`${this.CommentURL}/${jobPostId}`);
   }
 }
