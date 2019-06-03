@@ -27,6 +27,10 @@ module.exports = (sequelize, DataTypes) => {
             StdSkills: DataTypes.STRING,
             Username: DataTypes.STRING,
             Password: DataTypes.STRING,
+            avatar: DataTypes.TEXT,
+            Github: DataTypes.STRING,
+            Linkedin: DataTypes.STRING,
+            Facebook: DataTypes.STRING
         },
         {
             timestamps: false
@@ -39,6 +43,11 @@ module.exports = (sequelize, DataTypes) => {
 
     Std_Users.associate = function(models) {
         // associations can be defined here
+        Std_Users.hasMany(models.Std_JobPosts, {
+            as: 'jobPosts',
+            foreignKey: 'StdJobCreatedById',
+            sourceKey: 'StudentID'
+        });
     };
     
     Std_Users.beforeCreate((user, options) => {

@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
             CompIndustry: DataTypes.STRING,
             Username: DataTypes.STRING,
             Password: DataTypes.STRING,
+            avatar: DataTypes.TEXT
         },
         {
             timestamps: false,
@@ -32,6 +33,11 @@ module.exports = (sequelize, DataTypes) => {
     }
     Emp_Users.associate = function(models) {
         // associations can be defined here
+        Emp_Users.hasMany(models.Emp_JobPosts, {
+            as: 'jobPosts',
+            foreignKey: 'EmpJobCreatedById',
+            sourceKey: 'ID'
+        });
     };
     Emp_Users.beforeCreate((user, options) => {
         return bcrypt.hash(user.Password, 10)
