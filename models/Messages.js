@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = (sequelize, DataTypes) => {
   const Messages = sequelize.define('Messages', {
     ID: DataTypes.INTEGER,
@@ -10,28 +11,29 @@ module.exports = (sequelize, DataTypes) => {
     ParentMessage: DataTypes.INTEGER,
     Created: DataTypes.DATE,
     Read: DataTypes.INTEGER
-  }, 
-  {
+  },
+    {
       timestamps: false
-  });
-  Messages.associate = function(models) {
+    });
+  Messages.associate = function (models) {
     // associations can be defined here
     Messages.belongsTo(models.Emp_Users, {
-        foreignKey: 'EmployerCreatorID',
-        as: 'EmpCreator'
+      foreignKey: 'EmployerCreatorID',
+      as: 'EmpCreator'
     });
     Messages.belongsTo(models.Emp_Users, {
-        foreignKey: 'EmployerRecipientID',
-        as: 'EmpRecipient'
+      foreignKey: 'EmployerRecipientID',
+      as: 'EmpRecipient'
     });
     Messages.belongsTo(models.Std_Users, {
-        foreignKey: 'StudentCreatorID',
-        as: 'StdCreator'
+      foreignKey: 'StudentCreatorID',
+      as: 'StdCreator'
     });
     Messages.belongsTo(models.Std_Users, {
-        foreignKey: 'StudentRecipientID',
-        as: 'StdRecipient'
+      foreignKey: 'StudentRecipientID',
+      as: 'StdRecipient'
     });
   };
   return Messages;
 };
+
