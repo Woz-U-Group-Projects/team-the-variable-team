@@ -1,3 +1,83 @@
-<p>
-  emp-signup works!
-</p>
+<form action="/form" method="POST">
+  <div class="container">
+    <h1>Employer Registration</h1>
+    <hr>
+    <div class="row">
+      <!-- left column -->
+      <div class="col-md-3">
+        <div class="text-center">
+          <img [src]="preview|| '//placehold.it/100'" class="avatar img-circle" alt="avatar">
+          <input (change)="onFileChange($event)" type="file" class="form-control">
+        </div>
+      </div>
+
+      <!-- edit form column -->
+      <div class="col-md-9 personal-info">
+        <div class="alert alert-info alert-dismissable">
+          <a class="panel-close close" data-dismiss="alert">×</a>
+          <i class="fa fa-coffee"></i>
+          Please complete each section.
+        </div>
+        <h3>Employer info</h3>
+
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label class="col-lg-3 control-label CompanyName">Company Name:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" [(ngModel)]="empUsers.CompanyName" name="CompanyName" placeholder="Company Name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label CompanyWeb">Company Website:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" [(ngModel)]="empUsers.CompanyWeb" name="CompanyWeb" placeholder="Company Website">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label CompanyEmail">Company Email:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" [(ngModel)]="empUsers.CompanyEmail" name="CompanyEmail" placeholder="Company Email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label CompanyContact">Company Contact:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" [(ngModel)]="empUsers.CompanyContact" name="CompanyContact" placeholder="Contact Name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label CompContactNum">Company Contact Number:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" [(ngModel)]="empUsers.CompContactNum" name="CompContactNum"
+                placeholder="Contact Number">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label CompIndustry">Company Industry:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" [(ngModel)]="empUsers.CompIndustry" name="CompIndustry" placeholder="Industry">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label Username">Username:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" [(ngModel)]="empUsers.Username" name="Username" placeholder="Desired Username">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label Password">Password:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="text" [(ngModel)]="empUsers.Password" name="Password" placeholder="Desired Password">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+              <button (click)="addEmployer()">Register!</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</form>

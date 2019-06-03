@@ -1,3 +1,157 @@
-<p>
-  std-signup works!
-</p>
+<div class="container">
+  <h1>Student Profile Sign-Up</h1>
+  <hr>
+  <div class="row">
+    <!-- left column -->
+    <div class="col-md-3">
+      <div class="text-center">
+        <img [src]="preview|| '//placehold.it/100'" class="avatar img-circle" alt="avatar">
+        <input (change)="onFileChange($event)" type="file" class="form-control">
+      </div>
+    </div>
+    <!-- edit form column -->
+    <div class="col-md-9 personal-info">
+      <div class="alert alert-info alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a>
+        <i class="fa fa-coffee"></i>
+        Please complete each section.
+      </div>
+      <h3>Student info</h3>
+
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label class="col-lg-3 control-label FirstName">First name:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.FirstName" name="FirstName"
+              placeholder="First Name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label LastName">Last name:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.LastName" name="LastName"
+              placeholder="Last Name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label StdEmail">Email Address:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.StdEmail" name="StdEmail" placeholder="Email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label StdContactNum">Contact Number:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.StdContactNum" name="StdContactNum"
+              placeholder="000-000-0000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label StdExperience">Work/Education Experience:</label>
+          <div class="col-lg-8">
+            <textarea class="form-control" type="text" rows="10" [(ngModel)]="stdUsers.StdExperience"
+              name="StdExperience"
+              placeholder="Enter any school projects you've worked on & and years of work experience you may have."></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Resume Name:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.ResumeOnFile" name="ResumeOnFile" placeholder="Resume Title">
+            <input type="file" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label Major">Majoring In:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.Major" name="Major"
+              placeholder="What is your Major/s">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label CoursesEnrolled">Courses Taking:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.CoursesEnrolled" name="CoursesEnrolled"
+              placeholder="What Courses are you in?">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label CoursesCompleted">Courses Completed:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.CoursesCompleted" name="CoursesCompleted"
+              placeholder="What Courses have you completed?">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label StdGPA">Current GPA:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.StdGPA" name="StdGPA" placeholder="0.0">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label StdAwards">Individual Awards:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.StdAwards" name="StdAwards"
+              placeholder="Any Awards?">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label StdScholarships">Scholarships Granted:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.StdScholarships" name="StdScholarships"
+              placeholder="Any Scholarships?">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label StdSkills">Skills/Hobbies:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.StdSkills" name="StdSkills"
+              placeholder="List your Skills & Hobbies">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label StdSkills">Github:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.Github" name="Github"
+              placeholder="Github profile">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label StdSkills">Linkedin:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.Linkedin" name="Linkedin"
+              placeholder="Linkedin profile">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label StdSkills">Facebook:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.Facebook" name="Facebook"
+              placeholder="Facebook profile">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label Username">Username:</label>
+          <div class="col-md-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.Username" name="Username"
+              placeholder="Desired Username">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label Password">Password:</label>
+          <div class="col-md-8">
+            <input class="form-control" type="password" [(ngModel)]="stdUsers.Password" name="Password"
+              placeholder="Desired Password">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label"></label>
+          <div class="col-md-8">
+            <button (click)="addStudent()">Register!</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<hr>

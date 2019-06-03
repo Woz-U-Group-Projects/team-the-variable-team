@@ -1,0 +1,76 @@
+<ng-template #content let-modal >
+  <div class="modal-header">
+    <h4 class="modal-title">Post a Job in this Form</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form class="needs-novalidation" validate [formGroup]="postForm" (ngSubmit)="create()">
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="validationCustom01">Job Title</label>
+          <input formControlName="JobName" type="text" class="form-control" id="validationCustom01"  placeholder="Job Title" value="" required>
+         
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="validationCustom02">Job Location</label>
+          <input formControlName="JobLocation" type="text" class="form-control" id="validationCustom02" placeholder="Job Location" value="" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="basic-url">Website</label>
+          <div class="input-group mb-3">
+            
+            <input formControlName="JobWebsite" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="https://example.com">
+          </div>
+        </div>
+      </div>
+      <div class="move form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom03">Job Phone Numer</label>
+          <input formControlName="JobContactNum" type="tel" class="email form-control" id="validationCustom03"  placeholder="(eg)386-210-5555" required>
+          <div class="invalid-feedback">
+            Please provide a valid phone number.
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="validationCustom04">Job Email</label>
+          <input formControlName="JobEmail" type="email" class="form-control" id="inputEmail"  placeholder="Email" required>
+          <div class="invalid-feedback">
+            Please provide a valid Email.
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Enter Job Description Bellow</span>
+        </div>
+       
+        <textarea id="edit" formControlName="JobDescription" [froalaEditor]="editorOptions" ></textarea>
+        
+      </div>
+      <button class="btn btn-primary" type="submit">
+        <span *ngIf="!editJobPost?.EmpJobID">
+          Post Job
+        </span>
+        <span *ngIf="editJobPost?.EmpJobID">
+          Save Changes
+        </span>
+      </button>
+    </form>
+    
+  </div>
+  <div class="modal-footer">
+    <button type="button" id="btn-close" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<div class="btn-container">
+  <button class="btn btn-outline-primary" (click)="openLg()">Post a Job</button>
+</div>
+

@@ -1,0 +1,26 @@
+.card {
+    margin: auto;
+}
+
+.example-card {
+  position: relative;
+  top: 100px;
+}
+
+button {
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  background-color: #0c2d50;
+  color: white;
+}
+
+button:hover {
+  background-color: #1894ca;
+  color: white;
+}
+
+.responsive {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+}

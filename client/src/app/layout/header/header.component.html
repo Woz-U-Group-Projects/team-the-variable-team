@@ -1,0 +1,54 @@
+<div class="header">
+  <div class="logo"><a routerLink="/"><img src="../../../assets/images/RacketHeaderLogo.png"></a></div>
+  <div class="header-search-container" *ngIf="session.userId">
+    
+    <input *ngIf="session.userType == 'employer'" [(ngModel)]="searchText" class="form-control" id="search"  placeholder="Enter skill...">
+    <input *ngIf="session.userType == 'student'" [(ngModel)]="searchText" class="form-control" id="search"  placeholder="Enter industry...">
+
+    <a class="header-search-btn" (click)="search()">
+      <img class="logo" src="../../assets/images/search.png" alt="" />
+    </a>
+  </div>
+  <div class="logo-btn-container" *ngIf="session.userId">
+    <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
+      <button class="messages-btn" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">
+          <img src="../../assets/images/mail.png" alt="" />
+          <span [hidden]="!messengerService?.unread">{{ messengerService?.unread }}</span>
+      </button>
+      <div ngbDropdownMenu aria-labelledby="dropdownManual" [hidden]="!messengerService?.incoming?.length">
+        <div class="dropdown-menu-list">
+          <a ngbDropdownItem *ngFor="let message of messengerService?.incoming" 
+            [ngClass]="{'unread': !message?.Read}"
+            (click)="openMessageDialog(message)">
+            <p *ngIf="message?.EmpCreator">
+                <img *ngIf="!message?.EmpCreator?.avatar" class="avatar" src="../../assets/images/placeholder-face-big.png" alt="" />
+                <img *ngIf="message?.EmpCreator?.avatar" class="avatar" [src]="('data:image/png;base64, ' + message?.EmpCreator?.avatar) | safeHtml:'resource'" alt="" />
+                {{ message?.EmpCreator?.CompanyName }}
+            </p>
+            <p *ngIf="message?.StdCreator">
+                <img *ngIf="!message?.StdCreator?.avatar" class="avatar" src="../../assets/images/placeholder-face-big.png" alt="" />
+                <img *ngIf="message?.StdCreator?.avatar" class="avatar" [src]="('data:image/png;base64, ' + message?.StdCreator?.avatar) | safeHtml:'resource'" alt="" />
+                {{ message?.StdCreator?.FirstName || '' }}
+                {{ message?.StdCreator?.LastName || '' }}
+            </p>
+            <p class="text">
+              {{ message.Message }}
+            </p>
+            <p class="date">
+              {{ message.Created | appDate:true }}
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+    <a class="logout-btn" (click)="logout()">
+      Logout
+    </a>
+  </div>
+</div>
+<div class="below"></div>
+
+<div class="pop comments">
+  <app-message-dialog #messageDialog>
+  </app-message-dialog>
+</div>

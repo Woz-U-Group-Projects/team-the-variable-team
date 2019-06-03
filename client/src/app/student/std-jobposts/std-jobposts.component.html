@@ -1,0 +1,53 @@
+<ng-template #content let-modal >
+  <div class="modal-header">
+    <h4 class="modal-title">{{ jobPost?.StdJobName }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="jobs-list column" *ngFor="let jobPost of stdjobPosts">
+      <b>{{ jobPost.StdJobName }}</b>
+      <div class="jobpost-row">
+        <div class="jobpost-website-container">
+          <div class="jobpost-website">
+            <a [href]="jobPost.StdJobWebsite">
+              Visit website
+            </a>
+          </div>
+          <div class="jobpost-location">
+            <span>{{ jobPost.StdJobLocation }}</span>
+          </div>
+        </div>
+        <div class="jobpost-created-container">
+          <div class="jobpost-created">
+            <span>{{ jobPost.StdJobPostedDate | appDate }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="jobpost-row">
+        <div class="edit-btn-container">
+            <button type="button" class="btn btn-primary" (click)="openStdViewModal(jobPost)">
+              View
+            </button>
+            &nbsp;
+            <button type="button" class="btn btn-primary" (click)="openCommentsModal(jobPost)">
+              Comments 
+            </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" id="btn-close" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+  
+<div class="pop">
+  <app-std-post-job-view #stdJobView>
+  </app-std-post-job-view> 
+</div>
+<div class="pop comments">
+  <app-std-comments #comments>
+  </app-std-comments>
+</div>

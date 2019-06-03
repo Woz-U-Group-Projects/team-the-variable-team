@@ -1,0 +1,142 @@
+.header{
+    width:100%;
+    background-color: #0c2d50;
+	border-bottom: 0.25em solid #1894ca;
+	margin: 0 0 10px 0;
+	display: inline-flex;
+	position: fixed;
+	z-index: 10;
+	height:auto;
+	border-bottom:5px solid #2980b9;
+	padding: 15px 0px;
+}
+
+.logo{
+	margin: 0px 10px;
+}
+
+img{
+    max-width: 150px;
+}
+
+.header-search-container {
+	display: flex;
+	background: #fff;
+	align-items: center;
+}
+
+.header-search-container .form-control {
+	border: none;
+}
+
+.header-search-container .form-control:active,
+.header-search-container .form-control:focus {
+	outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.header-search-container .header-search-btn {
+	width: initial;
+	padding: 0px 8px;
+	cursor: pointer;
+}
+
+.header-search-container .header-search-btn img {
+	width: 25px;
+}
+
+.logo-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+a.logout-btn:hover {
+	color: #fff;
+	font-weight: 600;
+}
+
+a.logout-btn {
+	padding: 10px;
+	color: #fff;
+	font-weight: 600;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.messages-btn {
+	padding: 0px 20px;
+	position: relative;
+	cursor: pointer;
+	background: no-repeat;
+    box-shadow: none;
+    border: none;
+    outline: none;
+}
+
+.messages-btn.dropdown-toggle::after {
+	display: none;
+}
+
+.messages-btn img {
+	width: 25px;
+}
+
+.messages-btn span {
+	position: absolute;
+    background: #fff;
+    width: 20px;
+    border-radius: 50%;
+    height: 20px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    color: red;
+    top: -8px;
+    right: 7px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.dropdown-menu {
+	padding: 0px;
+    max-width: 400px;
+    max-height: 400px;
+    overflow: auto;
+}
+
+.dropdown-item:active {
+	background: #fff;
+}
+
+.avatar {
+	width: 20px;
+}
+
+.dropdown-item {
+	cursor: pointer;
+	border-bottom: 1px solid #999;
+	padding: 20px;
+}
+
+.dropdown-item p {
+    margin: 0px;
+	overflow: hidden;
+	text-overflow: ellipsis
+}
+
+.dropdown-item .date {
+    font-size: 12px;
+    color: #999;
+}
+
+.dropdown-item.unread .date {
+	color: #000;
+}
+
+.dropdown-item.unread {
+	font-weight: bold;
+}

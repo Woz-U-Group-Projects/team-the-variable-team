@@ -1,0 +1,9 @@
+.students-list-container {
+    padding: 100px 20% 0px 20% !important;
+    background: #e6eae8;
+    }
+    
+    .students-search-empty {
+    width: 100%;
+    text-align: center;
+    }

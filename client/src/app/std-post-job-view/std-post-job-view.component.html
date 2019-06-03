@@ -1,0 +1,42 @@
+<ng-template #content let-modal >
+  <div class="modal-header">
+    <h4 class="modal-title">{{ jobPost?.StdJobName }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div><b>Description</b></div>
+    <br />
+    <div class="description">
+      <span [innerHtml]="jobPost?.StdJobDescription | safeHtml"></span>
+    </div>
+    <br />
+    <div>
+      <div class="location">
+        {{ jobPost?.StdJobLocation }}
+      </div>
+      <div class="website">
+        <a [href]="jobPost?.StdJobWebsite">Visit website</a>
+      </div>
+    </div>
+    <br />
+    <div class="contact">
+      <b>Contact</b>
+      <div class="contact-email">
+        Contact Email: {{ jobPost?.StdJobEmail }}
+      </div>
+      <div class="contact-number">
+        Contact Number: {{ jobPost?.StdJobContactNum }}
+      </div>
+    </div>
+    <br />
+    <div class="date">
+      Created: {{ jobPost?.StdJobPostedDate | appDate }}
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" id="btn-close" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+  

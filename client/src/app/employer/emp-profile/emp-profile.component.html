@@ -1,3 +1,91 @@
-<p>
-  emp-profile works!
-</p>
+<div class="wrapper">
+  <div class="employer-details-container">
+    <div class="user_details column">
+        <div class="user_details_logo">
+          <img *ngIf="!employer?.avatar" class="logo" src="../../assets/images/placeholder-face-big.png" alt="" />
+          <img *ngIf="employer?.avatar" class="logo" [src]="('data:image/png;base64, ' + employer.avatar) | safeHtml:'resource'" alt="" />
+        </div>
+        <div>
+          <br>
+          <b>Company</b>: {{ employer?.CompanyName }}
+          <br>
+          <b>Contact Info:</b>
+          <br>
+          <span>{{ employer?.CompanyContact }}</span>
+          <br>
+          <span>{{ employer?.CompanyEmail }}</span>
+          <br>
+          <span>{{ employer?.CompContactNum }}</span>
+          <br>
+          <a [href]="employer?.CompanyWeb">Visit Company Website</a>
+        </div>
+    </div>
+    <div class="network-links-column">
+        <div class="network-links-header">
+          Useful Links
+        </div>
+        <div class="network-links-body">
+          <a routerLink="/messenger">Messenger</a>
+          <br />
+          <a href="#">See my job posts</a>
+          <br />
+          <a href="#">Find students</a>
+        </div>
+    </div>
+  </div>
+  <div class="main_column students-list-column">
+    <div class="jobs-list-container">
+      <div class="jobs-list column" *ngFor="let jobPost of jobPosts">
+        <b>{{ jobPost.EmpJobName }}</b>
+        <div class="jobpost-decription">
+          <span [innerHtml]="jobPost.EmpJobDescription | safeHtml"></span>
+        </div>
+        <div class="jobpost-row">
+          <div class="jobpost-website-container">
+            <div class="jobpost-website">
+              <a [href]="jobPost.EmpJobWebsite">
+                Visit website
+              </a>
+            </div>
+            <div class="jobpost-location">
+              <span>{{ jobPost.EmpJobLocation }}</span>
+            </div>
+          </div>
+          <div class="jobpost-created-container">
+            <div class="jobpost-created">
+              <span>{{ jobPost.EmpJobPostedDate | appDate }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="jobpost-row">
+          <div class="edit-btn-container">
+            <button type="button" class="btn btn-primary" (click)="openEditModal(jobPost)">
+              Edit
+            </button>
+            &nbsp;
+            <button type="button" class="btn btn-primary" (click)="openCommentsModal(jobPost)">
+              Comments 
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pop">
+      <app-emp-post-job (jobCreated)="onJobCreated($event)"
+                        (jobUpdated)="onJobUpdated($event)"
+                        #postJobForm>
+      </app-emp-post-job>
+    </div>
+    <div class="pop comments">
+      <app-comments #comments>
+      </app-comments>
+    </div>
+  </div>
+  <div class="list-column">
+    <div class="students-list-container"> 
+      <div class="content">
+        <app-students-list [students]="students"></app-students-list>
+      </div>
+    </div>
+  </div>
+</div>

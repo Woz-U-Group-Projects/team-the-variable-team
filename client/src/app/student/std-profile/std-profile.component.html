@@ -1,3 +1,137 @@
-<p>
-  std-profile works!
-</p>
+<!-- This is what Ive been working on -->
+<div class="wrapper">
+  <div class="student-details-container">
+    <div class="user_details column">
+        <div class="user_details_logo">
+          <img *ngIf="!student?.avatar" class="related-avatar" src="../../assets/images/placeholder-face-big.png" alt="" />
+          <img *ngIf="student?.avatar" class="related-avatar" [src]="('data:image/png;base64, ' + student?.avatar) | safeHtml:'resource'" alt="" />
+        </div>
+        <div>
+          <br>
+          <b>Student:</b>: {{ student?.FirstName }} {{ student?.LastName }}
+          <br>
+          <b>Student Experience</b>: {{ student?.StdExperience }} 
+          <br>
+          <b>Contact Info:</b>
+          <br>
+          <span>{{ student?.StdContactNum }}</span>
+          <br>
+          <span>{{ student?.StdEmail }}</span>
+          <br>
+          <b>Accomplishments:</b>
+          <br>
+          <span>{{ student?.StdScholarships }}</span>
+          <br>
+          <span>{{ student?.StdAwards }}</span>
+          <br>
+          <span>{{ student?.StdGPA }}</span>
+          <br>
+          <b>Skills</b>: {{ student?.StdSkills }}
+          <br>
+          <b>Courses Enrolled:</b>
+          <br>
+          <span>{{ student?.CoursesEnrolled }}</span>
+          <br>
+          <b>Courses Completed:</b>
+          <br>
+          <span>{{ student?.CoursesCompleted }}</span>
+          <br>
+          <b>Major:</b>
+          <br>
+          <span>{{ student?.Major }}</span>
+        </div>
+    </div>
+    <div class="network-links-column">
+        <div class="network-links-header">
+          Network Links
+        </div>
+        <div class="network-links-body">
+          <div class="social-icons-container">
+              <a target=_blank *ngIf="student?.Github" [href]="student?.Github">
+                <img class="social-icon" src="../../assets/images/github-icons.png" alt="" />
+              </a>
+              <br />
+              <a target=_blank *ngIf="student?.Linkedin" [href]="student?.Linkedin">
+                <img class="social-icon" src="../../assets/images/linkedin-icons.png" alt="" />
+              </a>
+              <br />
+              <a target=_blank *ngIf="student?.Facebook" [href]="student?.Facebook">
+                <img class="social-icon" src="../../assets/images/fb-icons.png" alt="" />
+              </a>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="main_column employers-list-column">
+    <div class="jobs-list-container">
+      <ng-container *ngFor="let jobPost of stdjobPosts">
+        <div class="jobs-list column" *ngIf="jobPost.StudentID.StudentID == session.userId" >
+          <b>{{ jobPost.StdJobName }}</b>
+          <div class="jobpost-decription">
+            <span [innerHtml]="jobPost.StdJobDescription | safeHtml"></span>
+          </div>
+          <div class="jobpost-row">
+            <div class="jobpost-website-container">
+              <div class="jobpost-website">
+                <a [href]="jobPost.StdJobWebsite">
+                  Visit website
+                </a>
+              </div>
+              <div class="jobpost-location">
+                <span>{{ jobPost.StdJobLocation }}</span>
+              </div>
+            </div>
+            <div class="jobpost-created-container">
+              <div class="jobpost-created">
+                <span>{{ jobPost.StdJobPostedDate | appDate }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="jobpost-row">
+            <div class="edit-btn-container">
+                <button type="button" class="btn btn-primary" (click)="openEditModal(jobPost)">
+                  Edit
+                </button>
+                &nbsp;
+                <button type="button" class="btn btn-primary" (click)="openCommentsModal(jobPost)">
+                  Comments 
+                </button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="pop">
+      <app-std-post-job (jobCreated)="onJobCreated($event)"
+                        (jobUpdated)="onJobUpdated($event)"
+                        #postJobForm>
+      </app-std-post-job> 
+    </div>
+    <div class="pop">
+      <app-emp-post-job-view #empJobView>
+      </app-emp-post-job-view> 
+    </div>
+    <div class="pop">
+      <app-std-post-job-view #stdJobView>
+      </app-std-post-job-view> 
+    </div>
+    <div class="pop comments">
+      <app-std-comments #comments>
+      </app-std-comments>
+    </div>
+  </div>
+  <div class="list-column">
+    <div class="employers-list-container">
+      <p class="list-header"><b>Employers</b></p>
+      <div class="content">
+        <app-employers-list [employers]="employers"></app-employers-list>
+      </div>
+    </div>
+    <div class="students-list-container">
+      <p class="list-header"><b>Students</b></p>
+      <div class="content">
+        <app-students-list [students]="students"></app-students-list>
+      </div>
+    </div>
+  </div>
+</div>

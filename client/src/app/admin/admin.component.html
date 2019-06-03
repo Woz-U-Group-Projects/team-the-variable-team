@@ -1,0 +1,105 @@
+<div class="sidebar">
+<a class="active" href="login-page">RACKET</a>
+<button (click)="toggleButton()">Employer List</button>
+<button (click)="changeButton()">Student List</button>
+
+ 
+  <!-- <div class="icon-bar">
+    <a href="https://www.facebook.com/" class="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="https://twitter.com/" class="twitter"><i class="fa fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/" class="linkedin"><i class="fa fa-linkedin"></i></a>
+  </div> -->
+
+</div>
+
+<div class="content">
+  <div class="co">
+  <h2>RACKET</h2>
+  <p>Racket is a service website that links Employers and Students, giving you the chance to explore new Opportunities.
+  </p>
+  </div>
+  <div>
+<!-- <h1>{{ title }}</h1> -->
+ <div *ngIf="hideSelected">
+<h2>Student List</h2>
+
+<table class="container1">
+  <thead>
+    <tr></tr>
+    <th text-align="center">ID</th>
+    <th text-align="center">Student First Name</th>
+    <th text-align="center">student Last Name</th>
+    <th text-align="center">User Name</th>
+    <th text-align="center">Password</th>
+  </thead>
+  <tbody text-align="center">
+    <tr *ngFor="let student of students" text-align="center">
+      <td>{{student.ID}}</td>
+      <td>{{student.FirstName}}</td>
+      <td>{{student.LastName}}</td>
+      <td>{{student.Username}}</td>
+      <td>{{student.Password}}</td>
+      <button>Open</button> 
+      <button>Edit</button>
+      <button>Delete</button>
+    </tr>
+  </tbody>
+</table> <br><br>
+</div>
+
+<div *ngIf="showSelected" >
+<h2>Employer List</h2>
+
+<table class="container1">
+  <thead>
+    <tr></tr>
+    <th >ID</th>
+    <th >Company Name</th>
+    <th >Company Web</th>
+    <th >User Name</th>
+    <th >Password</th>
+  </thead>
+  <tbody text-align="center">
+    <tr *ngFor="let employer of employers" text-align="center">
+      <td >{{employer.ID}}</td> 
+      <td>{{employer.CompanyName}}</td>
+      <td>{{employer.CompanyWeb}}</td>
+      <td>{{employer.Username}}</td>
+      <td>{{employer.Password}}</td>
+      <button>Open</button> 
+      <button>Edit</button>
+      <button>Delete</button>
+    </tr>
+  </tbody>
+</table> <br><br>
+</div>
+    
+    
+
+
+  <!-- <div class="container">
+    <form class="form" action="action_page.php">
+
+      <h2>Contact Us</h2>
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+      <label for="country">Country</label>
+      <select id="country" name="country">
+        <option value="australia">Australia</option>
+        <option value="canada">Canada</option>
+        <option value="usa">USA</option>
+      </select>
+
+      <label for="subject">Subject</label>
+      <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+      <input type="submit" value="Submit">
+
+    </form> -->
+  </div>
+
+</div>

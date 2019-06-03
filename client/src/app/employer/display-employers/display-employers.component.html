@@ -1,0 +1,19 @@
+
+<mat-card *ngFor="let employer of employers">
+    <h4>{{ employer.CompanyName }}</h4>
+    
+    <img *ngIf="!employer?.avatar" class="logo" src="../../assets/images/placeholder-face-big.png" alt="" />
+    <img *ngIf="employer?.avatar" class="logo" [src]="('data:image/png;base64, ' + employer.avatar) | safeHtml:'resource'" alt="" />
+    
+  <mat-card-title-group>
+       <label>{{user}}</label><p class="p1"> {{ employer.Username }}</p>
+    <mat-card-content>
+
+<p class="p2">Company Website: <a href="{{ employer.CompanyWeb }}">{{ employer.CompanyWeb }}</a></p>
+    </mat-card-content>
+  </mat-card-title-group>
+</mat-card>
+
+
+
+<router-outlet></router-outlet>

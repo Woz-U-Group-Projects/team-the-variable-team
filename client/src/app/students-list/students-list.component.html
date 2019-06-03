@@ -1,0 +1,45 @@
+<div class="student-container" *ngFor="let student of students" (click)="openStudentsProfileView(student)">
+  <div class="avatar-container">
+    <img *ngIf="!student?.avatar" class="avatar" src="../../assets/images/placeholder-face-big.png" alt="" />
+    <img *ngIf="student?.avatar" class="avatar" [src]="('data:image/png;base64, ' + student?.avatar) | safeHtml:'resource'" alt="" />
+  </div>
+  <div class="body-container">
+    <div class="body-contact-info">
+      <div>
+        <b>
+          {{ student.FirstName || '' }}
+          {{ student.LastName || '' }}
+        </b>
+      </div>
+      <div>
+        {{ student.StdEmail }}
+      </div>
+    </div>
+    
+    <div class="body-gpa">
+      <span class="gpa" (click)="openStudentsJobPosts(student); $event.stopPropagation();">
+        {{ student?.jobPosts?.length || 0 }}
+      </span>
+      <span class="gpa-label">Job Posts</span>
+    </div>
+    <div class="message-icon-container">
+      <img src="../../assets/images/send-message-icon.png" 
+           class="message-icon" 
+           alt=""
+           (click)="openMessageBox(student); $event.stopPropagation();" />
+    </div>
+  </div>
+</div>
+
+<div class="pop comments">
+  <app-message-dialog #messageDialog>
+  </app-message-dialog>
+</div>
+<div class="pop">
+  <app-std-jobposts #stdJobposts>
+  </app-std-jobposts>
+</div>
+<div class="pop">
+  <app-std-profile-view #stdprofileview>
+  </app-std-profile-view>
+</div>
