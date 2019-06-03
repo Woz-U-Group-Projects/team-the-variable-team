@@ -1,5 +1,5 @@
 <mat-card class="example-card" >
-  <img class="logo" src="../../../assets/images/r.jpg" alt="" />
+  <img class="logo responsive" src="../../../assets/images/RacketLogin.png" alt="" />
   <mat-card-header>
     <mat-card-title class="log">Login</mat-card-title>
   </mat-card-header>
@@ -41,12 +41,12 @@
     <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
   </mat-card-content>
   <mat-card-actions class="card">
-    <button  mat-raised-button (click)="login(type)" color="primary">Login</button>
+    <button  mat-raised-button (click)="login(type)">Login</button>
   </mat-card-actions>
   <mat-card-actions class="card">
-    <button mat-raised-button (click)="empsignup()" color="primary">Employer Signup</button>
+    <button mat-raised-button (click)="empsignup()">Employer Signup</button>
   
-    <button mat-raised-button (click)="stdsignup()" color="primary">Student Signup</button>
+    <button mat-raised-button (click)="stdsignup()">Student Signup</button>
   </mat-card-actions>
   
 </mat-card>

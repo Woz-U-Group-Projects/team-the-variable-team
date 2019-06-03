@@ -8,36 +8,27 @@ var passport = require('passport')
 
 /* Employer Routes */
 router.get('/employers', function (req, res, next) {
-  models.Emp_Users.findAll({}).then(employers => {
+  var expand = req.query.expand;
+  var findAll = {};
+  if (expand == 'jobpoststotal') {
+    findAll['include'] = [
+      { model: models.Emp_JobPosts, as: 'jobPosts' },
+    ];
+  }
+  models.Emp_Users.findAll(findAll).then(employers => {
     res.send(JSON.stringify(employers));
   });
 });
 
-/* Employer user name and password Routes (I have two ideas and dont know
-  which one will work, first idea is using Emp_User, second idea is below it usinf Std_USER
-  (if this one is right we can change the Std_User to be same)*/
-router.get('/Emp_Users', function (req, res, next) {
+router.get('/employerssearch/:industry', function (req, res) {
   models.Emp_Users.findAll({
-    where:{
-Username: req.body.username,
-Password: req.body.password
+    where: {
+      CompIndustry: {
+        [Op.like]: '%' + req.params.industry + '%'
+      }
     }
-      
-    }).then(Emp_Users => {
-    res.redirect('empprofile/:id/' + Emp_Users.ID);
-  });
-});
-
-
-/* Student user name and password Routes this is the second way 
-(if it works we can change the Emp_User above)*/
-router.get('/Std_Users', function (req, res, next) {
-  models.Std_Users.findAll({
-    Username,
-    Password
-  }).then(Std_Users => {
-    res.send(JSON.stringify(Std_Users));
-  });
+  }).then(student =>
+    res.send(JSON.stringify(student)));
 });
 
 /* Route for Employer Profile by ID */
@@ -63,7 +54,8 @@ router.post('/employers', (req, res) => {
         CompContactNum: req.body.CompContactNum,
         CompIndustry: req.body.CompIndustry,
         Username: req.body.Username,
-        Password: req.body.Password
+        Password: req.body.Password,
+        avatar: req.body.avatar ? req.body.avatar : null
       }
     })
     .spread(function (result, created) {
@@ -123,6 +115,35 @@ router.put('/empjobpostsupdate/:id', function (req, res, next) {
   })
   .catch(next);
 });
+router.put('/stdjobpostsupdate/:id', function (req, res, next) {
+  let stdJobId = parseInt(req.params.id);
+  models.Std_JobPosts.update(
+    {
+      StdJobName: req.body.JobName,
+      StdJobLocation: req.body.JobLocation,
+      StdJobWebsite: req.body.JobWebsite,
+      StdJobContactNum: req.body.JobContactNum,
+      StdJobEmail: req.body.JobEmail,
+      StdJobDescription: req.body.JobDescription,
+      StdJobPostedDate: req.body.JobPostedDate,
+      StdJobCreatedById: req.body.JobCreatedById
+    },
+    {
+      where: { StdJobID: stdJobId }
+    }
+  ).then(rowsUpdated => {
+    if (rowsUpdated > 0) {
+      // If updated, return the success
+      res.send(JSON.stringify({
+        success: true
+      }));
+    }
+    else {
+      res.send('No rows were updated');
+    }
+  })
+  .catch(next);
+});
 
 /* Route for Creating Employer Job Posts */
 router.post('/empjobposts', (req, res) => {
@@ -145,6 +166,10 @@ router.post('/empjobposts', (req, res) => {
       } else {
         res.send('This Job already exists!');
       }
+    })
+    .catch(function(err) {
+      // print the error details
+      console.log(err);
     });
 });
 
@@ -161,7 +186,14 @@ router.get('/empjobpostsbycreated/:id', function (req, res) {
 
 /* Student Routes */
 router.get('/students', function (req, res, next) {
-  models.Std_Users.findAll({}).then(students => {
+  var expand = req.query.expand;
+  var findAll = {};
+  if (expand == 'jobpoststotal') {
+    findAll['include'] = [
+      { model: models.Std_JobPosts, as: 'jobPosts' },
+    ];
+  }
+  models.Std_Users.findAll(findAll).then(students => {
     res.send(JSON.stringify(students));
   });
 });
@@ -207,8 +239,12 @@ router.post('/students', (req, res) => {
         StdAwards: req.body.StdAwards,
         StdScholarships: req.body.StdScholarships,
         StdSkills: req.body.StdSkills,
+        Github: req.body.Github,
+        Linkedin: req.body.Linkedin,
+        Facebook: req.body.Facebook,
         Username: req.body.Username,
-        Password: req.body.Password
+        Password: req.body.Password,
+        avatar: req.body.avatar ? req.body.avatar : null
       }
     })
     .spread(function (result, created) {
@@ -222,7 +258,11 @@ router.post('/students', (req, res) => {
 
 /* Route for Student Job Posts */
 router.get('/stdjobposts', function (req, res, next) {
-  models.Std_JobPosts.findAll({}).then(stuJobPosts => {
+  models.Std_JobPosts.findAll({
+    include: [
+      { model: models.Std_Users, as: 'StudentID' }
+    ]
+  }).then(stuJobPosts => {
     res.send(JSON.stringify(stuJobPosts));
   });
 });
@@ -255,7 +295,7 @@ router.post('/stdjobposts', (req, res) => {
     })
     .spread(function (result, created) {
       if (created) {
-        res.redirect('/users/stdjobposts');
+        res.send(result);
       } else {
         res.send('This job already exists!');
       }
@@ -282,6 +322,42 @@ router.post('/login',
       });
       
     })(req, res, next);
+});
+
+/* Route for Creating Student Job Posts */
+router.post('/emppostjobcomments', (req, res) => {
+  models.emppostjob_comment
+    .findOrCreate({
+      where: {
+        comment: req.body.comment,
+        emppostjobid: req.body.emppostjobid,
+        parentComment: req.body.parentComment ? req.body.parentComment : null,
+        emp_creator: req.body.emp_creator ? req.body.emp_creator : null,
+        std_creator: req.body.std_creator ? req.body.std_creator : null
+      }
+    })
+    .spread(function (result) {
+      if (result) {
+        res.send({success: true, result: result});
+      } else {
+        res.send({success: false});
+      }
+    });
+});
+
+/* Route for Student Job Posts by ID */
+router.get('/emppostjobcomments/:id', function (req, res) {
+  models.emppostjob_comment.findAll({
+    where: {
+      emppostjobid: req.params.id,
+      parentComment: null
+    },
+    include: [
+      { model: models.emppostjob_comment, as: 'child' },
+    ]
+  }).then(data =>
+    res.send(JSON.stringify(data))
+  );
 });
 
 module.exports = router;

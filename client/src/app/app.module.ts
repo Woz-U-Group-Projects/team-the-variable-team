@@ -9,7 +9,6 @@ import { EmpSignupComponent } from './employer/emp-signup/emp-signup.component';
 
 import { StdProfileComponent } from './student/std-profile/std-profile.component';
 import { StdSignupComponent } from './student/std-signup/std-signup.component';
-import { StdPostJobModule } from './student/std-post-job/std-post-job.module';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
@@ -28,6 +27,16 @@ import { EmpPostJobModule } from './employer/emp-post-job/emp-post-job.module';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { StudentsSearchComponent } from './students-search/students-search.component';
 import { StudentsListComponent } from './students-list/students-list.component';
+import { CommentsComponent } from './comments/comments.component';
+import { MessageDialogComponent } from './message-dialog/message-dialog.component';
+import { EmployersListComponent } from './employers-list/employers-list.component';
+import { EmpPostJobViewComponent } from './emp-post-job-view/emp-post-job-view.component';
+import { StdPostJobViewComponent } from './std-post-job-view/std-post-job-view.component';
+import { StdPostJobModule } from './student/std-post-job/std-post-job.module';
+import { EmployersSearchComponent } from './employers-search/employers-search.component';
+import { StdCommentsComponent } from './std-comments/std-comments.component';
+import { EmpProfileViewComponent } from './emp-profile-view/emp-profile-view.component';
+import { StdProfileViewComponent } from './std-profile-view/std-profile-view.component';
 
 
 @NgModule({
@@ -42,11 +51,21 @@ import { StudentsListComponent } from './students-list/students-list.component';
     AdminComponent,
     DisplayEmployersComponent,
     HeaderComponent,
-    EmpJobpostsComponent,
     StdJobpostsComponent,
     EmpProfileComponent,
     StudentsSearchComponent,
-    StudentsListComponent
+    StudentsListComponent,
+    CommentsComponent,
+    MessageDialogComponent,
+    EmployersListComponent,
+    EmpPostJobViewComponent,
+    StdPostJobViewComponent,
+    EmployersSearchComponent,
+    StdCommentsComponent,
+    EmpJobpostsComponent,
+    EmpProfileViewComponent,
+    StdProfileViewComponent
+    
   ],
   imports: [
     NgbModule,

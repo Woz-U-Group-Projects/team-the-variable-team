@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         // associations can be defined here
         Emp_JobPosts.belongsTo(models.Emp_Users, {
             foreignKey: 'EmpJobCreatedById',
-            as: 'ID'
+            as: 'creator'
         });
     }
     return Emp_JobPosts;

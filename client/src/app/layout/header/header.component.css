@@ -1,6 +1,6 @@
 .header{
     width:100%;
-    background-color: #20aae5;
+    background-color: #0c2d50;
 	border-bottom: 0.25em solid #1894ca;
 	margin: 0 0 10px 0;
 	display: inline-flex;
@@ -65,6 +65,40 @@ a.logout-btn {
 	font-weight: 600;
 	text-transform: uppercase;
 	cursor: pointer;
+}
+
+.messages-btn {
+	padding: 0px 20px;
+	position: relative;
+	cursor: pointer;
+	background: no-repeat;
+    box-shadow: none;
+    border: none;
+    outline: none;
+}
+
+.messages-btn.dropdown-toggle::after {
+	display: none;
+}
+
+.messages-btn img {
+	width: 25px;
+}
+
+.messages-btn span {
+	position: absolute;
+    background: #fff;
+    width: 20px;
+    border-radius: 50%;
+    height: 20px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    color: red;
+    top: -8px;
+    right: 7px;
+    font-weight: 600;
+    font-size: 14px;
 }
 
 .dropdown-menu {

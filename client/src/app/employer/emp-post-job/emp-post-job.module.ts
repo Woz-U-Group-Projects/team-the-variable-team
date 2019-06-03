@@ -7,7 +7,6 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 //TextEditor Imports
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { EmpJobPostsService } from '../../services/empjobposts.service';
-
 @NgModule({
   declarations: [EmpPostJobComponent],
   imports: [

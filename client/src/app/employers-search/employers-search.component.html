@@ -1,0 +1,7 @@
+<div class="employers-list-container">
+  <app-employers-list [employers]="employers"></app-employers-list>
+</div>
+<div class="employers-search-empty" *ngIf="!employers?.length">
+  No employers were found matching skill: '{{ search }}'
+</div>
+  

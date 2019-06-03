@@ -1,0 +1,82 @@
+.employer-container {
+	display: flex;
+	margin-bottom: 20px;
+	cursor: pointer;
+	transition: .3s;
+	border-bottom:1px solid #D2D2D2;
+	
+}
+
+.employer-container:hover {
+    background: #dbfdff;
+}
+
+.avatar-container {
+	width: 70px;
+}
+
+.avatar-container .avatar {
+	width: 50px;
+	height:50px;
+	border-radius:100px;
+}
+
+.body-container {
+	width: 100%;
+	display: flex;
+}
+
+.body-contact-info {
+	width: 50%;
+}
+
+.body-contact-skills {
+	width: 40%;
+	display: flex;
+	align-items: center;
+	color: #999;
+}
+
+.message-icon-container {
+	display: flex;
+	align-items: center;
+	padding: 0px 20px;
+	height:auto;
+}
+
+.message-icon {
+	width:30px;
+	height: 30px;
+	display: block;
+	cursor: pointer;
+}
+
+.fa-comment-alt:hover{
+	cursor:pointer;
+}
+
+.body-jobPostsTotal {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jobPostsTotal {
+	background: #20aae5;
+    color: #fff;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jobPostsTotal-label {
+    padding: 0px 10px;
+    color: #999;
+}
+
+.jobPostsTotal {
+	cursor: pointer;
+}

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { EmpUsersService } from '../services/empusers.service';
 import { SessionService } from '../services/session.service';
+import { MessengerService } from '../services/messenger.service';
 
 
 @Component({
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private empUsersService: EmpUsersService,
-    private sessionService: SessionService
+    private sessionService: SessionService,
+    private messengerService: MessengerService
   ) { }
   username: string;
   password: string;
@@ -48,22 +50,49 @@ export class LoginComponent implements OnInit {
     .subscribe((res: any) => {
       if (res.success) {
         this.sessionService.setSession(res.id, type);
+        this.initInbox(res.id, type);
         if (type == 'student') {
           // Redirect the user to the student profile
-          this.router.navigate(['/stdprofile/' + res.id]);
+          // hard redirecr to refresh the session
+          window.location.href = '/stdprofile/' + res.id;
         }
         else if (type == 'employer') {
           // Redirect the user to the employer profile
-          this.router.navigate(['/empprofile/' + res.id]);
-        }
-        else {
-          // Show error message
-          this.router.navigate(['/login/']);
-          this.loginError = true;
+          window.location.href = '/empprofile/' + res.id;
         }
       }
-     
+      else {
+        // Show error message
+        this.loginError = true;
+      }
     })
+  }
+
+  /**
+   * Initializ eimbox messages for the new user
+   */
+  initInbox(userId, userType) {
+    let query: any = {};
+    if (userType == 'employer') {
+      query.EmployerRecipientID = userId;
+    }
+    else if (userType == 'student') {
+      query.StudentRecipientID = userId;
+    }
+    this.messengerService.getIncoming(query).subscribe(res => {
+      if (res && res.length) {
+        this.messengerService.incoming = res;
+        // Get unread messages
+        this.messengerService.unread = 0;
+        this.messengerService.incoming.forEach(message => {
+          if (message.Read == 0 && 
+            ((message.EmpRecipient && message.EmpRecipient.ID == userId) ||
+              (message.StdRecipient && message.StdRecipient.StudentID == userId))) {
+            this.messengerService.unread++;
+          }
+        });
+      }
+    });
   }
 
   empsignup(): void {

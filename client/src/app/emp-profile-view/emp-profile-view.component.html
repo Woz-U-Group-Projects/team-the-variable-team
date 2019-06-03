@@ -1,0 +1,43 @@
+<ng-template #content let-modal >
+  <div class="modal-header">
+    <img *ngIf="!employer?.avatar" class="avatar" src="../../assets/images/placeholder-face-big.png" alt="" />
+    <img *ngIf="employer?.avatar" class="avatar" [src]="('data:image/png;base64, ' + employer.avatar) | safeHtml:'resource'" alt="" />
+    <h4 class="modal-title">
+        {{ employer?.CompanyName }}
+    </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="info-box">
+      <div class="info-box">
+      <div class="info-box-header">
+        <b>Contact Info</b>
+      </div>
+      <div class="info-box-body">
+        <span>{{ employer?.CompanyContact }}</span>
+        <br>
+        <span>{{ employer?.CompContactNum }}</span>
+        <br>
+        <span>{{ employer?.CompanyEmail }}</span>
+      </div>
+    </div>
+    <div class="info-box">
+      <div class="info-box-header">
+        <b>Profile</b>
+      </div>
+      <div class="info-box-body">
+        <span>{{ employer?.CompIndustry }}</span>
+        <br />
+        <a [href]="employer?.CompanyWeb">Visit website</a>
+        <br>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" id="btn-close" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+  

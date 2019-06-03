@@ -5,10 +5,8 @@
     <!-- left column -->
     <div class="col-md-3">
       <div class="text-center">
-        <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-        <h6>Upload a different photo...</h6>
-
-        <input type="file" class="form-control">
+        <img [src]="preview|| '//placehold.it/100'" class="avatar img-circle" alt="avatar">
+        <input (change)="onFileChange($event)" type="file" class="form-control">
       </div>
     </div>
     <!-- edit form column -->
@@ -109,6 +107,27 @@
           <div class="col-lg-8">
             <input class="form-control" type="text" [(ngModel)]="stdUsers.StdSkills" name="StdSkills"
               placeholder="List your Skills & Hobbies">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label StdSkills">Github:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.Github" name="Github"
+              placeholder="Github profile">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label StdSkills">Linkedin:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.Linkedin" name="Linkedin"
+              placeholder="Linkedin profile">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label StdSkills">Facebook:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="stdUsers.Facebook" name="Facebook"
+              placeholder="Facebook profile">
           </div>
         </div>
         <div class="form-group">

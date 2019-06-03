@@ -6,15 +6,18 @@ var models = require('./models');
 var cookieParser = require('cookie-parser');
 var passport = require('passport');
 require('./config/passport');
+var bodyParser = require('body-parser')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var messengerRouter = require('./routes/messenger');
 
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+app.use(bodyParser.json({ limit: '5mb' }))
 app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -41,6 +44,7 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/messenger', messengerRouter);
 
 models.sequelize.sync().then(function() {
     console.log("DB Sync'd up");

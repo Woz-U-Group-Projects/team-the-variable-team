@@ -1,0 +1,33 @@
+.avatar {
+    width: 50px;
+}
+
+.related-avatar {
+    width: 30px;
+}
+
+.message-container {
+    display: flex;
+}
+
+.message-container.sent {
+    justify-content: flex-end;
+}
+
+.message-container .message-container-box {
+    background: #d5e5ff;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    width: fit-content;
+}
+
+.message-container.sent .message-container-box {
+    background: #d5ffd5;
+}
+
+.messages-body {
+    max-height: 450px;
+    overflow: auto;
+    flex-grow: 1;
+}

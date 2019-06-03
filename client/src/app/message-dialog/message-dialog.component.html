@@ -1,0 +1,104 @@
+<ng-template #content let-modal >
+  <div class="modal-header">
+    <h4 class="modal-title">
+      <span *ngIf="received?.EmpCreator">
+          <img *ngIf="!received?.EmpCreator?.avatar" class="logo" src="../../assets/images/placeholder-face-big.png" alt="" />
+          <img *ngIf="received?.EmpCreator?.avatar" class="logo" [src]="('data:image/png;base64, ' + received?.EmpCreator?.avatar) | safeHtml:'resource'" alt="" />
+          {{ received?.EmpCreator?.CompanyName }}
+      </span>
+      <span *ngIf="received?.StdCreator">
+          <img *ngIf="!received?.StdCreator?.avatar" class="avatar" src="../../assets/images/placeholder-face-big.png" alt="" />
+          <img *ngIf="received?.StdCreator?.avatar" class="avatar" [src]="('data:image/png;base64, ' + received?.StdCreator?.avatar) | safeHtml:'resource'" alt="" />
+          {{ received?.StdCreator?.FirstName || '' }}
+          {{ received?.StdCreator?.LastName || '' }}
+      </span>
+      <span *ngIf="user">
+          <img *ngIf="!user?.avatar" class="avatar" src="../../assets/images/placeholder-face-big.png" alt="" />
+          <img *ngIf="user?.avatar" class="avatar" [src]="('data:image/png;base64, ' + user?.avatar) | safeHtml:'resource'" alt="" />
+          <span *ngIf="user?.CompanyName">
+            {{ user?.CompanyName || '' }}
+          </span>
+          <span *ngIf="user?.StudentID">
+            {{ user?.FirstName || '' }}
+            {{ user?.LastName || '' }}
+          </span>
+      </span>
+    </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div id="messages-list" class="messages-body">
+      <div class="message-container"
+           *ngIf="parent"
+           [ngClass]="{'sent': (parent?.EmpCreator?.ID == session.userId && session.userType == 'employer') || (parent?.StdCreator?.StudentID == session.userId && session.userType == 'student')}">
+        <div class="message-container-box">
+          <div>
+            <span *ngIf="parent?.EmpCreator">
+                <img *ngIf="!parent?.EmpCreator?.avatar" class="avatar" src="../../assets/images/placeholder-face-big.png" alt="" />
+                <img *ngIf="parent?.EmpCreator?.avatar" class="avatar" [src]="('data:image/png;base64, ' + parent?.EmpCreator?.avatar) | safeHtml:'resource'" alt="" />
+                {{ parent?.EmpCreator?.CompanyName }}
+            </span>
+            <span *ngIf="parent?.StdCreator">
+                <img *ngIf="!parent?.StdCreator?.avatar" class="avatar" src="../../assets/images/placeholder-face-big.png" alt="" />
+                <img *ngIf="parent?.StdCreator?.avatar" class="avatar" [src]="('data:image/png;base64, ' + parent?.StdCreator?.avatar) | safeHtml:'resource'" alt="" />
+                {{ parent?.StdCreator?.FirstName || '' }}
+                {{ parent?.StdCreator?.LastName || '' }}
+            </span>
+          </div>
+          <div>
+            {{ parent?.Message }}
+          </div>
+          <div class="date">
+            {{ parent?.Created | appDate }}
+          </div>
+        </div>
+      </div>
+      <div *ngFor="let relatedMessage of messageHistory" 
+           class="message-container"
+           [ngClass]="{'sent': (relatedMessage?.EmpCreator?.ID == session.userId && session.userType == 'employer') || (relatedMessage?.StdCreator?.StudentID == session.userId && session.userType == 'student')}"
+           #messagesReference>
+        <div class="message-container-box">
+          <div>
+            <span *ngIf="relatedMessage?.EmpCreator">
+                <img *ngIf="!relatedMessage?.EmpCreator?.avatar" class="related-avatar" src="../../assets/images/placeholder-face-big.png" alt="" />
+                <img *ngIf="relatedMessage?.EmpCreator?.avatar" class="related-avatar" [src]="('data:image/png;base64, ' + relatedMessage?.EmpCreator?.avatar) | safeHtml:'resource'" alt="" />
+                {{ relatedMessage?.EmpCreator?.CompanyName }}
+            </span>
+            <span *ngIf="relatedMessage?.StdCreator">
+                <img *ngIf="!relatedMessage?.StdCreator?.avatar" class="avatar" src="../../assets/images/placeholder-face-big.png" alt="" />
+                <img *ngIf="relatedMessage?.StdCreator?.avatar" class="avatar" [src]="('data:image/png;base64, ' + relatedMessage?.StdCreator?.avatar) | safeHtml:'resource'" alt="" />
+                {{ relatedMessage?.StdCreator?.FirstName || '' }}
+                {{ relatedMessage?.StdCreator?.LastName || '' }}
+            </span>
+          </div>
+          <div>
+            {{ relatedMessage?.Message }}
+          </div>
+          <div class="date">
+            {{ relatedMessage?.Created | appDate }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div>
+      <form (ngSubmit)="onSubmit()">
+        <textarea *ngIf="parent" [(ngModel)]="create.Message" id="comment" name="comment" class="form-control" placeholder="Reply to this user...">
+        </textarea>
+        <textarea  *ngIf="user" [(ngModel)]="create.Message" id="comment" name="comment" class="form-control" placeholder="Message this user...">
+        </textarea>
+        <br />
+        <button type="submit" id="btn-close" class="btn btn-primary">
+          <div *ngIf="parent">Reply</div>
+          <div *ngIf="user">Send</div>
+        </button>  
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" id="btn-close" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+  
