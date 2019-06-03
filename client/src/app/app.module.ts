@@ -29,6 +29,14 @@ import { StudentsSearchComponent } from './students-search/students-search.compo
 import { StudentsListComponent } from './students-list/students-list.component';
 import { CommentsComponent } from './comments/comments.component';
 import { MessageDialogComponent } from './message-dialog/message-dialog.component';
+import { EmployersListComponent } from './employers-list/employers-list.component';
+import { EmpPostJobViewComponent } from './emp-post-job-view/emp-post-job-view.component';
+import { StdPostJobViewComponent } from './std-post-job-view/std-post-job-view.component';
+import { StdPostJobModule } from './student/std-post-job/std-post-job.module';
+import { EmployersSearchComponent } from './employers-search/employers-search.component';
+import { StdCommentsComponent } from './std-comments/std-comments.component';
+import { EmpProfileViewComponent } from './emp-profile-view/emp-profile-view.component';
+import { StdProfileViewComponent } from './std-profile-view/std-profile-view.component';
 
 
 @NgModule({
@@ -43,13 +51,20 @@ import { MessageDialogComponent } from './message-dialog/message-dialog.componen
     AdminComponent,
     DisplayEmployersComponent,
     HeaderComponent,
-    EmpJobpostsComponent,
     StdJobpostsComponent,
     EmpProfileComponent,
     StudentsSearchComponent,
     StudentsListComponent,
     CommentsComponent,
     MessageDialogComponent,
+    EmployersListComponent,
+    EmpPostJobViewComponent,
+    StdPostJobViewComponent,
+    EmployersSearchComponent,
+    StdCommentsComponent,
+    EmpJobpostsComponent,
+    EmpProfileViewComponent,
+    StdProfileViewComponent
     
   ],
   imports: [
@@ -63,6 +78,7 @@ import { MessageDialogComponent } from './message-dialog/message-dialog.componen
     MatToolbarModule,
     MatSelectModule,
     EmpPostJobModule,
+    StdPostJobModule,
     //Text Editor Imports
     FroalaEditorModule.forRoot(), 
     FroalaViewModule.forRoot(),

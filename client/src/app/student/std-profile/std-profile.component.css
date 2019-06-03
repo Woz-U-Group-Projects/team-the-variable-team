@@ -134,22 +134,6 @@ nav a:hover {
 	color: #fff;
 }
 
-/* .wrapper {
-	margin: 0 auto;
-	top: 70px;
-	position: relative;
-	padding: 0 10px;
-	width: 75%;
-    min-width: 950px;
-} */
-
-
-
-
-
-
-
-
 .post_form {
 	width: 100%;
 }
@@ -346,25 +330,14 @@ max-width:150px;
 }
 
 
-
-
-
 /*Starting the rewriting*/
-
-
-
-
-
 .wrapper {
-  
-    top:70px;
     position:relative;
-    padding:0 10px;
-    width:75%;
+    padding: 100px 45px 45px 45px;
     min-width: 950px;
 	display: flex;
-    
-  }
+    background: #d3fcfe;
+}
 
 
 .column {
@@ -377,7 +350,7 @@ max-width:150px;
 	margin-bottom: 20px;
 }
 
-.useful-links-column {
+.network-links-column {
 	background-color: #fff;
 	border: 1px solid #D3D3D3;
 	border-radius: 5px;
@@ -386,14 +359,15 @@ max-width:150px;
 	overflow: hidden;
 }
 
-.useful-links-header {
+.network-links-header {
     background: #20aae5;
     color: #fff;
     font-weight: 600;
 	padding: 5px 20px;
+	text-align: center;
 }
 
-.useful-links-body {
+.network-links-body {
 	padding: 20px;
 }
 
@@ -410,13 +384,26 @@ max-width:150px;
 }
 .user_details img {
 	height: 120px;
-	border-radius: 5px;
+	max-width:120px;
+	border-radius: 100px;
 	margin-right: 5px;
 }
 
+
+.student-details-container {
+	width: 20%;
+}
+
 .main_column {
-	width: 70%;
+	width: 50%;
 	min-height: 160px;
+	margin: 0px 30px;
+	background: #fff;
+	height: fit-content;
+}
+
+.list-column {
+	width: 30%;
 }
 
 .pop{
@@ -473,4 +460,39 @@ max-width:150px;
 .comment-add{
 	width:30px;
 	height:30px;
+}
+
+.employers-list-container {
+	margin-bottom: 20px;
+}
+
+.students-list-container,
+.employers-list-container {
+	padding: 20px 0px;
+	background: #fff;
+}
+
+.students-list-container .content,
+.employers-list-container .content {
+	max-height: 300px;
+	overflow: auto;
+	padding: 0px 20px;
+}
+
+.list-header {
+	text-align: center;
+	padding-left: 20px;
+	
+	
+}
+
+.social-icon {
+    width: 40px;
+	padding: 5px;
+	margin-left:40px;
+}
+
+.social-icons-container {
+	display: flex;
+	margin-top: 10px;
 }

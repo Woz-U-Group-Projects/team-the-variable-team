@@ -10,6 +10,7 @@ import { StdJobPosts } from '../../angular-models/Std_JobPosts';
 import { EmpPostJobComponent } from '../emp-post-job/emp-post-job.component';
 import { CommentsComponent } from '../../comments/comments.component';
 import { SessionService } from '../../services/session.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-emp-profile',
@@ -43,7 +44,8 @@ export class EmpProfileComponent implements OnInit {
     private stdUsersService: StdUsersService, 
     private empJobPostsService: EmpJobPostsService, 
     private sessionService: SessionService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private sanitizer: DomSanitizer
   ) { }
 
   /**

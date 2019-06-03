@@ -1,0 +1,40 @@
+.modal-header {
+    display: flex;
+    align-items: center;
+}
+
+.social-icon {
+    width: 40px;
+    padding: 5px;
+}
+
+.social-icons-container {
+	display: flex;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.social-icons-container a:focus {
+    outline: none;
+}
+
+.info-box {
+    padding: 10px;
+}
+
+.info-box-header {
+    background: #d8d6d6;
+    padding: 10px;
+}
+
+.info-box-body {
+    padding: 10px;
+    border: 1px solid #d8d6d6;
+}
+
+.avatar {
+    width: 40px;
+    margin-right: 10px;
+    border-radius:100px;
+    height:40px;
+}

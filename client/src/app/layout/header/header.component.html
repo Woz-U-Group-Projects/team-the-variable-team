@@ -1,7 +1,10 @@
 <div class="header">
   <div class="logo"><a routerLink="/"><img src="../../../assets/images/racket.png"></a></div>
-  <div class="header-search-container">
-    <input [(ngModel)]="searchText" class="form-control" id="search"  placeholder="Enter skill...">
+  <div class="header-search-container" *ngIf="session.userId">
+    
+    <input *ngIf="session.userType == 'employer'" [(ngModel)]="searchText" class="form-control" id="search"  placeholder="Enter skill...">
+    <input *ngIf="session.userType == 'student'" [(ngModel)]="searchText" class="form-control" id="search"  placeholder="Enter industry...">
+
     <a class="header-search-btn" (click)="search()">
       <img class="logo" src="../../assets/images/search.png" alt="" />
     </a>
@@ -18,11 +21,13 @@
             [ngClass]="{'unread': !message?.Read}"
             (click)="openMessageDialog(message)">
             <p *ngIf="message?.EmpCreator">
-                <img class="avatar" src="../../assets/images/placeholder-face-big.png" />
+                <img *ngIf="!message?.EmpCreator?.avatar" class="avatar" src="../../assets/images/placeholder-face-big.png" alt="" />
+                <img *ngIf="message?.EmpCreator?.avatar" class="avatar" [src]="('data:image/png;base64, ' + message?.EmpCreator?.avatar) | safeHtml:'resource'" alt="" />
                 {{ message?.EmpCreator?.CompanyName }}
             </p>
             <p *ngIf="message?.StdCreator">
-                <img class="avatar" src="../../assets/images/placeholder-face-big.png" />
+                <img *ngIf="!message?.StdCreator?.avatar" class="avatar" src="../../assets/images/placeholder-face-big.png" alt="" />
+                <img *ngIf="message?.StdCreator?.avatar" class="avatar" [src]="('data:image/png;base64, ' + message?.StdCreator?.avatar) | safeHtml:'resource'" alt="" />
                 {{ message?.StdCreator?.FirstName || '' }}
                 {{ message?.StdCreator?.LastName || '' }}
             </p>

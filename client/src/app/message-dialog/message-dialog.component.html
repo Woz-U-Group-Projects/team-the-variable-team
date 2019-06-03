@@ -2,16 +2,19 @@
   <div class="modal-header">
     <h4 class="modal-title">
       <span *ngIf="received?.EmpCreator">
-          <img class="avatar" src="../../assets/images/placeholder-face-big.png" />
+          <img *ngIf="!received?.EmpCreator?.avatar" class="logo" src="../../assets/images/placeholder-face-big.png" alt="" />
+          <img *ngIf="received?.EmpCreator?.avatar" class="logo" [src]="('data:image/png;base64, ' + received?.EmpCreator?.avatar) | safeHtml:'resource'" alt="" />
           {{ received?.EmpCreator?.CompanyName }}
       </span>
       <span *ngIf="received?.StdCreator">
-          <img class="avatar" src="../../assets/images/placeholder-face-big.png" />
+          <img *ngIf="!received?.StdCreator?.avatar" class="avatar" src="../../assets/images/placeholder-face-big.png" alt="" />
+          <img *ngIf="received?.StdCreator?.avatar" class="avatar" [src]="('data:image/png;base64, ' + received?.StdCreator?.avatar) | safeHtml:'resource'" alt="" />
           {{ received?.StdCreator?.FirstName || '' }}
           {{ received?.StdCreator?.LastName || '' }}
       </span>
       <span *ngIf="user">
-          <img class="avatar" src="../../assets/images/placeholder-face-big.png" />
+          <img *ngIf="!user?.avatar" class="avatar" src="../../assets/images/placeholder-face-big.png" alt="" />
+          <img *ngIf="user?.avatar" class="avatar" [src]="('data:image/png;base64, ' + user?.avatar) | safeHtml:'resource'" alt="" />
           <span *ngIf="user?.CompanyName">
             {{ user?.CompanyName || '' }}
           </span>
@@ -33,11 +36,13 @@
         <div class="message-container-box">
           <div>
             <span *ngIf="parent?.EmpCreator">
-                <img class="related-avatar" src="../../assets/images/placeholder-face-big.png" />
+                <img *ngIf="!parent?.EmpCreator?.avatar" class="avatar" src="../../assets/images/placeholder-face-big.png" alt="" />
+                <img *ngIf="parent?.EmpCreator?.avatar" class="avatar" [src]="('data:image/png;base64, ' + parent?.EmpCreator?.avatar) | safeHtml:'resource'" alt="" />
                 {{ parent?.EmpCreator?.CompanyName }}
             </span>
             <span *ngIf="parent?.StdCreator">
-                <img class="related-avatar" src="../../assets/images/placeholder-face-big.png" />
+                <img *ngIf="!parent?.StdCreator?.avatar" class="avatar" src="../../assets/images/placeholder-face-big.png" alt="" />
+                <img *ngIf="parent?.StdCreator?.avatar" class="avatar" [src]="('data:image/png;base64, ' + parent?.StdCreator?.avatar) | safeHtml:'resource'" alt="" />
                 {{ parent?.StdCreator?.FirstName || '' }}
                 {{ parent?.StdCreator?.LastName || '' }}
             </span>
@@ -57,11 +62,13 @@
         <div class="message-container-box">
           <div>
             <span *ngIf="relatedMessage?.EmpCreator">
-                <img class="related-avatar" src="../../assets/images/placeholder-face-big.png" />
+                <img *ngIf="!relatedMessage?.EmpCreator?.avatar" class="related-avatar" src="../../assets/images/placeholder-face-big.png" alt="" />
+                <img *ngIf="relatedMessage?.EmpCreator?.avatar" class="related-avatar" [src]="('data:image/png;base64, ' + relatedMessage?.EmpCreator?.avatar) | safeHtml:'resource'" alt="" />
                 {{ relatedMessage?.EmpCreator?.CompanyName }}
             </span>
             <span *ngIf="relatedMessage?.StdCreator">
-                <img class="related-avatar" src="../../assets/images/placeholder-face-big.png" />
+                <img *ngIf="!relatedMessage?.StdCreator?.avatar" class="avatar" src="../../assets/images/placeholder-face-big.png" alt="" />
+                <img *ngIf="relatedMessage?.StdCreator?.avatar" class="avatar" [src]="('data:image/png;base64, ' + relatedMessage?.StdCreator?.avatar) | safeHtml:'resource'" alt="" />
                 {{ relatedMessage?.StdCreator?.FirstName || '' }}
                 {{ relatedMessage?.StdCreator?.LastName || '' }}
             </span>

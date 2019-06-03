@@ -1,0 +1,71 @@
+<ng-template #content let-modal >
+  <div class="modal-header">
+    <h4 class="modal-title">Comments of '{{jobPost.EmpJobName || jobPost.StdJobName}}'</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div>
+      <form (ngSubmit)="onCommentSubmit(index)">
+        <p><b>Comment on this job post</b></p>
+        <textarea [(ngModel)]="create.comment" id="comment" name="comment" class="form-control" placeholder="Reply...">
+        </textarea>
+        <br />
+        <div class="comment-btn-container">
+          <button type="submit" id="btn-close" class="btn btn-primary">
+            Post comment
+          </button>  
+        </div>
+      </form>
+    </div>
+    <br />
+    <ng-container *ngFor="let comment of comments; let index = index;">
+      <div class="comments-container">
+        <div class="comments-box">
+          <div>
+            {{ comment.comment }}
+          </div>
+          <div class="date">
+            {{ comment.createdAt | appDate }}
+          </div>
+          <div class="reply-btn-container">
+            <a class="btn btn-primary" (click)="comment.showReply = true" [hidden]="comment.showReply" 
+               *ngIf="!comment.child && comment.std_creator != session.userId">
+              Reply
+            </a>
+          </div>
+        </div>
+        <div *ngIf="!comment.child" [hidden]="!comment.showReply">
+          <form (ngSubmit)="onReplySubmit(comment, index)">
+            <p><b>Comment</b></p>
+            <textarea [(ngModel)]="reply.comment" id="comment" name="comment" class="form-control" placeholder="Reply...">
+            </textarea>
+            <br />
+            <div class="reply-btn-container">
+              <button type="submit" id="btn-close" class="btn btn-primary">
+                Send Reply
+              </button>  
+            </div>
+          </form>
+        </div>
+        <div class="child-comment" *ngIf="comment.child">
+          <div>
+            {{ comment.child.comment }}
+          </div>
+          <div class="date">
+            {{ comment.child.createdAt | appDate }}
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <div *ngIf="!comments?.length">
+      No comments on this Job Post yet
+    </div>
+    <hr />
+  </div>
+  <div class="modal-footer">
+    <button type="button" id="btn-close" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+  

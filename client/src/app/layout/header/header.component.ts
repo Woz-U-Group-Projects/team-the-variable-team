@@ -59,7 +59,12 @@ export class HeaderComponent implements OnInit {
    */
   search(): void {
     if (this.searchText) {
-      this.router.navigateByUrl("/students/" + this.searchText);
+      if (this.session.userType == 'employer') {
+        this.router.navigateByUrl("/students/" + this.searchText);
+      }
+      else if (this.session.userType == 'student') {
+        this.router.navigateByUrl("/employers/" + this.searchText);
+      }
     }
   }
 

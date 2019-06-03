@@ -8,4 +8,5 @@ export class EmpUsers {
     compIndustry: string;
     username: string;
     password: string;
+    avatar: string;
 }
