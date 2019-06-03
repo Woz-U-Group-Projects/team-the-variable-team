@@ -1,6 +1,13 @@
 .student-container {
 	display: flex;
 	margin-bottom: 20px;
+	cursor: pointer;
+	transition: .3s;
+	border-bottom:1px solid #D2D2D2
+}
+
+.student-container:hover {
+    background: #dbfdff;
 }
 
 .avatar-container {
@@ -9,6 +16,8 @@
 
 .avatar-container .avatar {
 	width: 50px;
+	height:50px;
+	border-radius:100px;
 }
 
 .body-container {
@@ -41,10 +50,39 @@
     height: 35px;
     display: flex;
     justify-content: center;
-    align-items: center;
+	align-items: center;
+	cursor: pointer;
 }
 
 .gpa-label {
     padding: 0px 10px;
     color: #999;
 }
+
+.message-icon-container {
+	display: flex;
+	align-items: center;
+	padding: 0px 20px;
+	height:auto;
+}
+
+.message-icon {
+	width:30px;
+	height: 30px;
+	display: block;
+	
+	cursor: pointer;
+	
+}
+
+.fa-comment-alt{
+	font-size: 2em;
+	color:rgb(13, 179, 201);
+	
+}
+.fa-comment-alt:hover{
+	cursor:pointer;
+	
+}
+
+

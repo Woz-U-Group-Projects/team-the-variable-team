@@ -67,6 +67,40 @@ a.logout-btn {
 	cursor: pointer;
 }
 
+.messages-btn {
+	padding: 0px 20px;
+	position: relative;
+	cursor: pointer;
+	background: no-repeat;
+    box-shadow: none;
+    border: none;
+    outline: none;
+}
+
+.messages-btn.dropdown-toggle::after {
+	display: none;
+}
+
+.messages-btn img {
+	width: 25px;
+}
+
+.messages-btn span {
+	position: absolute;
+    background: #fff;
+    width: 20px;
+    border-radius: 50%;
+    height: 20px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    color: red;
+    top: -8px;
+    right: 7px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
 .dropdown-menu {
 	padding: 0px;
     max-width: 400px;

@@ -1,0 +1,77 @@
+<ng-template #content let-modal >
+  <div class="modal-header">
+    <img *ngIf="!student?.avatar" class="avatar" src="../../assets/images/placeholder-face-big.png" alt="" />
+    <img *ngIf="student?.avatar" class="avatar" [src]="('data:image/png;base64, ' + student?.avatar) | safeHtml:'resource'" alt="" />
+    <h4 class="modal-title">
+        {{ student?.FirstName }} {{ student?.LastName }}
+    </h4>
+    <div class="social-icons-container">
+      <a target=_blank *ngIf="student?.Github" [href]="student?.Github">
+        <img class="social-icon" src="../../assets/images/github-icons.png" alt="" />
+      </a>
+      <br />
+      <a target=_blank *ngIf="student?.Linkedin" [href]="student?.Linkedin">
+        <img class="social-icon" src="../../assets/images/linkedin-icons.png" alt="" />
+      </a>
+      <br />
+      <a target=_blank *ngIf="student?.Facebook" [href]="student?.Facebook">
+        <img class="social-icon" src="../../assets/images/fb-icons.png" alt="" />
+      </a>
+    </div>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="info-box">
+      <div class="info-box-header">
+        <b>Contact Info</b>
+      </div>
+      <div class="info-box-body">
+        <span>{{ student?.StdContactNum }}</span>
+        <br>
+        <span>{{ student?.StdEmail }}</span>
+      </div>
+    </div>
+    <div class="info-box">
+      <div class="info-box-header">
+        <b>Student Details</b>
+      </div>
+      <div class="info-box-body">
+        <b>Major:</b><span> {{ student?.Major }}</span>
+        <br>
+        <b>Student Experience</b>: {{ student?.StdExperience }} 
+        <br>
+        <b>Skills</b>: {{ student?.StdSkills }}
+      </div>
+    </div>
+    <div class="info-box">
+      <div class="info-box-header">
+        <b>Accomplishments</b>
+      </div>
+      <div class="info-box-body">
+        <b>Scholarships:</b>&nbsp;<span>{{ student?.StdScholarships }}</span>
+        <br>
+        <b>Awards:</b>&nbsp;<span>{{ student?.StdAwards }}</span>
+        <br>
+        <b>GPA:</b>&nbsp;<span>{{ student?.StdGPA }}</span>
+      </div>
+    </div>
+    <div class="info-box">
+      <div class="info-box-header">
+        <b>Courses</b>
+      </div>
+      <div class="info-box-body">
+        <b>Courses Enrolled:</b>&nbsp;<span>{{ student?.CoursesEnrolled }}</span>
+        <br>
+        <b>Courses Completed:</b>&nbsp;<span>{{ student?.CoursesCompleted }}</span>
+      </div>
+    </div>
+    
+    <br>
+    <br>
+  </div>
+  <div class="modal-footer">
+    <button type="button" id="btn-close" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

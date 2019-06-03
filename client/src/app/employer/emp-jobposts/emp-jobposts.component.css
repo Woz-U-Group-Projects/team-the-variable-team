@@ -1,0 +1,64 @@
+
+.column {
+	background-color: #fff;
+	padding: 10px;
+	border: 1px solid #D3D3D3;
+	border-radius: 5px;
+	box-shadow: 2px 2px 1px #D3D3D3;
+	z-index: -1;
+	margin-bottom: 20px;
+}
+
+.jobpost-location,
+.jobpost-created,
+.jobpost-decription {
+	color: #555;
+}
+
+.jobpost-decription {
+	margin-bottom: 15px;
+}
+
+.jobpost-row {
+	display: flex;
+}
+
+.jobpost-website-container {
+	width: 100%;
+}
+
+.jobpost-created span {
+    display: block;
+    white-space: nowrap;
+}
+
+.employer-details-container {
+	width: 29%;
+	margin-right: 1%;
+	background: #fff;
+	padding: 15px;
+}
+
+
+.main_column {
+	width: 70%;
+	min-height: 160px;
+	padding: 0px 30px;
+}
+
+.edit-btn-container {
+	display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.comment-add{
+	width:30px;
+	height:30px;
+}
+
+.employers-list-container {
+	max-height: 500px;
+	overflow: auto;
+	margin-bottom: 20px;
+}

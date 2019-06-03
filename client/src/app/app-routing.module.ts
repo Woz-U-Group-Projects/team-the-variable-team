@@ -10,6 +10,7 @@ import { AdminComponent } from './admin/admin.component';
 import { DisplayEmployersComponent } from './employer/display-employers/display-employers.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { StudentsSearchComponent } from './students-search/students-search.component';
+import { EmployersSearchComponent } from './employers-search/employers-search.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'empprofile/:id', component: EmpProfileComponent },
   { path: 'stdprofile/:id', component: StdProfileComponent },
   { path: 'students/:search', component: StudentsSearchComponent },
+  { path: 'employers/:search', component: EmployersSearchComponent },
   { path: 'empprofedit/:id,', component: EmpProfEditComponent},
   { path: 'dispemployers', component: DisplayEmployersComponent},
   { path: 'header', component: HeaderComponent}

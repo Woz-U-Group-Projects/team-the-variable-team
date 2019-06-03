@@ -1,0 +1,44 @@
+<div class="employer-container" *ngFor="let employer of employers" (click)="openEmployersProfileView(employer)">
+  <div class="avatar-container">
+    <img *ngIf="!employer?.avatar" class="avatar" src="../../assets/images/placeholder-face-big.png" alt="" />
+    <img *ngIf="employer?.avatar" class="avatar" [src]="('data:image/png;base64, ' + employer.avatar) | safeHtml:'resource'" alt="" />
+  </div>
+  <div class="body-container">
+    <div class="body-contact-info">
+      <div>
+        <b>
+          {{ employer.CompanyName }}
+        </b>
+      </div>
+      <div>
+        {{ employer.CompanyEmail }}
+      </div>
+    </div>
+    <div class="body-jobPostsTotal">
+      <span class="jobPostsTotal" (click)="employer?.jobPosts?.length && openEmployerJobPosts(employer); $event.stopPropagation();">
+        {{ employer?.jobPosts?.length || 0 }}
+      </span>
+      <span class="jobPostsTotal-label">Job Posts</span>
+    </div>
+    <div class="message-icon-container">
+      <img src="../../assets/images/send-message-icon.png" 
+           class="message-icon" 
+           alt=""
+           (click)="openMessageBox(employer); $event.stopPropagation();" />
+    </div>
+  </div>
+</div>
+
+<div class="pop comments">
+  <app-message-dialog #messageDialog>
+  </app-message-dialog>
+</div>
+<div class="pop">
+  <app-emp-jobposts #empJobposts>
+  </app-emp-jobposts>
+</div>
+<div class="pop">
+  <app-emp-profile-view #empprofileview>
+  </app-emp-profile-view>
+</div>
+

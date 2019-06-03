@@ -24,21 +24,15 @@ export class SessionService {
       userType: localStorage.getItem('userType')
     };
   }
-/**
- * Destroy Session
- */
-// sessionDestroy(){
-//   return {
 
-//   }
-// }
   /**
    * Logout the session 
    */
   logout() {
-    return {
-      userId: localStorage.setItem('userId', null),
-      userType: localStorage.setItem('userType', null)
-    };
+      localStorage.removeItem('userId');
+      localStorage.removeItem('userType');
+      localStorage.clear();
+      // hard redirect to login, to clear the session
+      window.location.href = '/login';
   }
 }

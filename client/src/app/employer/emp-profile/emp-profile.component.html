@@ -2,11 +2,12 @@
   <div class="employer-details-container">
     <div class="user_details column">
         <div class="user_details_logo">
-          <img class="logo" src="../../assets/images/placeholder-face-big.png" alt="" />
+          <img *ngIf="!employer?.avatar" class="logo" src="../../assets/images/placeholder-face-big.png" alt="" />
+          <img *ngIf="employer?.avatar" class="logo" [src]="('data:image/png;base64, ' + employer.avatar) | safeHtml:'resource'" alt="" />
         </div>
         <div>
           <br>
-          <b>Company</b>: {{ employer?.CompanyName }} 
+          <b>Company</b>: {{ employer?.CompanyName }}
           <br>
           <b>Contact Info:</b>
           <br>
@@ -19,11 +20,13 @@
           <a [href]="employer?.CompanyWeb">Visit Company Website</a>
         </div>
     </div>
-    <div class="useful-links-column">
-        <div class="useful-links-header">
+    <div class="network-links-column">
+        <div class="network-links-header">
           Useful Links
         </div>
-        <div class="useful-links-body">
+        <div class="network-links-body">
+          <a routerLink="/messenger">Messenger</a>
+          <br />
           <a href="#">See my job posts</a>
           <br />
           <a href="#">Find students</a>
@@ -31,7 +34,6 @@
     </div>
   </div>
   <div class="main_column students-list-column">
-    <app-students-list [students]="students"></app-students-list>
     <div class="jobs-list-container">
       <div class="jobs-list column" *ngFor="let jobPost of jobPosts">
         <b>{{ jobPost.EmpJobName }}</b>
@@ -60,6 +62,10 @@
             <button type="button" class="btn btn-primary" (click)="openEditModal(jobPost)">
               Edit
             </button>
+            &nbsp;
+            <button type="button" class="btn btn-primary" (click)="openCommentsModal(jobPost)">
+              Comments 
+            </button>
           </div>
         </div>
       </div>
@@ -69,6 +75,17 @@
                         (jobUpdated)="onJobUpdated($event)"
                         #postJobForm>
       </app-emp-post-job>
+    </div>
+    <div class="pop comments">
+      <app-comments #comments>
+      </app-comments>
+    </div>
+  </div>
+  <div class="list-column">
+    <div class="students-list-container"> 
+      <div class="content">
+        <app-students-list [students]="students"></app-students-list>
+      </div>
     </div>
   </div>
 </div>
